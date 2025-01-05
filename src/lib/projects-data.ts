@@ -8,6 +8,22 @@ import MangaReaderImage from "@/assets/projects/mangareader.webp";
 import PS5Image from "@/assets/projects/ps5.webp";
 import KeyboardShopImage from "@/assets/projects/keyboard-shop.webp";
 
+import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
+import SvelteIcon from "@/assets/icons/skill/svelte.svg";
+import DrizzleIcon from "@/assets/icons/skill/drizzle-orm.svg";
+import StripeIcon from "@/assets/icons/skill/stripe.svg";
+import SupabaseIcon from "@/assets/icons/skill/supabase.svg";
+import DenoIcon from "@/assets/icons/skill/deno.svg";
+import SocketIOIcon from "@/assets/icons/skill/socketio.svg";
+import ReactIcon from "@/assets/icons/skill/react.svg";
+import AstroIcon from "@/assets/icons/skill/astro.svg";
+import GSAPIcon from "@/assets/icons/skill/gsap.svg";
+import TailwindCSSIcon from "@/assets/icons/skill/tailwindcss.svg";
+import FirebaseIcon from "@/assets/icons/skill/firebase.svg";
+import TypescriptIcon from "@/assets/icons/skill/typescript.svg";
+import ReduxIcon from "@/assets/icons/skill/redux.svg";
+import MotionIcon from "@/assets/icons/skill/motion.svg";
+
 export const projects = [
 	{
 		name: "Keyboard Shop",
@@ -15,6 +31,7 @@ export const projects = [
 			"A typical e-commerce app BUT integrates Stripe into the app admin panel. Built using Svelte 5 and TailwindCSS, resulting in a stunning and minimalistic UI.",
 		image: KeyboardShopImage,
 		tech: ["Svelte", "Drizzle", "Stripe"],
+		techIcons: [SvelteIcon, DrizzleIcon, StripeIcon],
 		links: {
 			site: "https://keyboard-ecommerce-one.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/keyboard-ecommerce",
@@ -27,6 +44,7 @@ export const projects = [
 			"HiGrow is platform where our aim is to help empowering minds worldwide to Learn, compete, and grow together by workshops and contests!",
 		image: HigrowImage,
 		tech: ["Nextjs", "Supabase"],
+		techIcons: [NextjsIcon, SupabaseIcon],
 		links: {
 			site: "https://higrow-test.vercel.app",
 		},
@@ -38,6 +56,7 @@ export const projects = [
 			"A multiplayer online game developed using Deno KV and Socket.IO",
 		image: RPSImage,
 		tech: ["Deno", "Socket.io", "Svelte"],
+		techIcons: [DenoIcon, SocketIOIcon, SvelteIcon],
 		links: {
 			site: "https://pvp-rps.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/pvp-rps-server",
@@ -49,6 +68,7 @@ export const projects = [
 		discription: "A clone of PS5 home screen with same layout animations.",
 		image: PS5Image,
 		tech: ["React", "Motion"],
+		techIcons: [ReactIcon, MotionIcon],
 		links: {
 			site: "https://ps5-home-screen.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/ps5-home-screen",
@@ -60,6 +80,7 @@ export const projects = [
 		discription: "A single page image gallery site with awesome animations.",
 		image: GalaryImage,
 		tech: ["React", "Motion"],
+		techIcons: [ReactIcon, MotionIcon],
 		links: {
 			site: "https://animated0casestudy.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/animated_casestudy",
@@ -71,6 +92,7 @@ export const projects = [
 		discription: "A static page website with awesome animations.",
 		image: JpDisplayImage,
 		tech: ["Astro", "GSAP", "TailwindCSS"],
+		techIcons: [AstroIcon, GSAPIcon, TailwindCSSIcon],
 		links: {
 			site: "https://jp-display.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/jp_display",
@@ -83,6 +105,7 @@ export const projects = [
 			"A landing page for real estate ecommerce website with somewhat good design.",
 		image: LegoImage,
 		tech: ["Nextjs", "TailwindCSS"],
+		techIcons: [NextjsIcon, TailwindCSSIcon],
 		links: {
 			site: "https://lego-one.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/lego",
@@ -96,6 +119,7 @@ export const projects = [
 			"A manga reader app where you'll find whatever manga you wanna read.",
 		image: MangaReaderImage,
 		tech: ["Svelte", "TailwindCSS"],
+		techIcons: [SvelteIcon, TailwindCSSIcon],
 		links: {
 			site: "https://mangasss.vercel.app",
 		},
@@ -107,6 +131,7 @@ export const projects = [
 			"A social media app clone having basic features similar to Instagram.",
 		image: SMAImage,
 		tech: ["Nextjs", "Firebase", "Typescript", "Redux"],
+		techIcons: [NextjsIcon, FirebaseIcon, TypescriptIcon, ReduxIcon],
 		links: {
 			site: "https://moments-sma.vercel.app",
 			repo: "https://github.com/Yagnik-Patel-47/social-media-app",

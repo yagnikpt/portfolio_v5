@@ -33,7 +33,7 @@ const split = (
 	initialCounter?: { value: number },
 	styles?: string,
 ): React.ReactNode[] => {
-	let mappedChildren: React.ReactNode[] = [];
+	const mappedChildren: React.ReactNode[] = [];
 	let counter = { value: 0 };
 	if (initialCounter) {
 		counter = initialCounter;
@@ -57,19 +57,25 @@ const split = (
 
 	React.Children.forEach(children, (child) => {
 		if (isValidElement(child)) {
+			// @ts-expect-error types are not correct
 			if (Object.keys(child.props).includes("data-break-children")) {
+				// @ts-expect-error types are not correct
 				if (typeof child.props.children === "string") {
 					const childs = split(
+						// @ts-expect-error types are not correct
 						child.props.children,
 						counter,
+						// @ts-expect-error types are not correct
 						child?.props.className ?? undefined,
 					);
 					mappedChildren.push(...childs);
 				} else {
+					// @ts-expect-error types are not correct
 					for (const innerChild of child.props.children) {
 						const childs = split(
 							innerChild,
 							counter,
+							// @ts-expect-error types are not correct
 							child?.props.className ?? undefined,
 						);
 						mappedChildren.push(...childs);

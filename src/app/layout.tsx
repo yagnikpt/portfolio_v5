@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Dock from "@/components/dock";
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -14,20 +15,6 @@ const inter = Inter({
 		"Segoe UI Emoji",
 		"Segoe UI Symbol",
 		"Noto Color Emoji",
-	],
-});
-
-const sourceSerif4 = Source_Serif_4({
-	variable: "--font-source-serif-4",
-	subsets: ["latin"],
-	weight: "variable",
-	fallback: [
-		"ui-serif",
-		"Georgia",
-		"Cambria",
-		"Times New Roman",
-		"Times",
-		"serif",
 	],
 });
 
@@ -73,8 +60,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html className={`${inter.variable} ${sourceSerif4.variable}`} lang="en">
-			<body className={"antialiased font-sans"}>{children}</body>
+		<html className={`${inter.variable}`} lang="en">
+			<body className={"antialiased font-sans flex justify-center"}>
+				{children}
+				<Dock />
+			</body>
 		</html>
 	);
 }
