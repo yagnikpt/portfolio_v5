@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Projects() {
 	return (
-		<main className="flex flex-col min-h-dvh pt-12 pb-20 justify-center max-w-lg w-full mx-auto gap-14 px-4">
+		<main className="flex flex-col min-h-dvh pt-12 lg:pt-20 pb-20 justify-center container mx-auto gap-14 px-8 lg:px-24">
 			<SiteHeader />
 			<ProjectsView />
 		</main>

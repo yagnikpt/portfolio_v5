@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 import SiteHeader from "@/components/header";
+import CopyMailButton from "@/components/copy-mail";
 
 const parent = {
 	hidden: {},
@@ -15,65 +16,92 @@ const parent = {
 	},
 };
 
+const item = {
+	hidden: {
+		opacity: 0,
+		y: 7.5,
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.35,
+			type: "spring",
+		},
+	},
+};
+
 export default function HomeView() {
 	return (
 		<m.main
 			variants={parent}
 			animate="visible"
 			initial="hidden"
-			className="flex flex-col min-h-dvh pt-12 pb-20 justify-center max-w-lg mx-auto gap-14 text-[#5d5d5d] px-4"
+			className="flex flex-col min-h-dvh pt-12 pb-24 justify-center max-w-lg mx-auto text-stone-500 px-8 tracking-tight"
 		>
 			<SiteHeader />
-			<div className="font-medium text-xl space-y-4">
-				<AnimatedText>
-					I am<span className="text-[#222222] font-bold">Yagnik.</span>
+			<div className="text-xl space-y-4 mt-10">
+				<AnimatedText className="leading-snug md:leading-normal">
+					I am<span className="text-stone-800 font-medium">Yagnik.</span>
 				</AnimatedText>
-				<AnimatedText className="text-pretty">
-					With 16 years of experience bridging design and development, I craft
-					exceptional
-					<span className="inline-flex items-center text-[#222222] font-bold gap-1">
+				<AnimatedText className="leading-snug md:leading-normal">
+					With a keen eye for design and a passion for coding, I fuse aesthetics
+					with functionality to create compelling
+					<span className="inline-flex items-center text-stone-800 font-medium gap-1">
 						digital experiences
 						<IconHoverMicroInteraction
 							rotate={8}
 							bgColor="bg-blue-500"
-							tooltip="Design"
+							tooltip="Check my projects and UI Bits :)"
 							className="bg-blue-500"
 						>
-							<PaintBrushIcon className="size-4 text-white" />
+							<PaintBrushIcon className="size-3 text-white" />
 						</IconHoverMicroInteraction>
+						.
 					</span>
-					that unite form and function. As a
-					<span className="inline-flex items-center text-[#222222] font-bold gap-1">
-						frontend specialist,
+					As a versatile
+					<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+						frontend developer,
 						<IconHoverMicroInteraction
 							rotate={-8}
 							bgColor="bg-purple-500"
-							tooltip="Code and Code"
+							tooltip="Crafting subtle UI experiences that are both performant and intuitive."
 							className="bg-purple-500"
 						>
-							<TerminalIcon className="size-4 text-white" />
+							<TerminalIcon className="size-3 text-white" />
 						</IconHoverMicroInteraction>
 					</span>
-					I transform creative concepts into seamless, intuitive interfaces.
+					I specialize in turning innovative ideas into interactive,
+					user-friendly interfaces.
 				</AnimatedText>
-				<AnimatedText className="text-pretty">
-					My dual expertise as both designer and developer enables me to
-					navigate the entire creative process - from initial wireframes to
-					pixel-perfect implementation, ensuring projects not only look stunning
-					but perform flawlessly across
-					<span className="inline-flex items-center text-[#222222] font-bold gap-1">
-						all platforms.
+				<AnimatedText className="leading-snug md:leading-normal">
+					I&apos;m focusing on low-level programming with
+					<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+						Go
 						<IconHoverMicroInteraction
 							rotate={8}
-							bgColor="bg-orange-500"
-							tooltip="Working day to day with Next.js, React-Native and Rust."
-							className="bg-orange-500"
+							bgColor="bg-sky-600"
+							tooltip="Recently enjoying writing code in Go. It's interestingly simple yet powerful."
+							className="bg-sky-600"
 						>
-							<PlugSocketIcon className="size-4 text-white" />
+							<TerminalIcon className="size-3 text-white" />
 						</IconHoverMicroInteraction>
 					</span>
+					, which boosts my software skills. I&apos;m also diving into
+					networking, learning about protocols and data transmission, to become
+					an elite computer engineer skilled in both software and network
+					architecture.
 				</AnimatedText>
 			</div>
+			<m.div
+				variants={item}
+				className="flex justify-between items-center bg-stone-100 p-1 rounded-full mt-8"
+			>
+				<p className="pl-4 text-sm sm:text-base">
+					Would you like to get in touch?
+				</p>
+				<CopyMailButton />
+			</m.div>
 		</m.main>
 	);
 }
@@ -105,7 +133,7 @@ const IconHoverMicroInteraction = ({
 			onClick={() => setIsHovered(true)}
 			ref={ref}
 			style={{ rotate: `${rotate ?? 0}deg` }}
-			className={cn("inline-block p-1 w-fit rounded-lg relative", className)}
+			className={cn("inline-block p-1 w-fit rounded-md relative", className)}
 		>
 			{children}
 			<AnimatePresence>
@@ -122,7 +150,7 @@ const IconHoverMicroInteraction = ({
 					>
 						<span
 							className={cn(
-								"block px-3 py-2 rounded-xl text-neutral-100 text-xs font-medium max-w-lg",
+								"block px-3 py-2 rounded-xl text-neutral-100 text-xs md:text-sm font-medium max-w-lg",
 								bgColor,
 							)}
 						>
@@ -181,51 +209,6 @@ const PaintBrushIcon = (props: React.SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M13.9389 18.481C13.6199 18.8243 13.4604 18.996 13.2454 18.9999C13.0304 19.0039 12.8585 18.8319 12.5146 18.4881L5.51186 11.4849C5.16804 11.1411 4.99612 10.9692 5.00007 10.7542C5.00401 10.5392 5.17563 10.3797 5.51887 10.0607C5.75113 9.84487 5.93925 9.69256 6.14283 9.56702C7.90764 8.47876 10.1485 9.5093 11.9332 8.49885C13.9897 7.33452 15.7947 5.18592 17.4986 3.25974C18.2273 2.43601 18.5916 2.02414 19.1056 2.00066C20.0323 1.95831 22.0415 3.97332 21.9993 4.89475C21.9758 5.40882 21.5638 5.77316 20.7398 6.50183C18.8135 8.20531 16.6647 10.01 15.5006 12.0664C14.4902 13.8513 15.5207 16.0922 14.4325 17.8571C14.307 18.0607 14.1547 18.2488 13.9389 18.481Z"
-			stroke="currentColor"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		/>
-	</svg>
-);
-
-const PlugSocketIcon = (props: React.SVGProps<SVGSVGElement>) => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		width={24}
-		height={24}
-		color={"#000000"}
-		fill={"none"}
-		{...props}
-	>
-		<title>Plug Socket</title>
-		<path
-			d="M17.854 12.16C17.471 12.6105 16.7631 12.6138 16.3165 12.1671L11.8329 7.68351C11.3862 7.23686 11.3895 6.529 11.84 6.14596L13.071 5.09939C13.9559 4.34704 15.0349 3.84824 16.2044 3.6509L16.9294 3.52858C17.614 3.41306 18.3339 3.65221 18.8475 4.16577L19.8342 5.15255C20.3478 5.66611 20.5869 6.38601 20.4714 7.07063L20.3491 7.79559C20.1518 8.9651 19.653 10.0441 18.9006 10.929L17.854 12.16Z"
-			stroke="currentColor"
-			strokeWidth="1.5"
-		/>
-		<path
-			d="M19.5 4.5L21.5 2.5"
-			stroke="currentColor"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		/>
-		<path
-			d="M2.5 21.5L4.5 19.5"
-			stroke="currentColor"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		/>
-		<path
-			d="M6.14596 11.84C6.52901 11.3895 7.23686 11.3862 7.68351 11.8329L12.1671 16.3165C12.6138 16.7631 12.6105 17.471 12.16 17.854L10.929 18.9006C10.0441 19.653 8.9651 20.1518 7.79559 20.3491L7.07063 20.4714C6.38601 20.5869 5.66611 20.3478 5.15255 19.8342L4.16577 18.8475C3.65221 18.3339 3.41306 17.614 3.52858 16.9294L3.6509 16.2044C3.84824 15.0349 4.34704 13.9559 5.09939 13.071L6.14596 11.84Z"
-			stroke="currentColor"
-			strokeWidth="1.5"
-		/>
-		<path
-			d="M8.5 12.5L10.5 10.5M11.5 15.5L13.5 13.5"
 			stroke="currentColor"
 			strokeWidth="1.5"
 			strokeLinecap="round"

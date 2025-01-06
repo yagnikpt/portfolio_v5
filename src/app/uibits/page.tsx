@@ -6,6 +6,7 @@ import Widgets from "@/components/uibits/widget-slider";
 import DynamicActionBar from "@/components/uibits/dynamic-action-bar";
 import SlickDropdown from "@/components/uibits/slick-dropdown";
 import type { Metadata } from "next";
+import SiteHeader from "@/components/header";
 
 export const metadata: Metadata = {
 	title: "~/ui bits",
@@ -16,9 +17,10 @@ export const metadata: Metadata = {
 export default function UIBits() {
 	return (
 		<main className="container mx-auto px-4 lg:px-20 py-6 lg:py-10 mt-10 pb-32!">
-			<h1 className="text-2xl lg:text-3xl font-semibold">
+			<SiteHeader />
+			<p className="text-xl max-w-lg w-full mx-auto mb-10 tracking-tight mt-14">
 				Here are some little pieces of UI I like to show off.
-			</h1>
+			</p>
 			<section className="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-12">
 				<div className="min-h-[30rem] p-4 lg:p-10 overflow-hidden bg-neutral-100 rounded-xl border-2 border-neutral-200 grid place-content-center relative">
 					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-es-xl py-2 px-4">

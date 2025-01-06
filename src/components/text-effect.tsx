@@ -16,12 +16,16 @@ export default AnimatedText;
 const variant = {
 	hidden: {
 		opacity: 0,
+		filter: "blur(2px)",
 		y: 7.5,
 	},
 	visible: {
 		opacity: 1,
+		filter: "blur(0)",
 		y: 0,
 		transition: {
+			opacity: { duration: 0.2 },
+			filter: { duration: 0.2 },
 			duration: 0.35,
 			type: "spring",
 		},
@@ -43,7 +47,7 @@ const split = (
 		for (const word of children.split(" ")) {
 			mappedChildren.push(
 				<motion.span
-					key={word}
+					key={counter.value.toString()}
 					className={cn("inline-block align-middle", styles)}
 					variants={variant}
 				>
