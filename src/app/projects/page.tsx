@@ -9,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function Projects() {
 	return (
-		<main className="flex flex-col min-h-dvh pt-12 lg:pt-20 pb-20 justify-center container mx-auto gap-14 px-8 lg:px-24">
-			<SiteHeader />
+		<main className="pt-12 lg:pt-20 pb-32 container mx-auto px-8 lg:px-24">
+			<div className="max-w-lg mx-auto lg:px-8">
+				<SiteHeader />
+			</div>
 			<ProjectsView />
 		</main>
 	);

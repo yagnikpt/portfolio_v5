@@ -5,8 +5,12 @@ import ProjectCard from "@/components/project-card";
 
 export default function ProjectsView() {
 	return (
-		<m.div className="flex flex-col gap-4 items-center">
-			<p className="text-xl max-w-lg w-full mx-auto mb-10 tracking-tight">
+		<m.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1, transition: { duration: 0.3 } }}
+			className="flex flex-col items-center mt-14"
+		>
+			<p className="text-xl max-w-lg w-full mx-auto mb-12 tracking-tight lg:px-8">
 				Here you can find select work that I have been working on recently.
 			</p>
 			<div className="grid lg:grid-cols-2 gap-5 lg:gap-10">

@@ -59,7 +59,7 @@ export default function Dock() {
 		<MotionConfig transition={{ type: "spring", duration: 0.4 }}>
 			<m.div
 				layout
-				className="rounded-full p-1.5 backdrop-blur-xs ring ring-inset ring-stone-950/35 inset-shadow-2xs fixed bottom-8 z-100 text-stone-200 bg-stone-950/70 overflow-hidden"
+				className="rounded-full p-1 backdrop-blur-xs ring ring-inset ring-stone-950/35 inset-shadow-2xs fixed bottom-8 z-100 text-stone-200 bg-stone-950/70 overflow-hidden"
 			>
 				<div className="flex items-center rounded-full overflow-hidden">
 					<AnimatePresence>
