@@ -13,6 +13,7 @@
     "@radix-ui/react-slider": "^1.2.2",
     "@radix-ui/react-toggle-group": "^1.1.1",
     "@tailwindcss/postcss": "4.0.0-beta.8",
+    "@vercel/analytics": "^1.4.1",
     "babel-plugin-react-compiler": "19.0.0-beta-55955c9-20241229",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",

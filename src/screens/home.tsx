@@ -31,7 +31,6 @@ const item = {
 		transition: {
 			duration: 0.35,
 			type: "spring",
-			// delay: 1,
 		},
 	},
 };
@@ -102,7 +101,7 @@ export default function HomeView() {
 				variants={item}
 				className="flex justify-between items-center bg-stone-100 p-1 rounded-full mt-8"
 			>
-				<p className="pl-4 text-sm sm:text-base">
+				<p className="pl-4 text-sm sm:text-base text-stone-600">
 					Would you like to get in touch?
 				</p>
 				<CopyMailButton />

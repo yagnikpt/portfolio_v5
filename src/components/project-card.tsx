@@ -130,6 +130,7 @@ export default function ProjectCard({
 								className="w-full object-cover rounded-2xl"
 								src={project.image}
 								alt={project.name}
+								priority
 							/>
 						</m.button>
 					</LayoutGroup>
