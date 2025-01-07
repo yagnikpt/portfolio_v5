@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	output: "export",
+	// output: "export",
 	experimental: {
 		reactCompiler: true,
 		turbo: {
@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
 			},
 		},
 	},
-	images: { unoptimized: true },
+	// images: { unoptimized: true },
 	webpack(config) {
 		// Grab the existing rule that handles SVG imports
 		const fileLoaderRule = config.module.rules.find(

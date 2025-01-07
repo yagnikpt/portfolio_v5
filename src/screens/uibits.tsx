@@ -113,7 +113,7 @@ export default function UIBitsView() {
 
 				<div className="min-h-dvh overflow-hidden bg-[#020202] rounded-xl border-2 border-neutral-800 grid place-items-center lg:col-span-2 relative">
 					<span className="absolute top-0 right-0 text-xs font-medium text-neutral-200 bg-neutral-800 rounded-es-xl py-2 px-4 z-10">
-						Recipe: Animating linear-gradient with
+						Recipe: Animating linear-gradient with{" "}
 						<a
 							className="underline"
 							href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property"
