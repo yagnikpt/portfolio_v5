@@ -23,7 +23,7 @@ export default function SiteHeader() {
 			</Link>
 			<div className="flex items-center gap-1">
 				<MapPinIcon className="size-4" />
-				<p className="text-sm">Vadodara, IN</p>
+				<p className="text-sm tracking-tight">Vadodara, IN</p>
 			</div>
 		</m.header>
 	);
