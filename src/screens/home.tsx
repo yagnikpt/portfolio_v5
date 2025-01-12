@@ -10,6 +10,10 @@ import {
 	CodeBracketIcon,
 	CursorArrowRaysIcon,
 } from "@heroicons/react/24/outline";
+import Separator from "@/components/separator";
+import Image from "next/image";
+import PinterestIcon from "@/assets/icons/social/pinterest.svg";
+import BentoIcon from "@/assets/icons/social/bento.svg";
 
 const parent = {
 	hidden: {},
@@ -35,80 +39,194 @@ const item = {
 	},
 };
 
-export default function HomeView() {
+interface Props {
+	lastPlayed: {
+		trackName: string;
+		artist: string;
+		albumArt: string;
+		playedAt: string;
+		spotifyUrl: string;
+	};
+}
+
+export default function HomeView({ lastPlayed }: Props) {
 	return (
-		<m.main
-			variants={parent}
-			whileInView="visible"
-			initial="hidden"
-			className="flex flex-col min-h-dvh pt-12 pb-24 justify-center max-w-lg mx-auto text-stone-500 px-8 tracking-tight"
-		>
-			<SiteHeader />
-			<div className="text-xl space-y-4 mt-10">
-				<AnimatedText className="leading-snug">
-					I am<span className="text-stone-800 font-medium">Yagnik.</span>
-				</AnimatedText>
-				<AnimatedText className="leading-snug">
-					With a keen eye for design and a passion for coding, I fuse aesthetics
-					with functionality to create compelling
-					<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-						digital experiences
-						<IconHoverMicroInteraction
-							rotate={8}
-							bgColor="bg-orange-500"
-							tooltip="Check my projects and UI Bits :)"
-							className="bg-orange-500"
-						>
-							<CursorArrowRaysIcon className="size-[14px] text-white" />
-						</IconHoverMicroInteraction>
-						.
-					</span>
-					As a versatile
-					<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-						frontend developer,
-						<IconHoverMicroInteraction
-							rotate={-8}
-							bgColor="bg-purple-500"
-							tooltip="Crafting subtle UI experiences that are both performant and intuitive."
-							className="bg-purple-500"
-						>
-							<CodeBracketIcon className="size-[14px] text-white" />
-						</IconHoverMicroInteraction>
-					</span>
-					I specialize in turning innovative ideas into interactive,
-					user-friendly interfaces.
-				</AnimatedText>
-				<AnimatedText className="leading-snug">
-					I&apos;m focusing on low-level programming with
-					<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-						Go
-						<IconHoverMicroInteraction
-							rotate={8}
-							bgColor="bg-sky-600"
-							tooltip="Recently enjoying writing code in Go. It's interestingly simple yet powerful."
-							className="bg-sky-600"
-						>
-							<TerminalIcon className="size-[14px] text-white" />
-						</IconHoverMicroInteraction>
-					</span>
-					, which boosts my software skills. I&apos;m also diving into
-					networking, learning about protocols and data transmission, to become
-					an elite computer engineer skilled in both software and network
-					architecture.
-				</AnimatedText>
-			</div>
-			<m.div
-				variants={item}
-				className="flex justify-between items-center bg-stone-100 p-1 rounded-full mt-8"
+		<div className="flex flex-col items-center max-w-lg mx-auto px-8 pb-32">
+			<m.main
+				variants={parent}
+				whileInView="visible"
+				initial="hidden"
+				className="flex flex-col min-h-svh justify-center py-12 text-stone-500 tracking-tight"
 			>
-				<p className="pl-4 text-sm sm:text-base text-stone-600">
-					Would you like to get in touch?
+				<SiteHeader />
+				<div className="text-xl space-y-4 mt-10">
+					<AnimatedText className="leading-snug">
+						I am<span className="text-stone-800 font-medium">Yagnik.</span>
+					</AnimatedText>
+					<AnimatedText className="leading-snug">
+						With a keen eye for design and a passion for coding, I fuse
+						aesthetics with functionality to create compelling
+						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+							digital experiences
+							<IconHoverMicroInteraction
+								rotate={8}
+								bgColor="bg-orange-500"
+								tooltip="Check my projects and UI Bits :)"
+								className="bg-orange-500"
+							>
+								<CursorArrowRaysIcon className="size-[14px] text-white" />
+							</IconHoverMicroInteraction>
+							.
+						</span>
+						As a versatile
+						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+							frontend developer,
+							<IconHoverMicroInteraction
+								rotate={-8}
+								bgColor="bg-purple-500"
+								tooltip="Crafting subtle UI experiences that are both performant and intuitive."
+								className="bg-purple-500"
+							>
+								<CodeBracketIcon className="size-[14px] text-white" />
+							</IconHoverMicroInteraction>
+						</span>
+						I specialize in turning innovative ideas into interactive,
+						user-friendly interfaces.
+					</AnimatedText>
+					<AnimatedText className="leading-snug">
+						I&apos;m focusing on low-level programming with
+						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+							Go
+							<IconHoverMicroInteraction
+								rotate={8}
+								bgColor="bg-sky-600"
+								tooltip="Recently enjoying writing code in Go. It's interestingly simple yet powerful."
+								className="bg-sky-600"
+							>
+								<TerminalIcon className="size-[14px] text-white" />
+							</IconHoverMicroInteraction>
+						</span>
+						, which boosts my software skills. I&apos;m also diving into
+						networking, learning about protocols and data transmission, to
+						become an elite computer engineer skilled in both software and
+						network architecture.
+					</AnimatedText>
+				</div>
+				<m.div
+					variants={item}
+					className="flex justify-between items-center bg-stone-100 p-1 rounded-full mt-8"
+				>
+					<p className="pl-4 text-sm sm:text-base text-stone-600">
+						Want to connect?
+					</p>
+					<CopyMailButton />
+				</m.div>
+			</m.main>
+			<Separator className="mt-8" text="About Me" />
+			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+				<p>
+					I&apos;m a 2nd-year student at KPGU. Though I mostly learn and grow
+					for my career on my own, as it&apos;s a typical tier-3 college.
 				</p>
-				<CopyMailButton />
-			</m.div>
-		</m.main>
+				<p>
+					I&apos;ve completed a few freelance jobs on{" "}
+					<a
+						className="underline md:decoration-2 underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition"
+						target="_blank"
+						rel="noreferrer"
+						href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+					>
+						Upwork
+					</a>
+					, and I&apos;m considering taking on more projects.
+				</p>
+				<p>
+					Besides computers, I also enjoy basketball, F1 racing, hip-hop, and
+					touching grass.
+				</p>
+			</div>
+			<Separator className="mt-8" text="Social Dump" />
+			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+				<SpotifyLastListened lastPlayed={lastPlayed} />
+				<p>
+					My imagination, my inspiration, actually it&apos;s my escape &mdash;
+					<a
+						className="underline decoration-wavy underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition"
+						target="_blank"
+						rel="noreferrer"
+						href="https://pin.it/5pUJO7tB6"
+					>
+						<PinterestIcon className="text-[#CB1F27] inline-block size-5 mx-2" />
+						<span className="text-stone-800 font-medium">Pinterest</span>
+					</a>
+				</p>
+				<p>
+					I like Bento, so here&apos;s mine &mdash;
+					<a
+						className="underline decoration-dotted underline-offset-4 decoration-stone-300 hover:decoration-stone-500 transition"
+						target="_blank"
+						rel="noreferrer"
+						href="https://bento.me/yagnik"
+					>
+						<BentoIcon className="inline-block size-5 mx-2" />
+						<span className="text-stone-800 font-medium">Bento</span>
+					</a>
+				</p>
+			</div>
+		</div>
 	);
 }
+
+const SpotifyLastListened = ({ lastPlayed }: Props) => {
+	const timeAgo = (() => {
+		const date = new Date(lastPlayed.playedAt);
+		const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);
+
+		let interval = seconds / 31536000;
+		if (interval > 1) return `${Math.floor(interval)} years ago`;
+
+		interval = seconds / 2592000;
+		if (interval > 1) return `${Math.floor(interval)} months ago`;
+
+		interval = seconds / 86400;
+		if (interval > 1) return `${Math.floor(interval)} days ago`;
+
+		interval = seconds / 3600;
+		if (interval > 1) return `${Math.floor(interval)} hours ago`;
+
+		interval = seconds / 60;
+		if (interval > 1) return `${Math.floor(interval)} minutes ago`;
+
+		return `${Math.floor(seconds)} seconds ago`;
+	})();
+
+	return (
+		<p className="align-middle">
+			Last listened to{" "}
+			<a
+				className="underline decoration-dashed underline-offset-4 decoration-stone-300 hover:decoration-stone-500 transition"
+				target="_blank"
+				rel="noreferrer"
+				href={lastPlayed.spotifyUrl}
+			>
+				<span className="font-medium text-stone-800">
+					{lastPlayed.trackName}
+				</span>
+				<span className="inline-flex justify-center items-center relative align-middle">
+					<Image
+						width={24}
+						height={24}
+						src={lastPlayed.albumArt}
+						alt={lastPlayed.trackName}
+						className="size-5 rounded-full inline-block mx-2 animate-spin"
+					/>
+					<span className="size-1 inline-block bg-white absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" />
+				</span>
+			</a>
+			by {lastPlayed.artist} about {timeAgo}
+		</p>
+	);
+};
 
 interface IconHoverMicroInteractionProps {
 	children: React.ReactNode;

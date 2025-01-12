@@ -1,4 +1,3 @@
-"use client";
 import DynamicButton from "@/components/uibits/dynamic-button";
 import GlassForm from "@/components/uibits/glass-form";
 import VoiceChatDisclosure from "@/components/uibits/voice-chat-disclosure";
@@ -6,14 +5,10 @@ import ChipInteraction from "@/components/uibits/chip-interaction";
 import Widgets from "@/components/uibits/widget-slider";
 import DynamicActionBar from "@/components/uibits/dynamic-action-bar";
 import SlickDropdown from "@/components/uibits/slick-dropdown";
-import { motion as m } from "motion/react";
 
 export default function UIBitsView() {
 	return (
-		<m.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1, transition: { duration: 0.3 } }}
-		>
+		<div>
 			<div className="px-4 lg:px-8 max-w-lg mx-auto">
 				<p className="text-xl max-w-lg w-full mx-auto mb-10 tracking-tight mt-14">
 					Here are some little pieces of UI I like to show off.
@@ -124,6 +119,6 @@ export default function UIBitsView() {
 					<GlassForm />
 				</div>
 			</section>
-		</m.div>
+		</div>
 	);
 }

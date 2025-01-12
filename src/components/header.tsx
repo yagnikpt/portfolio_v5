@@ -4,8 +4,33 @@ import Image from "next/image";
 import Profile from "@/assets/profile.webp";
 import { MapPinIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function SiteHeader() {
+	const [time, setTime] = useState(
+		new Date().toLocaleTimeString("en-US", {
+			timeZone: "Asia/Kolkata",
+			hour12: false,
+			hour: "numeric",
+			minute: "numeric",
+		}),
+	);
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setTime(
+				new Date().toLocaleTimeString("en-US", {
+					timeZone: "Asia/Kolkata",
+					hour12: false,
+					hour: "numeric",
+					minute: "numeric",
+				}),
+			);
+		}, 1000);
+
+		return () => clearInterval(timer);
+	}, []);
+
 	return (
 		<m.header
 			layout="position"
@@ -21,9 +46,12 @@ export default function SiteHeader() {
 				/>
 				<span className="sr-only">Home</span>
 			</Link>
-			<div className="flex items-center gap-1">
-				<MapPinIcon className="size-4" />
-				<p className="text-sm tracking-tight">Vadodara, IN</p>
+			<div className="flex flex-col items-end gap-1">
+				<div className="flex items-center gap-1">
+					<MapPinIcon className="size-4" />
+					<p className="text-sm tracking-tight">Vadodara, IN</p>
+				</div>
+				<p className="text-sm tracking-tight">- {time}</p>
 			</div>
 		</m.header>
 	);

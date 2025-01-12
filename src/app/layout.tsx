@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/dock";
 import { Analytics } from "@vercel/analytics/next";
+import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -61,12 +62,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html className={`${inter.variable}`} lang="en">
-			<body className={"antialiased font-sans flex justify-center"}>
-				{children}
-				<Dock />
-				<Analytics />
-			</body>
-		</html>
+		<ViewTransitions>
+			<html className={inter.variable} lang="en">
+				<body className="antialiased font-sans flex justify-center">
+					{children}
+					<Dock />
+					<Analytics />
+				</body>
+			</html>
+		</ViewTransitions>
 	);
 }
