@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/dock";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({
@@ -68,6 +69,7 @@ export default function RootLayout({
 					{children}
 					<Dock />
 					<Analytics />
+					<SpeedInsights />
 				</body>
 			</html>
 		</ViewTransitions>
