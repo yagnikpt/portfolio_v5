@@ -43,8 +43,8 @@ export default function DynamicButton() {
 			<m.div
 				layout
 				className={cn(
-					"border-2 bg-neutral-50 border-indigo-200/75 shadow-lg shadow-indigo-500/15 rounded-lg p-3 overflow-hidden relative",
-					state && "w-[300px] lg:w-[350px]",
+					"border-2 bg-neutral-50 border-indigo-200/75 shadow-lg shadow-indigo-500/15 rounded-lg p-3 overflow-hidden relative max-w-75 md:max-w-88",
+					state ? "w-full" : "w-fit",
 				)}
 				role="presentation"
 				onKeyDown={(e) => {
@@ -365,6 +365,7 @@ function DimensionsTab({
 							}}
 							max={100}
 							step={1}
+							id={field}
 							name={field}
 						>
 							<Slider.Track className="bg-black/15 relative grow rounded-md h-full overflow-hidden">

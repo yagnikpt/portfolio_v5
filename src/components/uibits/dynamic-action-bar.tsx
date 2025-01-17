@@ -79,13 +79,15 @@ export default function DynamicActionBar() {
 
 	function handleTabChange(tab: string) {
 		setActiveTab(tab);
-		setIsExpanded(true);
+		if (!isExpanded) setIsExpanded(true);
 	}
 
-	useOnClickOutside(ref, () => {
+	function handleClose() {
 		setIsExpanded(false);
 		setActiveTab(null);
-	});
+	}
+
+	useOnClickOutside(ref, handleClose);
 
 	return (
 		<MotionConfig
@@ -98,27 +100,27 @@ export default function DynamicActionBar() {
 				<motion.div
 					layout
 					className="py-4 px-4 md:px-6 bg-[#ebbcba]/30 rounded-3xl overflow-hidden"
-					onMouseLeave={() => {
-						setIsExpanded(false);
-						setActiveTab(null);
-					}}
+					onMouseLeave={handleClose}
 				>
 					<AnimatePresence mode="popLayout">
 						{isExpanded && (
 							<motion.div
+								layout="preserve-aspect"
 								variants={variants}
 								animate="visible"
 								initial="hidden"
 								className="space-y-2"
 								key="expandable"
 							>
-								<motion.div layout className="overflow-hidden">
-									{activeTab === "apps" && <AppsTab key={"apps"} />}
-									{activeTab === "components" && (
-										<ComponentsTab key="components" />
-									)}
-									{activeTab === "notes" && <NotesTab key="notes" />}
-								</motion.div>
+								<AnimatePresence mode="wait">
+									<motion.div layout className="overflow-hidden">
+										{activeTab === "apps" && <AppsTab key="apps-tab" />}
+										{activeTab === "components" && (
+											<ComponentsTab key="components-tab" />
+										)}
+										{activeTab === "notes" && <NotesTab key="notes-tab" />}
+									</motion.div>
+								</AnimatePresence>
 								<motion.div
 									layout
 									className="w-full border-t-2 border-[#c9af9a]/40 mt-4 mb-4"
@@ -178,7 +180,7 @@ export default function DynamicActionBar() {
 
 function AppsTab() {
 	return (
-		<motion.div layout="position" className="grid grid-cols-1">
+		<motion.div layout className="grid grid-cols-1">
 			{apps.map((app) => (
 				<motion.a
 					layout

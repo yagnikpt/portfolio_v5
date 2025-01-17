@@ -2,7 +2,7 @@
 import { motion as m } from "motion/react";
 import Image from "next/image";
 import Profile from "@/assets/profile.webp";
-import { MapPinIcon } from "@heroicons/react/24/solid";
+import { GlobeAltIcon, ClockIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -46,12 +46,15 @@ export default function SiteHeader() {
 				/>
 				<span className="sr-only">Home</span>
 			</Link>
-			<div className="flex flex-col items-end gap-1">
+			<div className="flex flex-col items-end gap-0.5">
 				<div className="flex items-center gap-1">
-					<MapPinIcon className="size-4" />
+					<GlobeAltIcon className="size-4" />
 					<p className="text-sm tracking-tight">Vadodara, IN</p>
 				</div>
-				<p className="text-sm tracking-tight">- {time}</p>
+				<div className="flex items-center gap-1">
+					<ClockIcon className="size-4" />
+					<p className="text-sm tracking-tight">{time}</p>
+				</div>
 			</div>
 		</m.header>
 	);

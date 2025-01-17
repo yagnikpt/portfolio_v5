@@ -45,18 +45,20 @@ export default function SlickDropdown() {
 				>
 					<AnimatePresence mode="popLayout" initial={true}>
 						{isOpen && (
-							<m.button
-								initial={{ y: 0 }}
-								animate={{ y: -10 }}
-								exit={{ y: 0 }}
-								key={"close"}
-								className="bg-[#f3efeb] px-5 py-2 grid place-items-center rounded-full"
-								onClick={() => setIsOpen(false)}
-								layout="position"
-							>
-								<XMarkIcon className="size-6 text-neutral-500" />
-								<span className="sr-only">Close</span>
-							</m.button>
+							<div key={"stfu"}>
+								<m.button
+									initial={{ y: 0 }}
+									animate={{ y: -10 }}
+									exit={{ y: 0 }}
+									key={"close"}
+									className="bg-[#f3efeb] px-5 py-2 grid place-items-center rounded-full"
+									onClick={() => setIsOpen(false)}
+									layout="position"
+								>
+									<XMarkIcon className="size-6 text-neutral-500" />
+									<span className="sr-only">Close</span>
+								</m.button>
+							</div>
 						)}
 
 						<m.div

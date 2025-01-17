@@ -39,7 +39,10 @@ export default function ProjectCard({
 							)}
 						>
 							<AnimatePresence>
-								<div className="space-y-1 w-full">
+								<div
+									key={`project-${project.name}`}
+									className="space-y-1 w-full"
+								>
 									<m.h2
 										layout="position"
 										className="text-base font-medium md:font-normal md:text-xl"

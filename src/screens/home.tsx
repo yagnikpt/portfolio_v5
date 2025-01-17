@@ -131,7 +131,7 @@ export default function HomeView({ lastPlayed }: Props) {
 				<p>
 					I&apos;ve completed a few freelance jobs on{" "}
 					<a
-						className="underline md:decoration-2 underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition"
+						className="text-stone-800 font-medium underline md:decoration-2 underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition"
 						target="_blank"
 						rel="noreferrer"
 						href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
