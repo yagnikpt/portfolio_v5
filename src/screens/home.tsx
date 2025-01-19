@@ -14,6 +14,7 @@ import Separator from "@/components/separator";
 import Image from "next/image";
 import PinterestIcon from "@/assets/icons/social/pinterest.svg";
 import BentoIcon from "@/assets/icons/social/bento.svg";
+import UpworkIcon from "@/assets/icons/social/upwork.svg";
 
 const parent = {
 	hidden: {},
@@ -56,18 +57,19 @@ export default function HomeView({ lastPlayed }: Props) {
 				variants={parent}
 				whileInView="visible"
 				initial="hidden"
+				viewport={{ once: true }}
 				className="flex flex-col min-h-svh justify-center py-12 text-stone-500 tracking-tight"
 			>
 				<SiteHeader />
 				<div className="text-xl space-y-4 mt-10">
 					<AnimatedText className="leading-snug">
-						I am<span className="text-stone-800 font-medium">Yagnik.</span>
+						I am<span className="text-stone-800 font-medium">Yagnik</span>
 					</AnimatedText>
 					<AnimatedText className="leading-snug">
 						With a keen eye for design and a passion for coding, I fuse
 						aesthetics with functionality to create compelling
 						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							digital experiences
+							digital experiences.
 							<IconHoverMicroInteraction
 								rotate={8}
 								bgColor="bg-orange-500"
@@ -76,7 +78,6 @@ export default function HomeView({ lastPlayed }: Props) {
 							>
 								<CursorArrowRaysIcon className="size-[14px] text-white" />
 							</IconHoverMicroInteraction>
-							.
 						</span>
 						As a versatile
 						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
@@ -94,22 +95,29 @@ export default function HomeView({ lastPlayed }: Props) {
 						user-friendly interfaces.
 					</AnimatedText>
 					<AnimatedText className="leading-snug">
-						I&apos;m focusing on low-level programming with
+						As I dive deeper into computer science, I plan to take on freelance
+						work to gain real-world experience and strengthen my collaboration
+						skills. I have completed few jobs on{" "}
 						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							Go
+							<a
+								target="_blank"
+								rel="noreferrer"
+								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+								className="underline decoration-stone-400 underline-offset-2 hover:decoration-stone-600 transition"
+							>
+								upwork
+							</a>
 							<IconHoverMicroInteraction
 								rotate={8}
-								bgColor="bg-sky-600"
-								tooltip="Recently enjoying writing code in Go. It's interestingly simple yet powerful."
-								className="bg-sky-600"
+								bgColor="bg-green-600"
+								tooltip="Check my Upwork profile :)"
+								className="bg-green-600"
 							>
-								<TerminalIcon className="size-[14px] text-white" />
+								<UpworkIcon className="size-[14px] text-white" />
 							</IconHoverMicroInteraction>
-						</span>
-						, which boosts my software skills. I&apos;m also diving into
-						networking, learning about protocols and data transmission, to
-						become an elite computer engineer skilled in both software and
-						network architecture.
+						</span>{" "}
+						and I&apos;m looking forward to taking on more challenging projects
+						that will help me grow as a developer.
 					</AnimatedText>
 				</div>
 				<m.div
@@ -122,23 +130,21 @@ export default function HomeView({ lastPlayed }: Props) {
 					<CopyMailButton />
 				</m.div>
 			</m.main>
+			<Separator className="mt-8" text="Extra Gists" />
+			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+				<p>creating software tools and services with Go.</p>
+				<p>
+					heavily interested in networking, low-level concepts, and building
+					SaaS applications.
+				</p>
+				<p>low-key interested in data analysis and LLMs.</p>
+			</div>
 			<Separator className="mt-8" text="About Me" />
 			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
 				<p>
-					I&apos;m a 2nd-year student at KPGU. Though I mostly learn and grow
-					for my career on my own, as it&apos;s a typical tier-3 college.
-				</p>
-				<p>
-					I&apos;ve completed a few freelance jobs on{" "}
-					<a
-						className="text-stone-800 font-medium underline md:decoration-2 underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition"
-						target="_blank"
-						rel="noreferrer"
-						href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-					>
-						Upwork
-					</a>
-					, and I&apos;m considering taking on more projects.
+					I&apos;m a 2nd-year computer science student at KPGU. Though I mostly
+					learn and grow for my career on my own, as it&apos;s a typical tier-3
+					college.
 				</p>
 				<p>
 					Besides computers, I also enjoy basketball, F1 racing, hip-hop, and
@@ -217,7 +223,7 @@ const SpotifyLastListened = ({ lastPlayed }: Props) => {
 						width={24}
 						height={24}
 						src={lastPlayed.albumArt}
-						alt={lastPlayed.trackName}
+						alt={`${lastPlayed.trackName} cover`}
 						className="size-5 rounded-full inline-block mx-2 animate-spin"
 					/>
 					<span className="size-1 inline-block bg-white absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" />
@@ -268,12 +274,14 @@ const IconHoverMicroInteraction = ({
 							opacity: 0,
 							rotate: -(rotate ?? 0),
 							scale: 0.75,
+							filter: "blur(3px)",
 						}}
-						animate={{ opacity: 1, rotate: 0, scale: 1 }}
+						animate={{ opacity: 1, rotate: 0, scale: 1, filter: "blur(0)" }}
 						exit={{
 							opacity: 0,
 							rotate: -(rotate ?? 0),
 							scale: 0.75,
+							filter: "blur(3px)",
 							transition: { duration: 0.1 },
 						}}
 						className="absolute max-w-60 w-max block left-1/2 -translate-x-1/2 -translate-y-[calc(100%+0.5rem)] top-0 origin-bottom"
