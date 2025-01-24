@@ -103,7 +103,7 @@ export default function HomeView({ lastPlayed }: Props) {
 								target="_blank"
 								rel="noreferrer"
 								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-								className="underline decoration-stone-400 underline-offset-2 hover:decoration-stone-600 transition"
+								className="underline decoration-stone-400 lg:decoration-stone-300 underline-offset-2 hover:decoration-stone-500 transition"
 							>
 								upwork
 							</a>
@@ -157,7 +157,7 @@ export default function HomeView({ lastPlayed }: Props) {
 				<p>
 					My imagination, my inspiration, actually it&apos;s my escape &mdash;
 					<a
-						className="underline decoration-wavy underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition"
+						className="underline decoration-wavy underline-offset-2 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
 						target="_blank"
 						rel="noreferrer"
 						href="https://pin.it/5pUJO7tB6"
@@ -169,7 +169,7 @@ export default function HomeView({ lastPlayed }: Props) {
 				<p>
 					I like Bento, so here&apos;s mine &mdash;
 					<a
-						className="underline decoration-dotted underline-offset-4 decoration-stone-300 hover:decoration-stone-500 transition"
+						className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
 						target="_blank"
 						rel="noreferrer"
 						href="https://bento.me/yagnik"
@@ -210,7 +210,7 @@ const SpotifyLastListened = ({ lastPlayed }: Props) => {
 		<p className="align-middle">
 			Last listened to{" "}
 			<a
-				className="underline decoration-dashed underline-offset-4 decoration-stone-300 hover:decoration-stone-500 transition"
+				className="underline decoration-dashed underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
 				target="_blank"
 				rel="noreferrer"
 				href={lastPlayed.spotifyUrl}
@@ -258,7 +258,6 @@ const IconHoverMicroInteraction = ({
 		<m.span
 			onHoverStart={() => setIsHovered(true)}
 			onHoverEnd={() => setIsHovered(false)}
-			onClick={() => setIsHovered(true)}
 			ref={ref}
 			style={{ rotate: `${rotate ?? 0}deg` }}
 			className={cn(

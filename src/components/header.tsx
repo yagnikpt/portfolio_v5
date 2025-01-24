@@ -3,7 +3,7 @@ import { motion as m } from "motion/react";
 import Image from "next/image";
 import Profile from "@/assets/profile.webp";
 import { GlobeAltIcon, ClockIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { useEffect, useState } from "react";
 
 export default function SiteHeader() {

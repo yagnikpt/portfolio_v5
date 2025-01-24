@@ -57,69 +57,74 @@ export default function Dock() {
 
 	return (
 		<MotionConfig transition={{ type: "spring", duration: 0.4 }}>
-			<m.div
-				layout
-				className="rounded-full px-2 py-1 lg:p-1 backdrop-blur-xs ring ring-inset ring-stone-950/35 inset-shadow-2xs fixed bottom-8 z-100 text-stone-200 bg-stone-950/70 overflow-hidden"
+			<div
+				className="fixed bottom-8 z-100"
+				style={{ viewTransitionName: "dock" }}
 			>
-				<div className="flex items-center rounded-full overflow-hidden">
-					<AnimatePresence>
-						{!socialsOpen ? (
-							<>
-								<DockLink
-									type="app"
-									label="Home"
-									href="/"
-									icon={HomeIconOutline}
-									activeIcon={HomeIconSolid}
-									active={pathname === "/"}
-								/>
-								<DockLink
-									type="app"
-									label="Projects"
-									href="/projects"
-									icon={FolderIconOutline}
-									activeIcon={FolderIconSolid}
-									active={pathname === "/projects"}
-								/>
-								<DockLink
-									type="app"
-									label="UI bits"
-									href="/uibits"
-									icon={BeakerIconOutline}
-									activeIcon={BeakerIconSolid}
-									active={pathname === "/uibits"}
-								/>
-								<DockButton
-									label="Socials"
-									icon={AtSymbolIcon}
-									onClick={() => setSocialsOpen(true)}
-								/>
-							</>
-						) : (
-							<>
-								<DockButton
-									label="Back"
-									icon={ChevronLeftIcon}
-									onClick={() => setSocialsOpen(false)}
-								/>
-								<m.div
-									layout
-									className="h-7 lg:h-6 w-[1px] mx-0.5 bg-white/10"
-								/>
-								{socials.map((social) => (
+				<m.div
+					layout
+					className="rounded-full px-2 py-1 lg:p-1 backdrop-blur-xs ring ring-inset ring-stone-950/35 inset-shadow-2xs text-stone-200 bg-stone-950/70 overflow-hidden"
+				>
+					<div className="flex items-center rounded-full overflow-hidden">
+						<AnimatePresence>
+							{!socialsOpen ? (
+								<>
 									<DockLink
-										key={social.label}
-										href={social.href}
-										type="external"
-										icon={social.icon}
-										label={social.label}
+										type="app"
+										label="Home"
+										href="/"
+										icon={HomeIconOutline}
+										activeIcon={HomeIconSolid}
+										active={pathname === "/"}
 									/>
-								))}
-							</>
-						)}
-					</AnimatePresence>
-				</div>
-			</m.div>
+									<DockLink
+										type="app"
+										label="Projects"
+										href="/projects"
+										icon={FolderIconOutline}
+										activeIcon={FolderIconSolid}
+										active={pathname === "/projects"}
+									/>
+									<DockLink
+										type="app"
+										label="UI bits"
+										href="/uibits"
+										icon={BeakerIconOutline}
+										activeIcon={BeakerIconSolid}
+										active={pathname === "/uibits"}
+									/>
+									<DockButton
+										label="Socials"
+										icon={AtSymbolIcon}
+										onClick={() => setSocialsOpen(true)}
+									/>
+								</>
+							) : (
+								<>
+									<DockButton
+										label="Back"
+										icon={ChevronLeftIcon}
+										onClick={() => setSocialsOpen(false)}
+									/>
+									<m.div
+										layout
+										className="h-7 lg:h-6 w-[1px] mx-0.5 bg-white/10"
+									/>
+									{socials.map((social) => (
+										<DockLink
+											key={social.label}
+											href={social.href}
+											type="external"
+											icon={social.icon}
+											label={social.label}
+										/>
+									))}
+								</>
+							)}
+						</AnimatePresence>
+					</div>
+				</m.div>
+			</div>
 		</MotionConfig>
 	);
 }

@@ -11,7 +11,7 @@ export default function UIBitsView() {
 		<div>
 			<div className="px-4 lg:px-8 max-w-lg mx-auto">
 				<p className="text-xl max-w-lg w-full mx-auto mb-10 tracking-tight mt-14">
-					Here are some little pieces of UI I like to show off.
+					Here are some little pieces of UI that i cooked.
 				</p>
 			</div>
 			<section className="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-12">

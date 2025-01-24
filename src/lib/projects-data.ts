@@ -51,6 +51,18 @@ export const projects = [
 		category: "real-world",
 	},
 	{
+		name: "Mangasss",
+		discription:
+			"A manga reader app where you'll find whatever manga you wanna read (maybe?).",
+		image: MangaReaderImage,
+		tech: ["Svelte", "TailwindCSS"],
+		techIcons: [SvelteIcon, TailwindCSSIcon],
+		links: {
+			site: "https://mangasss.vercel.app",
+		},
+		category: "app",
+	},
+	{
 		name: "PvP Rock Paper Scissors",
 		discription:
 			"A multiplayer online game developed using Deno KV and Socket.IO",
@@ -111,19 +123,6 @@ export const projects = [
 			repo: "https://github.com/yagnik-patel-47/lego",
 		},
 		category: "static",
-	},
-
-	{
-		name: "Mangasss",
-		discription:
-			"A manga reader app where you'll find whatever manga you wanna read.",
-		image: MangaReaderImage,
-		tech: ["Svelte", "TailwindCSS"],
-		techIcons: [SvelteIcon, TailwindCSSIcon],
-		links: {
-			site: "https://mangasss.vercel.app",
-		},
-		category: "app",
 	},
 	{
 		name: "Social Media App",
