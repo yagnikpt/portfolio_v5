@@ -21,7 +21,7 @@ export default function ProjectCard({
 
 	return (
 		<MotionConfig
-			transition={{ duration: 0.3, ease: "easeInOut" }}
+			transition={{ duration: 0.5, type: "spring", bounce: 0 }}
 			reducedMotion="user"
 		>
 			<m.div layoutRoot className="project">

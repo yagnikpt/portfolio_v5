@@ -75,9 +75,7 @@ export default function DynamicSliderWidget() {
 	}
 
 	return (
-		<MotionConfig
-			transition={{ ease: "easeOut", type: "spring", duration: 0.4 }}
-		>
+		<MotionConfig transition={{ type: "spring", duration: 0.4, bounce: 0 }}>
 			<m.div layout className="flex items-center gap-6">
 				<LayoutGroup>
 					<m.div className="relative overflow-hidden bg-neutral-200 p-3 rounded-3xl">

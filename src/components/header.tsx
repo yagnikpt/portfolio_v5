@@ -36,6 +36,7 @@ export default function SiteHeader() {
 			layout="position"
 			layoutId="site-header"
 			className="flex justify-between items-center z-10 text-stone-500 max-w-lg mx-auto w-full"
+			transition={{ type: "spring", bounce: 0 }}
 		>
 			<Link href="/">
 				<Image

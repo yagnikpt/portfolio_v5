@@ -37,9 +37,7 @@ export default function DynamicButton() {
 	const tabs = ["Dimensions", "Aspect Ratio", "Prompt"];
 
 	return (
-		<MotionConfig
-			transition={{ ease: "easeOut", type: "spring", duration: 0.5 }}
-		>
+		<MotionConfig transition={{ type: "spring", duration: 0.3, bounce: 0 }}>
 			<m.div
 				layout
 				className={cn(

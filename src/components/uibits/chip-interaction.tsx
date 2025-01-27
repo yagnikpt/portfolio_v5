@@ -45,7 +45,7 @@ function Chip(props: Props) {
 	}
 
 	return (
-		<MotionConfig transition={{ type: "spring", duration: 0.5 }}>
+		<MotionConfig transition={{ type: "spring", duration: 0.3, bounce: 0 }}>
 			<m.div ref={containerRef} layoutRoot>
 				<m.div
 					className={cn(

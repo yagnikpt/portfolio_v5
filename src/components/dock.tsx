@@ -56,14 +56,14 @@ export default function Dock() {
 	const pathname = usePathname();
 
 	return (
-		<MotionConfig transition={{ type: "spring", duration: 0.4 }}>
+		<MotionConfig transition={{ type: "spring", duration: 0.4, bounce: 0 }}>
 			<div
-				className="fixed bottom-8 z-100"
+				className="fixed bottom-8 z-100 backdrop-blur-xs"
 				style={{ viewTransitionName: "dock" }}
 			>
 				<m.div
 					layout
-					className="rounded-full px-2 py-1 lg:p-1 backdrop-blur-xs ring ring-inset ring-stone-950/35 inset-shadow-2xs text-stone-200 bg-stone-950/70 overflow-hidden"
+					className="px-2 py-1 lg:p-1 rounded-full overflow-hidden ring ring-inset ring-stone-950/35 inset-shadow-2xs text-stone-200 bg-stone-950/70"
 				>
 					<div className="flex items-center rounded-full overflow-hidden">
 						<AnimatePresence>

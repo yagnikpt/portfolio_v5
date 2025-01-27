@@ -103,9 +103,7 @@ export default function VoiceChatDisclosure() {
 
 	return (
 		<m.div ref={containerRef} className={cn("relative")} layoutRoot>
-			<MotionConfig
-				transition={{ duration: 0.5, ease: "easeOut", type: "spring" }}
-			>
+			<MotionConfig transition={{ duration: 0.4, type: "spring", bounce: 0 }}>
 				<m.div
 					layout
 					className={cn(
