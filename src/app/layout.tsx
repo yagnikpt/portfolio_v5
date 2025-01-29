@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/dock";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({
@@ -65,6 +65,9 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html className={inter.variable} lang="en">
+				<head>
+					<script src="//unpkg.com/react-scan/dist/auto.global.js" />
+				</head>
 				<body className="antialiased font-sans flex justify-center">
 					{children}
 					<Dock />

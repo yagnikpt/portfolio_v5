@@ -56,7 +56,10 @@ export default function Dock() {
 	const pathname = usePathname();
 
 	return (
-		<MotionConfig transition={{ type: "spring", duration: 0.4, bounce: 0 }}>
+		<MotionConfig
+			transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+			reducedMotion="user"
+		>
 			<div
 				className="fixed bottom-8 z-100 backdrop-blur-xs"
 				style={{ viewTransitionName: "dock" }}

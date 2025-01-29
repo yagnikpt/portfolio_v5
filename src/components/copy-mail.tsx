@@ -49,7 +49,10 @@ export default function CopyMailButton() {
 	}
 
 	return (
-		<MotionConfig transition={{ duration: 0.3, type: "spring" }}>
+		<MotionConfig
+			transition={{ duration: 0.3, type: "spring" }}
+			reducedMotion="user"
+		>
 			<m.button
 				whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.95 }}

@@ -44,6 +44,7 @@ export default function SiteHeader() {
 					src={Profile}
 					alt="My profile pic"
 					priority
+					quality={100}
 				/>
 				<span className="sr-only">Home</span>
 			</Link>

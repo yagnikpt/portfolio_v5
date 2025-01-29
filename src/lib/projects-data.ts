@@ -2,16 +2,13 @@ import HigrowImage from "@/assets/projects/higrow.webp";
 import RPSImage from "@/assets/projects/rps.webp";
 import JpDisplayImage from "@/assets/projects/jp.webp";
 import GalaryImage from "@/assets/projects/galary.webp";
-import LegoImage from "@/assets/projects/lego.webp";
 import SMAImage from "@/assets/projects/sma.webp";
 import MangaReaderImage from "@/assets/projects/mangareader.webp";
 import PS5Image from "@/assets/projects/ps5.webp";
-import KeyboardShopImage from "@/assets/projects/keyboard-shop.webp";
+import FzfCli from "@/assets/projects/fzf-cli.webp";
 
 import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
 import SvelteIcon from "@/assets/icons/skill/svelte.svg";
-import DrizzleIcon from "@/assets/icons/skill/drizzle-orm.svg";
-import StripeIcon from "@/assets/icons/skill/stripe.svg";
 import SupabaseIcon from "@/assets/icons/skill/supabase.svg";
 import DenoIcon from "@/assets/icons/skill/deno.svg";
 import SocketIOIcon from "@/assets/icons/skill/socketio.svg";
@@ -23,49 +20,49 @@ import FirebaseIcon from "@/assets/icons/skill/firebase.svg";
 import TypescriptIcon from "@/assets/icons/skill/typescript.svg";
 import ReduxIcon from "@/assets/icons/skill/redux.svg";
 import MotionIcon from "@/assets/icons/skill/motion.svg";
+import GoIcon from "@/assets/icons/skill/golang.svg";
 
 export const projects = [
 	{
-		name: "Keyboard Shop",
+		name: "fzf",
 		discription:
-			"A typical e-commerce app BUT integrates Stripe into the app admin panel. Built using Svelte 5 and TailwindCSS, resulting in a stunning and minimalistic UI.",
-		image: KeyboardShopImage,
-		tech: ["Svelte", "Drizzle", "Stripe"],
-		techIcons: [SvelteIcon, DrizzleIcon, StripeIcon],
+			"A classic fuzzy finder CLI tool that I built while exploring Go.",
+		image: FzfCli,
+		tech: ["Go", "Bubbletea"],
+		techIcons: [GoIcon],
 		links: {
-			site: "https://keyboard-ecommerce-one.vercel.app",
-			repo: "https://github.com/yagnik-patel-47/keyboard-ecommerce",
+			repo: "https://github.com/yagnik-patel-47/fzf-cli",
 		},
-		category: "real-world",
+		category: "Software",
 	},
 	{
 		name: "HiGrow",
 		discription:
-			"HiGrow is platform where our aim is to help empowering minds worldwide to Learn, compete, and grow together by workshops and contests!",
+			"HiGrow is a platform that aims to help empower minds worldwide to learn, compete, and grow together through workshops and contests!",
 		image: HigrowImage,
 		tech: ["Nextjs", "Supabase"],
 		techIcons: [NextjsIcon, SupabaseIcon],
 		links: {
 			site: "https://higrow-test.vercel.app",
 		},
-		category: "real-world",
+		category: "Real World",
 	},
 	{
 		name: "Mangasss",
 		discription:
-			"A manga reader app where you'll find whatever manga you wanna read (maybe?).",
+			"A manga reader app where you can find whatever manga you want to read.",
 		image: MangaReaderImage,
 		tech: ["Svelte", "TailwindCSS"],
 		techIcons: [SvelteIcon, TailwindCSSIcon],
 		links: {
 			site: "https://mangasss.vercel.app",
 		},
-		category: "app",
+		category: "App",
 	},
 	{
 		name: "PvP Rock Paper Scissors",
 		discription:
-			"A multiplayer online game developed using Deno KV and Socket.IO",
+			"A multiplayer online game developed using Deno KV and Socket.IO.",
 		image: RPSImage,
 		tech: ["Deno", "Socket.io", "Svelte"],
 		techIcons: [DenoIcon, SocketIOIcon, SvelteIcon],
@@ -73,11 +70,12 @@ export const projects = [
 			site: "https://pvp-rps.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/pvp-rps-server",
 		},
-		category: "fullstack",
+		category: "Fullstack",
 	},
 	{
 		name: "PS5 Home Screen",
-		discription: "A clone of PS5 home screen with same layout animations.",
+		discription:
+			"A clone of the PS5 home screen with identical layout animations.",
 		image: PS5Image,
 		tech: ["React", "Motion"],
 		techIcons: [ReactIcon, MotionIcon],
@@ -85,11 +83,11 @@ export const projects = [
 			site: "https://ps5-home-screen.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/ps5-home-screen",
 		},
-		category: "static",
+		category: "Static",
 	},
 	{
-		name: "Animation Galary",
-		discription: "A single page image gallery site with awesome animations.",
+		name: "Animation Gallery",
+		discription: "A single-page image gallery site with stunning animations.",
 		image: GalaryImage,
 		tech: ["React", "Motion"],
 		techIcons: [ReactIcon, MotionIcon],
@@ -97,11 +95,11 @@ export const projects = [
 			site: "https://animated0casestudy.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/animated_casestudy",
 		},
-		category: "static",
+		category: "Static",
 	},
 	{
 		name: "Japanese Art",
-		discription: "A static page website with awesome animations.",
+		discription: "A static page website featuring impressive animations.",
 		image: JpDisplayImage,
 		tech: ["Astro", "GSAP", "TailwindCSS"],
 		techIcons: [AstroIcon, GSAPIcon, TailwindCSSIcon],
@@ -109,25 +107,12 @@ export const projects = [
 			site: "https://jp-display.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/jp_display",
 		},
-		category: "static",
-	},
-	{
-		name: "Lego One",
-		discription:
-			"A landing page for real estate ecommerce website with somewhat good design.",
-		image: LegoImage,
-		tech: ["Nextjs", "TailwindCSS"],
-		techIcons: [NextjsIcon, TailwindCSSIcon],
-		links: {
-			site: "https://lego-one.vercel.app",
-			repo: "https://github.com/yagnik-patel-47/lego",
-		},
-		category: "static",
+		category: "Static",
 	},
 	{
 		name: "Social Media App",
 		discription:
-			"A social media app clone having basic features similar to Instagram.",
+			"A social media app clone featuring basic functionalities similar to Instagram.",
 		image: SMAImage,
 		tech: ["Nextjs", "Firebase", "Typescript", "Redux"],
 		techIcons: [NextjsIcon, FirebaseIcon, TypescriptIcon, ReduxIcon],
@@ -135,7 +120,7 @@ export const projects = [
 			site: "https://moments-sma.vercel.app",
 			repo: "https://github.com/Yagnik-Patel-47/social-media-app",
 		},
-		category: "fullstack",
+		category: "Fullstack",
 	},
 ];
 
