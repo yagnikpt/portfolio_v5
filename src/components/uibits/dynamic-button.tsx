@@ -10,9 +10,7 @@ import { flushSync } from "react-dom";
 export default function DynamicButton() {
 	const [state, setState] = useState<null | number>(null);
 	const [changesApplied, setChangesApplied] = useState(false);
-	const containerRef = useRef<HTMLDivElement>(
-		null,
-	) as RefObject<HTMLDivElement>;
+	const ref = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>;
 
 	const [dimensionValues, setDimensionValues] = useState([50, 50, 50]);
 	const [aspect, setAspect] = useState("16/9");
@@ -32,7 +30,7 @@ export default function DynamicButton() {
 		setChangesApplied(true);
 	}
 
-	useOnClickOutside(containerRef, closeBtn);
+	useOnClickOutside(ref, closeBtn);
 
 	const tabs = ["Dimensions", "Aspect Ratio", "Prompt"];
 
@@ -48,7 +46,7 @@ export default function DynamicButton() {
 				onKeyDown={(e) => {
 					if (!e.metaKey && e.key === "Escape" && state) closeBtn();
 				}}
-				ref={containerRef}
+				ref={ref}
 			>
 				<div>
 					<AnimatePresence initial={false}>

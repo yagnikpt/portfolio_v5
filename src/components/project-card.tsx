@@ -25,6 +25,10 @@ export default function ProjectCard({
 			reducedMotion="user"
 		>
 			<m.div
+				initial={{ opacity: 0, scale: 0.9 }}
+				animate={{ opacity: 1, scale: 1 }}
+				exit={{ opacity: 0, scale: 0.9 }}
+				transition={{ duration: 0.4, type: "spring", bounce: 0 }}
 				layout
 				className="bg-zinc-100 px-3 pb-3 md:px-4 md:pb-4 max-w-2xl rounded-2xl"
 			>

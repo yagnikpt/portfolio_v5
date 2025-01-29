@@ -23,15 +23,17 @@ export default function ProjectsView() {
 					setActiveFilter={setActiveFilter}
 				/>
 				<m.div layout className="grid lg:grid-cols-2 gap-5 lg:gap-10">
-					{activeFilter
-						? projects
-								.filter((pro) => pro.category === activeFilter)
-								.map((project) => (
+					<AnimatePresence mode="popLayout" initial={false}>
+						{activeFilter
+							? projects
+									.filter((pro) => pro.category === activeFilter)
+									.map((project) => (
+										<ProjectCard key={project.name} project={project} />
+									))
+							: projects.map((project) => (
 									<ProjectCard key={project.name} project={project} />
-								))
-						: projects.map((project) => (
-								<ProjectCard key={project.name} project={project} />
-							))}
+								))}
+					</AnimatePresence>
 				</m.div>
 			</LayoutGroup>
 		</div>
