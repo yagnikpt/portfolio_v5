@@ -48,8 +48,18 @@ const split = (
 			mappedChildren.push(
 				<motion.span
 					key={counter.value.toString()}
-					className={cn("inline-block align-middle", styles)}
+					className={cn(
+						"inline-block align-middle will-change-transform",
+						styles,
+					)}
 					variants={variant}
+					viewport={{ once: true }}
+					onViewportEnter={(e) =>
+						setTimeout(
+							() => e?.target.classList.remove("will-change-transform"),
+							1000 * 0.35 * (counter.value * 0.025),
+						)
+					}
 				>
 					{word}&nbsp;
 				</motion.span>,
@@ -88,9 +98,19 @@ const split = (
 			} else {
 				mappedChildren.push(
 					<motion.span
-						className={cn("inline-flex align-middle items-center", styles)}
+						className={cn(
+							"inline-flex align-middle will-change-transform",
+							styles,
+						)}
 						key={counter.value.toString()}
 						variants={variant}
+						viewport={{ once: true }}
+						onViewportEnter={(e) =>
+							setTimeout(
+								() => e?.target.classList.remove("will-change-transform"),
+								1000 * 0.35 * (counter.value * 0.025),
+							)
+						}
 					>
 						{child}&nbsp;
 					</motion.span>,
@@ -104,8 +124,18 @@ const split = (
 					mappedChildren.push(
 						<motion.span
 							key={counter.value.toString()}
-							className={cn("inline-block align-middle", styles)}
+							className={cn(
+								"inline-block align-middle will-change-transform",
+								styles,
+							)}
 							variants={variant}
+							viewport={{ once: true }}
+							onViewportEnter={(e) =>
+								setTimeout(
+									() => e?.target.classList.remove("will-change-transform"),
+									1000 * 0.35 * (counter.value * 0.025),
+								)
+							}
 						>
 							{word}&nbsp;
 						</motion.span>,

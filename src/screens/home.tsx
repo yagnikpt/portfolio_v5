@@ -72,9 +72,8 @@ export default function HomeView({ lastPlayed }: Props) {
 							digital experiences.
 							<IconHoverMicroInteraction
 								rotate={8}
-								bgColor="bg-orange-500"
 								tooltip="Check my projects and UI Bits :)"
-								className="bg-orange-500"
+								className="bg-orange-500 [&_.icon-background]:bg-orange-500"
 							>
 								<CursorArrowRaysIcon className="size-[14px] text-white" />
 							</IconHoverMicroInteraction>
@@ -84,9 +83,8 @@ export default function HomeView({ lastPlayed }: Props) {
 							frontend developer,
 							<IconHoverMicroInteraction
 								rotate={-8}
-								bgColor="bg-purple-500"
 								tooltip="Crafting subtle UI experiences that are both performant and intuitive."
-								className="bg-purple-500"
+								className="bg-purple-500 [&_.icon-background]:bg-purple-500"
 							>
 								<CodeBracketIcon className="size-[14px] text-white" />
 							</IconHoverMicroInteraction>
@@ -109,9 +107,8 @@ export default function HomeView({ lastPlayed }: Props) {
 							</a>
 							<IconHoverMicroInteraction
 								rotate={8}
-								bgColor="bg-green-600"
 								tooltip="Check my Upwork profile :)"
-								className="bg-green-600"
+								className="bg-green-600 [&_.icon-background]:bg-green-600"
 							>
 								<UpworkIcon className="size-[14px] text-white" />
 							</IconHoverMicroInteraction>
@@ -236,7 +233,6 @@ const SpotifyLastListened = ({ lastPlayed }: Props) => {
 
 interface IconHoverMicroInteractionProps {
 	children: React.ReactNode;
-	bgColor: string;
 	className?: string;
 	tooltip?: string;
 	rotate?: number;
@@ -246,7 +242,6 @@ const IconHoverMicroInteraction = ({
 	children,
 	className,
 	tooltip,
-	bgColor,
 	rotate,
 }: IconHoverMicroInteractionProps) => {
 	const [isHovered, setIsHovered] = useState(false);
@@ -287,16 +282,14 @@ const IconHoverMicroInteraction = ({
 					>
 						<span
 							className={cn(
-								"block px-3 py-2 rounded-xl text-neutral-100 text-xs md:text-sm font-medium max-w-lg leading-snug",
-								bgColor,
+								"block px-3 py-2 rounded-xl text-neutral-100 text-xs md:text-sm font-medium max-w-lg leading-snug icon-background",
 							)}
 						>
 							{tooltip}
 						</span>
 						<span
 							className={cn(
-								"block absolute top-[calc(100%-0.25rem)] left-1/2 -translate-x-1/2 size-2 rotate-45",
-								bgColor,
+								"block absolute top-[calc(100%-0.25rem)] left-1/2 -translate-x-1/2 size-2 rotate-45 icon-background",
 							)}
 						/>
 					</m.span>

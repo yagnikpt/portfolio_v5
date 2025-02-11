@@ -60,9 +60,10 @@ export default function Dock() {
 			transition={{ type: "spring", duration: 0.4, bounce: 0 }}
 			reducedMotion="user"
 		>
-			<div
-				className="fixed bottom-8 z-100 backdrop-blur-xs"
-				style={{ viewTransitionName: "dock" }}
+			<m.div
+				className="fixed bottom-8 z-100 backdrop-blur-xs rounded-full"
+				// style={{ viewTransitionName: "dock" }}
+				layoutRoot
 			>
 				<m.div
 					layout
@@ -127,7 +128,7 @@ export default function Dock() {
 						</AnimatePresence>
 					</div>
 				</m.div>
-			</div>
+			</m.div>
 		</MotionConfig>
 	);
 }
