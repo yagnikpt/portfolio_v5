@@ -41,9 +41,6 @@ export default function UIBitsView() {
 							Motion
 						</a>
 					</span>
-					<span className="absolute top-0 left-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-ee-xl py-2 px-4">
-						Work in progress
-					</span>
 					<SlickDropdown />
 				</div>
 				<div className="min-h-[30rem] overflow-hidden bg-[#faf4ed] rounded-xl border-2 border-[#ebbcba]/30 grid justify-center items-end py-16 relative">
