@@ -54,6 +54,7 @@ const socials = [
 export default function Dock() {
 	const [socialsOpen, setSocialsOpen] = useState(false);
 	const pathname = usePathname();
+	const [currentHover, setCurrentHover] = useState<null | string>(null);
 
 	return (
 		<MotionConfig
@@ -64,6 +65,7 @@ export default function Dock() {
 				className="fixed bottom-8 z-100 backdrop-blur-xs rounded-full"
 				// style={{ viewTransitionName: "dock" }}
 				layoutRoot
+				onHoverEnd={() => setCurrentHover(null)}
 			>
 				<m.div
 					layout
@@ -80,6 +82,8 @@ export default function Dock() {
 										icon={HomeIconOutline}
 										activeIcon={HomeIconSolid}
 										active={pathname === "/"}
+										currentHover={currentHover}
+										setCurrentHover={setCurrentHover}
 									/>
 									<DockLink
 										type="app"
@@ -88,6 +92,8 @@ export default function Dock() {
 										icon={FolderIconOutline}
 										activeIcon={FolderIconSolid}
 										active={pathname === "/projects"}
+										currentHover={currentHover}
+										setCurrentHover={setCurrentHover}
 									/>
 									<DockLink
 										type="app"
@@ -96,11 +102,15 @@ export default function Dock() {
 										icon={BeakerIconOutline}
 										activeIcon={BeakerIconSolid}
 										active={pathname === "/uibits"}
+										currentHover={currentHover}
+										setCurrentHover={setCurrentHover}
 									/>
 									<DockButton
 										label="Socials"
 										icon={AtSymbolIcon}
 										onClick={() => setSocialsOpen(true)}
+										currentHover={currentHover}
+										setCurrentHover={setCurrentHover}
 									/>
 								</>
 							) : (
@@ -109,6 +119,8 @@ export default function Dock() {
 										label="Back"
 										icon={ChevronLeftIcon}
 										onClick={() => setSocialsOpen(false)}
+										currentHover={currentHover}
+										setCurrentHover={setCurrentHover}
 									/>
 									<m.div
 										layout
@@ -121,6 +133,8 @@ export default function Dock() {
 											type="external"
 											icon={social.icon}
 											label={social.label}
+											currentHover={currentHover}
+											setCurrentHover={setCurrentHover}
 										/>
 									))}
 								</>
@@ -137,23 +151,29 @@ interface DockButtonProps {
 	onClick: () => void;
 	icon: typeof HomeIconOutline;
 	label: string;
+	currentHover: string | null;
+	setCurrentHover: (hover: string | null) => void;
 }
 
-function DockButton({ onClick, icon, label }: DockButtonProps) {
+function DockButton({
+	onClick,
+	icon,
+	label,
+	currentHover,
+	setCurrentHover,
+}: DockButtonProps) {
 	const Icon = icon;
-	const [isHovered, setIsHovered] = useState(false);
 
 	return (
 		<m.button
-			onHoverStart={() => setIsHovered(true)}
-			onHoverEnd={() => setIsHovered(false)}
+			onHoverStart={() => setCurrentHover(label)}
 			type="button"
 			onClick={onClick}
 			layout
 			className="p-2 rounded-lg relative"
 		>
 			<AnimatePresence>
-				{isHovered && (
+				{currentHover === label && (
 					<m.div
 						key={label}
 						transition={{ duration: 0.1 }}
@@ -176,6 +196,8 @@ interface DockLinkProps {
 	active?: boolean;
 	type: "app" | "external";
 	label: string;
+	currentHover: string | null;
+	setCurrentHover: (hover: string | null) => void;
 }
 const MLink = m.create(Link);
 
@@ -186,23 +208,23 @@ function DockLink({
 	active,
 	type,
 	label,
+	currentHover,
+	setCurrentHover,
 }: DockLinkProps) {
 	const Icon = active ? (activeIcon ?? icon) : icon;
 	const Comp = type === "app" ? MLink : m.a;
-	const [isHovered, setIsHovered] = useState(false);
 
 	return (
 		<Comp
 			rel={type === "app" ? undefined : "noreferrer"}
 			target={type === "app" ? undefined : "_blank"}
-			onHoverStart={() => setIsHovered(true)}
-			onHoverEnd={() => setIsHovered(false)}
+			onHoverStart={() => setCurrentHover(label)}
 			layout
 			href={href}
 			className="rounded-lg relative size-10 grid place-content-center cursor-default"
 		>
 			<AnimatePresence>
-				{isHovered && (
+				{currentHover === label && (
 					<m.div
 						transition={{ duration: 0.1 }}
 						key={href}

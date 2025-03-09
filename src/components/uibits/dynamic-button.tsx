@@ -50,136 +50,138 @@ export default function DynamicButton() {
 			>
 				<div>
 					<AnimatePresence initial={false}>
-						<m.div layout className="flex items-center gap-2 justify-between">
-							{!state && (
-								<m.button
-									key={"add"}
-									layout="position"
-									onClick={() => setState(1)}
-									className="py-1 ml-2 cursor-pointer font-medium"
-								>
-									Add Style
-								</m.button>
-							)}
-							{state && (
-								<m.nav
-									key={"nav"}
-									layout="position"
-									className="flex gap-1 text-[12px] lg:text-sm font-medium"
-								>
-									{tabs.map((tab, i) => (
-										<button
-											type="button"
-											className="relative p-1 rounded-md"
-											onClick={() => setState(i + 1)}
-											key={tab}
-										>
-											{tab}
-											{state === i + 1 && (
-												<m.div
-													layoutId="active"
-													className="absolute inset-0 bg-indigo-500/15 rounded-md"
-												/>
-											)}
-										</button>
-									))}
-								</m.nav>
-							)}
-							<m.button
-								layout
-								onClick={() => setState((prev) => (prev ? null : 1))}
-								className="align-middle size-6 cursor-pointer"
-							>
-								<m.svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									className="text-neutral-700 size-6"
-									animate={{
-										rotateZ: state ? 45 : 0,
-									}}
-								>
-									<title>{state ? "Close" : "Open"}</title>
-									<path d="M5 12h14" />
-									<path d="M12 5v14" />
-								</m.svg>
-							</m.button>
-						</m.div>
-						{state && (
-							<>
-								{state === 1 && (
-									<DimensionsTab
-										key={"dimension"}
-										dimensionValues={dimensionValues}
-										setDimensionValues={setDimensionValues}
-									/>
+						<div key={"hehe"}>
+							<m.div layout className="flex items-center gap-2 justify-between">
+								{!state && (
+									<m.button
+										key={"add"}
+										layout="position"
+										onClick={() => setState(1)}
+										className="py-1 ml-2 cursor-pointer font-medium"
+									>
+										Add Style
+									</m.button>
 								)}
-								{state === 2 && (
-									<TooglesTab
-										key={"toggles"}
-										aspect={aspect}
-										setAspect={setAspect}
-									/>
-								)}
-								{state === 3 && (
-									<PromptTab
-										key={"prompt"}
-										prompt={prompt}
-										setPrompt={setPrompt}
-									/>
+								{state && (
+									<m.nav
+										key={"nav"}
+										layout="position"
+										className="flex gap-1 text-[12px] lg:text-sm font-medium"
+									>
+										{tabs.map((tab, i) => (
+											<button
+												type="button"
+												className="relative p-1 rounded-md"
+												onClick={() => setState(i + 1)}
+												key={tab}
+											>
+												{tab}
+												{state === i + 1 && (
+													<m.div
+														layoutId="active"
+														className="absolute inset-0 bg-indigo-500/15 rounded-md"
+													/>
+												)}
+											</button>
+										))}
+									</m.nav>
 								)}
 								<m.button
-									key={"apply"}
-									layout="position"
-									type="button"
-									onClick={applyChanges}
-									className="text-xs md:text-sm block font-semibold md:font-normal px-3 py-2 bg-indigo-900 text-white ml-auto rounded-lg mt-4 cursor-pointer"
+									layout
+									onClick={() => setState((prev) => (prev ? null : 1))}
+									className="align-middle size-6 cursor-pointer"
 								>
-									Apply Changes
+									<m.svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="text-neutral-700 size-6"
+										animate={{
+											rotateZ: state ? 45 : 0,
+										}}
+									>
+										<title>{state ? "Close" : "Open"}</title>
+										<path d="M5 12h14" />
+										<path d="M12 5v14" />
+									</m.svg>
 								</m.button>
-							</>
-						)}
-						{changesApplied && (
-							<m.div
-								key={"applied"}
-								layout="preserve-aspect"
-								className="absolute grid place-content-center inset-0 bg-white z-10 text-indigo-700"
-								initial={{ y: "5%", opacity: 0 }}
-								animate={{ y: 0, opacity: 1 }}
-							>
-								<m.svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="2.5"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									className="size-9"
-								>
-									<title>Check</title>
-									<m.path
-										initial={{ pathLength: 0 }}
-										animate={{ pathLength: 1 }}
-										transition={{ duration: 0.25 }}
-										d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
-									/>
-									<m.path
-										initial={{ pathLength: 0 }}
-										animate={{ pathLength: 1 }}
-										transition={{ delay: 0.15 }}
-										onAnimationComplete={() => setTimeout(closeBtn, 300)}
-										d="m9 11 3 3L22 4"
-									/>
-								</m.svg>
 							</m.div>
-						)}
+							{state && (
+								<>
+									{state === 1 && (
+										<DimensionsTab
+											key={"dimension"}
+											dimensionValues={dimensionValues}
+											setDimensionValues={setDimensionValues}
+										/>
+									)}
+									{state === 2 && (
+										<TooglesTab
+											key={"toggles"}
+											aspect={aspect}
+											setAspect={setAspect}
+										/>
+									)}
+									{state === 3 && (
+										<PromptTab
+											key={"prompt"}
+											prompt={prompt}
+											setPrompt={setPrompt}
+										/>
+									)}
+									<m.button
+										key={"apply"}
+										layout="position"
+										type="button"
+										onClick={applyChanges}
+										className="text-xs md:text-sm block font-semibold md:font-normal px-3 py-2 bg-indigo-900 text-white ml-auto rounded-lg mt-4 cursor-pointer"
+									>
+										Apply Changes
+									</m.button>
+								</>
+							)}
+							{changesApplied && (
+								<m.div
+									key={"applied"}
+									layout="preserve-aspect"
+									className="absolute grid place-content-center inset-0 bg-white z-10 text-indigo-700"
+									initial={{ y: "5%", opacity: 0 }}
+									animate={{ y: 0, opacity: 1 }}
+								>
+									<m.svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="size-9"
+									>
+										<title>Check</title>
+										<m.path
+											initial={{ pathLength: 0 }}
+											animate={{ pathLength: 1 }}
+											transition={{ duration: 0.25 }}
+											d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+										/>
+										<m.path
+											initial={{ pathLength: 0 }}
+											animate={{ pathLength: 1 }}
+											transition={{ delay: 0.15 }}
+											onAnimationComplete={() => setTimeout(closeBtn, 300)}
+											d="m9 11 3 3L22 4"
+										/>
+									</m.svg>
+								</m.div>
+							)}
+						</div>
 					</AnimatePresence>
 				</div>
 			</m.div>
