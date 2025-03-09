@@ -15,6 +15,8 @@ import Image from "next/image";
 import PinterestIcon from "@/assets/icons/social/pinterest.svg";
 import BentoIcon from "@/assets/icons/social/bento.svg";
 import UpworkIcon from "@/assets/icons/social/upwork.svg";
+import PythonIcon from "@/assets/icons/skill/python.svg";
+import GoIcon from "@/assets/icons/skill/golang.svg";
 
 const parent = {
 	hidden: {},
@@ -129,12 +131,20 @@ export default function HomeView({ lastPlayed }: Props) {
 			</m.main>
 			<Separator className="mt-8" text="Extra Gists" />
 			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
-				<p>creating software tools and services with Go.</p>
 				<p>
-					heavily interested in networking, low-level concepts, and building
-					SaaS applications.
+					creating software tools and services with{" "}
+					<span className="inline-block">
+						<GoIcon className="size-7 inline-block" />.
+					</span>
 				</p>
-				<p>low-key interested in data analysis and LLMs.</p>
+				<p>
+					heavily interested and learning system design, low-level concepts, and
+					building SaaS applications 💸.
+				</p>
+				<p>
+					low-key interested in data analysis{" "}
+					<PythonIcon className="size-4 inline-block" /> and LLMs.
+				</p>
 			</div>
 			<Separator className="mt-8" text="About Me" />
 			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
@@ -145,7 +155,7 @@ export default function HomeView({ lastPlayed }: Props) {
 				</p>
 				<p>
 					Besides computers, I also enjoy basketball, F1 racing, hip-hop, and
-					touching grass.
+					touching grass .
 				</p>
 			</div>
 			<Separator className="mt-8" text="Social Dump" />

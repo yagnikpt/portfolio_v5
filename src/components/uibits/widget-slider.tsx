@@ -271,6 +271,9 @@ function ImageWidget() {
 			src={KeyboardImage}
 			alt="Starry Keyboard"
 			draggable="false"
+			quality={100}
+			width={160}
+			height={160}
 			priority
 		/>
 	);
