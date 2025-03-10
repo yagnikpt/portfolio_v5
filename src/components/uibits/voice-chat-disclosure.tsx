@@ -107,11 +107,12 @@ export default function VoiceChatDisclosure() {
 				<m.div
 					layout
 					className={cn(
-						"bg-[#fefefe] border-2 border-neutral-200 shadow-md max-w-full lg:max-w-96 origin-right w-fit h-fit z-10",
+						"bg-[#fefefe] border-2 rounded-[50px] border-neutral-200 shadow-md max-w-full lg:max-w-96 origin-right w-fit h-fit z-10",
 						state ? "overflow-hidden" : "overflow-visible",
 					)}
 					aria-label="Toggle state"
-					style={{ borderRadius: state ? "24px" : "calc(infinity * 1px)" }}
+					// style={{ borderRadius: state ? "24px" : "calc(infinity * 1px)" }}
+					animate={{ borderRadius: state ? 24 : 50 }}
 				>
 					<AnimatePresence mode="popLayout">
 						<LayoutGroup>

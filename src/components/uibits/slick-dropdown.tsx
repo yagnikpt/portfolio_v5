@@ -59,10 +59,15 @@ export default function SlickDropdown() {
 
 					<m.div
 						layout
-						className={cn(
-							"rounded-3xl border-2 border-zinc-200 overflow-hidden z-2",
-							!isOpen ? "bg-[#f0ece6]" : "bg-[#fefefe]",
-						)}
+						className={cn("border-2 border-zinc-200 overflow-hidden z-2")}
+						style={{
+							borderRadius: "1.5rem",
+							// background: isOpen ? "#fefefe" : "#f0ece6",
+						}}
+						animate={{
+							background: isOpen ? "#fefefe" : "#f0ece6",
+							borderRadius: 24,
+						}}
 					>
 						{!isOpen && (
 							<m.button
@@ -83,7 +88,7 @@ export default function SlickDropdown() {
 								initial={{ y: 15 }}
 								animate={{ y: 0 }}
 								transition={{ duration: 0.3, delay: 0.1, type: "tween" }}
-								className="p-3 space-y-4"
+								className="p-3 space-y-2"
 							>
 								{items.map((item, index) => (
 									<m.button
