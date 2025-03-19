@@ -62,14 +62,15 @@ export default function Dock() {
 			reducedMotion="user"
 		>
 			<m.div
-				className="fixed bottom-8 z-100 backdrop-blur-xs rounded-full"
+				className="fixed bottom-8 z-100 rounded-full"
 				// style={{ viewTransitionName: "dock" }}
 				layoutRoot
 				onHoverEnd={() => setCurrentHover(null)}
 			>
 				<m.div
 					layout
-					className="px-2 py-1 lg:p-1 rounded-full overflow-hidden ring ring-inset ring-stone-950/35 inset-shadow-2xs text-stone-200 bg-stone-950/70"
+					className="px-2 py-1 lg:p-1 overflow-hidden ring ring-inset ring-stone-950/35 inset-shadow-2xs text-stone-200 bg-stone-950/70 backdrop-blur-xs"
+					style={{ borderRadius: "28px" }}
 				>
 					<div className="flex items-center rounded-full overflow-hidden">
 						<AnimatePresence>
