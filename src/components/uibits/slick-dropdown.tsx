@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
-import { useState } from "react";
+import { type RefObject, useRef, useState } from "react";
 import {
 	DocumentIcon,
 	BellIcon,
@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
 import { XMarkIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { useOnClickOutside } from "usehooks-ts";
 
 const items = [
 	{
@@ -35,6 +36,9 @@ const items = [
 
 export default function SlickDropdown() {
 	const [isOpen, setIsOpen] = useState(false);
+	const ref = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>;
+
+	useOnClickOutside(ref, () => setIsOpen(false));
 
 	return (
 		<MotionConfig transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}>
@@ -89,6 +93,7 @@ export default function SlickDropdown() {
 								animate={{ y: 0 }}
 								transition={{ duration: 0.3, delay: 0.1, type: "tween" }}
 								className="p-3 space-y-2"
+								ref={ref}
 							>
 								{items.map((item, index) => (
 									<m.button

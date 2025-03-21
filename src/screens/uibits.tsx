@@ -5,6 +5,7 @@ import ChipInteraction from "@/components/uibits/chip-interaction";
 import Widgets from "@/components/uibits/widget-slider";
 import DynamicActionBar from "@/components/uibits/dynamic-action-bar";
 import SlickDropdown from "@/components/uibits/slick-dropdown";
+import CreditScoreCard from "@/components/uibits/credit-score-card";
 
 export default function UIBitsView() {
 	return (
@@ -102,7 +103,17 @@ export default function UIBitsView() {
 					</span>
 					<ChipInteraction />
 				</div>
-
+				<div
+					style={{
+						backgroundImage: "url(/card-bg.webp)",
+						backgroundSize: "cover",
+						backgroundPosition: "100% 0%",
+						backgroundRepeat: "no-repeat",
+					}}
+					className="bg-[#f8f8f8] min-h-120 rounded-xl border-2 border-neutral-300 grid place-items-center lg:col-span-2 relative px-4"
+				>
+					<CreditScoreCard />
+				</div>
 				<div className="min-h-dvh overflow-hidden bg-[#020202] rounded-xl border-2 border-neutral-800 grid place-items-center lg:col-span-2 relative">
 					<span className="absolute top-0 right-0 text-xs font-medium text-neutral-200 bg-neutral-800 rounded-es-xl py-2 px-4 z-10">
 						Recipe: Animating linear-gradient with{" "}

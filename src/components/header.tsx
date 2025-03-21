@@ -54,7 +54,9 @@ export default function SiteHeader() {
 				</div>
 				<div className="flex items-center gap-1">
 					<ClockIcon className="size-4" />
-					<p className="text-sm tracking-tight">{time}</p>
+					<p className="text-sm tracking-tight" suppressHydrationWarning>
+						{time}
+					</p>
 				</div>
 			</div>
 		</m.header>

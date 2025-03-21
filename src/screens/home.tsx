@@ -98,23 +98,14 @@ export default function HomeView({ lastPlayed }: Props) {
 						As I dive deeper into computer science, I plan to take on freelance
 						work to gain real-world experience and strengthen my collaboration
 						skills. I have completed few jobs on{" "}
-						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-								className="underline decoration-stone-400 lg:decoration-stone-300 underline-offset-2 hover:decoration-stone-500 transition"
-							>
-								upwork
-							</a>
-							<IconHoverMicroInteraction
-								rotate={8}
-								tooltip="Check my Upwork profile :)"
-								className="bg-green-600 [&_.icon-background]:bg-green-600"
-							>
-								<UpworkIcon className="size-[14px] text-white" />
-							</IconHoverMicroInteraction>
-						</span>{" "}
+						<a
+							target="_blank"
+							rel="noreferrer"
+							href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+							className="relative text-stone-800 font-medium transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:bg-green-600 before:transition-all before:duration-200 hover:text-white hover:before:h-full hover:before:z-[-1] px-1 before:w-[calc(100%-0.5rem)] before:ml-1 hover:before:w-full hover:before:ml-0"
+						>
+							upwork
+						</a>
 						and I&apos;m looking forward to taking on more challenging projects
 						that will help me grow as a developer.
 					</AnimatedText>
@@ -214,7 +205,7 @@ const SpotifyLastListened = ({ lastPlayed }: Props) => {
 	})();
 
 	return (
-		<p className="align-middle">
+		<p className="align-middle" suppressHydrationWarning>
 			Last listened to{" "}
 			<a
 				className="underline decoration-dashed underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
