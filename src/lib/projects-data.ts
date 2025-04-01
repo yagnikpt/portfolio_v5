@@ -83,7 +83,7 @@ export const projects = [
 			site: "https://ps5-home-screen.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/ps5-home-screen",
 		},
-		category: "Static",
+		category: "Animation",
 	},
 	{
 		name: "Animation Gallery",
@@ -95,7 +95,7 @@ export const projects = [
 			site: "https://animated0casestudy.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/animated_casestudy",
 		},
-		category: "Static",
+		category: "Animation",
 	},
 	{
 		name: "Japanese Art",
@@ -107,7 +107,7 @@ export const projects = [
 			site: "https://jp-display.vercel.app",
 			repo: "https://github.com/yagnik-patel-47/jp_display",
 		},
-		category: "Static",
+		category: "Animation",
 	},
 	{
 		name: "Social Media App",

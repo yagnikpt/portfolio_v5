@@ -7,7 +7,7 @@ import { FunnelIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion as m } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const filters = ["Software", "Real World", "App", "Fullstack", "Static"];
+const filters = ["Software", "Real World", "App", "Fullstack", "Animation"];
 
 export default function ProjectsView() {
 	const [activeFilter, setActiveFilter] = useState<string | null>(null);

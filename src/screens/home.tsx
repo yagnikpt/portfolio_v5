@@ -98,14 +98,32 @@ export default function HomeView({ lastPlayed }: Props) {
 						As I dive deeper into computer science, I plan to take on freelance
 						work to gain real-world experience and strengthen my collaboration
 						skills. I have completed few jobs on{" "}
-						<a
+						<span className="inline-block relative group/upwork">
+							<a
+								target="_blank"
+								rel="noreferrer"
+								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+								className="relative text-stone-800 font-medium px-1"
+							>
+								upwork
+							</a>
+							<a
+								target="_blank"
+								rel="noreferrer"
+								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+								className="absolute inset-y-0 inset-x-1 bg-green-600 text-white z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/upwork:[clip-path:inset(0%_0%_0%_0%)] group-hover/upwork:inset-x-0 duration-200 ease-in-out"
+							>
+								upwork
+							</a>
+						</span>
+						{/* <a
 							target="_blank"
 							rel="noreferrer"
 							href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
 							className="relative text-stone-800 font-medium transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:bg-green-600 before:transition-all before:duration-200 hover:text-white hover:before:h-full hover:before:z-[-1] px-1 before:w-[calc(100%-0.5rem)] before:ml-1 hover:before:w-full hover:before:ml-0"
 						>
 							upwork
-						</a>
+						</a> */}
 						and I&apos;m looking forward to taking on more challenging projects
 						that will help me grow as a developer.
 					</AnimatedText>

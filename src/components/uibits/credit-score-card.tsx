@@ -97,7 +97,8 @@ export default function CreditScoreCard() {
 							type="number"
 							inputMode="numeric"
 							placeholder="Enter your credit score..."
-							className="w-full py-2 px-3 text-2xl rounded-lg focus:outline-0 focus-visible:ring-2 ring-green-600/85 transition not-placeholder-shown:ring-2"
+							className="w-full py-2 px-3 text-2xl rounded-lg focus:outline-0 focus-visible:ring-2 ring-green-600/85 transition"
+							max={5000}
 						/>
 					</div>
 					<div className="flex justify-between items-center">
