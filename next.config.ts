@@ -9,23 +9,23 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
-	experimental: {
-		reactCompiler: true,
-		turbo: {
-			rules: {
-				"*.svg": {
-					loaders: [
-						{
-							loader: "@svgr/webpack",
-							options: {
-								svgo: false,
-							},
+	turbopack: {
+		rules: {
+			"*.svg": {
+				loaders: [
+					{
+						loader: "@svgr/webpack",
+						options: {
+							svgo: false,
 						},
-					],
-					as: "*.js",
-				},
+					},
+				],
+				as: "*.js",
 			},
 		},
+	},
+	experimental: {
+		reactCompiler: true,
 	},
 	// images: { unoptimized: true },
 	webpack(config) {

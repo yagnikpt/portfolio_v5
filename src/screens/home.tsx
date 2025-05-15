@@ -2,8 +2,7 @@
 import AnimatedText from "@/components/text-effect";
 import { AnimatePresence, motion as m } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useRef, useState } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { useState } from "react";
 import SiteHeader from "@/components/header";
 import CopyMailButton from "@/components/copy-mail";
 import {
@@ -14,7 +13,6 @@ import Separator from "@/components/separator";
 import Image from "next/image";
 import PinterestIcon from "@/assets/icons/social/pinterest.svg";
 import BentoIcon from "@/assets/icons/social/bento.svg";
-import UpworkIcon from "@/assets/icons/social/upwork.svg";
 import PythonIcon from "@/assets/icons/skill/python.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
 
@@ -64,8 +62,9 @@ export default function HomeView({ lastPlayed }: Props) {
 			>
 				<SiteHeader />
 				<div className="text-xl space-y-4 mt-10">
-					<AnimatedText className="leading-snug">
-						I am<span className="text-stone-800 font-medium">Yagnik</span>
+					<AnimatedText className="leading-snug text-stone-800 font-medium">
+						Hey, I'm Yagnik Patel.
+						{/* I am<span className="text-stone-800 font-medium">Yagnik</span> */}
 					</AnimatedText>
 					<AnimatedText className="leading-snug">
 						With a keen eye for design and a passion for coding, I fuse
@@ -116,23 +115,15 @@ export default function HomeView({ lastPlayed }: Props) {
 								upwork
 							</a>
 						</span>
-						{/* <a
-							target="_blank"
-							rel="noreferrer"
-							href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-							className="relative text-stone-800 font-medium transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:bg-green-600 before:transition-all before:duration-200 hover:text-white hover:before:h-full hover:before:z-[-1] px-1 before:w-[calc(100%-0.5rem)] before:ml-1 hover:before:w-full hover:before:ml-0"
-						>
-							upwork
-						</a> */}
 						and I&apos;m looking forward to taking on more challenging projects
 						that will help me grow as a developer.
 					</AnimatedText>
 				</div>
 				<m.div
 					variants={item}
-					className="flex justify-between items-center bg-stone-100 p-1 rounded-full mt-8"
+					className="flex justify-between items-center bg-[#f0f0f0] p-1 rounded-full mt-8"
 				>
-					<p className="pl-4 text-sm sm:text-base text-stone-600">
+					<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">
 						Want to connect?
 					</p>
 					<CopyMailButton />
@@ -264,15 +255,11 @@ const IconHoverMicroInteraction = ({
 	rotate,
 }: IconHoverMicroInteractionProps) => {
 	const [isHovered, setIsHovered] = useState(false);
-	const ref = useRef<HTMLSpanElement>(null) as React.RefObject<HTMLSpanElement>;
-
-	useOnClickOutside(ref, () => setIsHovered(false));
 
 	return (
 		<m.span
 			onHoverStart={() => setIsHovered(true)}
 			onHoverEnd={() => setIsHovered(false)}
-			ref={ref}
 			style={{ rotate: `${rotate ?? 0}deg` }}
 			className={cn(
 				"inline-flex justify-center items-center w-fit rounded-md relative size-5",
@@ -289,7 +276,12 @@ const IconHoverMicroInteraction = ({
 							scale: 0.75,
 							filter: "blur(3px)",
 						}}
-						animate={{ opacity: 1, rotate: 0, scale: 1, filter: "blur(0)" }}
+						animate={{
+							opacity: 1,
+							rotate: 0,
+							scale: 1,
+							filter: "blur(0)",
+						}}
 						exit={{
 							opacity: 0,
 							rotate: -(rotate ?? 0),

@@ -10,6 +10,7 @@
 	--animate-pulse-grow: pulse-grow 1s ease-in-out infinite;
 	--animate-float: float 3s ease-in-out infinite;
 	--animate-spin: spin 3s linear infinite;
+	--animate-spin-reverse: spin 18s linear infinite reverse;
 
 	@keyframes pulse-grow {
 		from {
@@ -77,11 +78,34 @@
 }
 
 :root {
-	--background: #ffffff;
+	--background: #f9f9f9;
 	--foreground: #171717;
 }
 
-body {
-	color: var(--foreground);
-	background: var(--background);
+.triangle {
+	position: relative;
+	text-align: left;
+	rotate: 180deg;
+}
+.triangle:before,
+.triangle:after {
+	content: "";
+	position: absolute;
+	background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+	border-top-right-radius: 50%;
+}
+
+.triangle {
+	transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+		translate(0, -50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
 }
