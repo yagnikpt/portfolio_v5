@@ -17,10 +17,11 @@ import { Link } from "next-view-transitions";
 import { useState } from "react";
 import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
 import GithubIcon from "@/assets/icons/social/github.svg";
-import BlueskyIcon from "@/assets/icons/social/bluesky.svg";
+// import BlueskyIcon from "@/assets/icons/social/bluesky.svg";
 import XIcon from "@/assets/icons/social/x.svg";
 import LinkedinIcon from "@/assets/icons/social/linkedin.svg";
 import InstagramIcon from "@/assets/icons/social/instagram.svg";
+import BuyMeACoffeeIcon from "@/assets/icons/social/bmc.svg";
 import { cn } from "@/lib/utils";
 
 const socials = [
@@ -29,11 +30,11 @@ const socials = [
 		href: "https://github.com/yagnik-patel-47",
 		icon: GithubIcon,
 	},
-	{
-		label: "Bluesky",
-		href: "https://bsky.app/profile/yagnik-pt.bsky.social",
-		icon: BlueskyIcon,
-	},
+	// {
+	// 	label: "Bluesky",
+	// 	href: "https://bsky.app/profile/yagnik-pt.bsky.social",
+	// 	icon: BlueskyIcon,
+	// },
 	{
 		label: "X",
 		href: "https://x.com/yagnik_pt",
@@ -48,6 +49,11 @@ const socials = [
 		label: "Instagram",
 		href: "https://instagram.com/yagnik._._.patel",
 		icon: InstagramIcon,
+	},
+	{
+		label: "Buy me a coffee",
+		href: "https://buymeacoffee.com/yagnik",
+		icon: BuyMeACoffeeIcon,
 	},
 ];
 

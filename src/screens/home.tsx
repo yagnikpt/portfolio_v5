@@ -154,8 +154,8 @@ export default function HomeView({ lastPlayed }: Props) {
 					college.
 				</p>
 				<p>
-					Besides computers, I also enjoy basketball, F1 racing, hip-hop, and
-					touching grass .
+					Besides computers, I also enjoy basketball, F1 racing, hip-hop music,
+					and touching grass.
 				</p>
 			</div>
 			<Separator className="mt-8" text="Social Dump" />

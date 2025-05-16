@@ -30,13 +30,13 @@ export default function RecordingTicker() {
 	}
 
 	return (
-		<div className="relative flex flex-col items-center w-40 aspect-square rounded-3xl bg-white py-6 justify-between border border-slate-200 shadow-lg shadow-blue-500/15 overflow-hidden">
+		<div className="relative flex flex-col items-center w-40 aspect-square rounded-3xl bg-white py-6 justify-between border border-slate-200 shadow-lg shadow-cyan-700/15 overflow-hidden">
 			<span className="text-lg font-medium -mt-2">{formatTime(seconds)}</span>
 
 			<button
 				type="button"
 				aria-label={isRecording ? "Stop" : "Pause"}
-				className="size-10 grid place-items-center bg-[#161616] text-neutral-200 rounded-full relative top-3 z-10"
+				className="size-10 grid place-items-center bg-cyan-950 text-neutral-200 rounded-full relative top-3 z-10"
 				onClick={() => setIsRecording(!isRecording)}
 			>
 				{isRecording ? (
@@ -47,15 +47,18 @@ export default function RecordingTicker() {
 			</button>
 
 			<div
-				className="absolute inset-0 border-28 scale-112 border-[#007aff] top-[45%] h-full rounded-full z-2"
+				className="absolute inset-0 border-28 scale-112 border-cyan-600 top-[45%] h-full rounded-full z-2"
 				style={{ clipPath: "inset(0% 50% 0% 0%)" }}
 			/>
 			<div className="flex items-center flex-col absolute left-1/2 -translate-x-1/2 top-[calc(2/5*100%-10px)] z-5">
-				<div className="triangle bg-blue-500 size-2 after:size-2 before:size-2" />
-				<div className="w-1 h-1 bg-[#017cff] rounded-full -top-0.25 relative" />
+				<div className="triangle bg-cyan-600 border-cyan-600 size-2 after:size-2 before:size-2" />
+				<div className="w-1 h-1 bg-cyan-600 border-cyan-600 -top-0.25 relative" />
 			</div>
-			<div className="bg-white px-0.5 absolute left-1/2 top-[calc(50%-1px)] -translate-1/2 z-4">
-				<div className="w-1 h-8 bg-[#017cff] rounded-full" />
+			<div className="bg-white px-0.5 absolute left-1/2 top-[calc(50%-2px)] -translate-1/2 z-4">
+				<div className="w-1 h-8 bg-cyan-600 border-cyan-600 rounded-full" />
+				{/* <div className="bg-white absolute top-0 -left-full -rotate-2">
+					<div className="h-8 w-2 rounded-tr-full rounded-br-full bg-emaborder-cyan-700" />
+				</div> */}
 			</div>
 			<div
 				className="absolute inset-0 h-full top-[45%] z-3"
@@ -72,7 +75,7 @@ export default function RecordingTicker() {
 						<div
 							className={cn(
 								"w-1 rounded-lg",
-								i % 5 === 0 ? "h-4 bg-black" : "h-3 bg-[#d6d6d6]",
+								i % 5 === 0 ? "h-4 bg-cyan-900" : "h-3 bg-neutral-300",
 							)}
 							style={{
 								transform: `rotate(${i * (360 / 20)}deg) translateY(-72px)`,
@@ -96,7 +99,7 @@ export default function RecordingTicker() {
 						<div
 							className={cn(
 								"w-1 rounded-lg",
-								i % 5 === 0 ? "h-4 bg-white" : "h-3 bg-[#3093ff]",
+								i % 5 === 0 ? "h-4 bg-cyan-50" : "h-3 bg-cyan-900/30",
 							)}
 							style={{
 								transform: `rotate(${i * (360 / 20)}deg) translateY(-72px)`,

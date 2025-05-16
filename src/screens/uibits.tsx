@@ -46,8 +46,8 @@ export default function UIBitsView() {
 					</span>
 					<SlickDropdown />
 				</div>
-				<div className="min-h-[30rem] overflow-hidden bg-blue-50 rounded-xl border-2 border-blue-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-blue-200 rounded-es-xl py-2 px-4">
+				<div className="min-h-[30rem] overflow-hidden bg-cyan-50 rounded-xl border-2 border-cyan-200 grid place-items-center relative">
+					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-cyan-200 rounded-es-xl py-2 px-4">
 						Tool:{" "}
 						<a
 							className="underline inline-block"
