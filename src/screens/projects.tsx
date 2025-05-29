@@ -49,7 +49,7 @@ interface Props {
 }
 
 function Filters({ activeFilter, setActiveFilter }: Props) {
-	const [state, setState] = useState(false);
+	const [state, setState] = useState(true);
 
 	return (
 		<MotionConfig
@@ -75,7 +75,7 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 									}
 								}}
 								className={cn(
-									"px-4 py-1 flex items-center rounded-full bg-stone-200 text-stone-800 gap-2 shrink-0 text-nowrap whitespace-nowrap z-2 relative",
+									"px-4 py-1 flex items-center rounded-full bg-zinc-200 text-sm font-medium text-zinc-800 gap-1 shrink-0 text-nowrap whitespace-nowrap z-2 relative overflow-hidden",
 									!state && "p-1.5",
 								)}
 							>
@@ -84,12 +84,12 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 										<m.span layout="position" className="inline-block text-sm">
 											{activeFilter ? "Reset" : "Close"}
 										</m.span>
-										<MXMarkIcon layoutId="icon" className="size-4" />
+										<MXMarkIcon strokeWidth={2} layoutId="icon" className="size-4" />
 									</>
 								) : (
 									<>
 										<m.span className="sr-only">Filter</m.span>
-										<MFunnelIcon layoutId="icon" className="size-4" />
+										<MFunnelIcon strokeWidth={2} layoutId="icon" className="size-4" />
 									</>
 								)}
 							</m.button>
@@ -97,7 +97,7 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 								<m.div
 									layoutId={filter}
 									key={filter}
-									className="size-7 bg-stone-200 absolute top-0 right-0 rounded-full"
+									className="size-7 bg-zinc-200 absolute top-0 right-0 rounded-full"
 								/>
 							))}
 						</m.div>
@@ -110,8 +110,8 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 									onClick={() => setActiveFilter(filter)}
 									className={`px-4 py-1 rounded-full text-sm font-medium shrink-0 text-nowrap whitespace-nowrap ${
 										activeFilter === filter
-											? "bg-stone-950 text-white"
-											: "bg-stone-200 text-stone-800"
+											? "bg-zinc-950 text-white"
+											: "bg-zinc-200 text-zinc-800"
 									}`}
 								>
 									{filter}

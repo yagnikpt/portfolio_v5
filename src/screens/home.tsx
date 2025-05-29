@@ -121,7 +121,7 @@ export default function HomeView({ lastPlayed }: Props) {
 				</div>
 				<m.div
 					variants={item}
-					className="flex justify-between items-center bg-[#f0f0f0] p-1 rounded-full mt-8"
+					className="flex justify-between items-center bg-[#ececee] p-1 rounded-full mt-8"
 				>
 					<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">
 						Want to connect?

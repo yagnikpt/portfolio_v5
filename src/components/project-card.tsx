@@ -30,7 +30,7 @@ export default function ProjectCard({
 				exit={{ opacity: 0, scale: 0.9 }}
 				transition={{ duration: 0.4, type: "spring", bounce: 0 }}
 				layout
-				className="bg-zinc-100 px-3 pb-3 md:px-4 md:pb-4 max-w-2xl rounded-2xl"
+				className="bg-[#ececee] px-3 pb-3 md:px-4 md:pb-4 max-w-2xl rounded-2xl"
 			>
 				<LayoutGroup>
 					<m.button

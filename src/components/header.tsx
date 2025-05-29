@@ -34,7 +34,7 @@ export default function SiteHeader() {
 	return (
 		<m.header
 			style={{ viewTransitionName: "header" }}
-			className="flex justify-between items-center z-10 text-stone-500 max-w-lg mx-auto w-full"
+			className="flex justify-between items-center z-10 text-zinc-500 max-w-lg mx-auto w-full"
 			transition={{ type: "spring", bounce: 0 }}
 		>
 			<Link href="/">
