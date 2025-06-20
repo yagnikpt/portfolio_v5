@@ -7,6 +7,7 @@ import DynamicActionBar from "@/components/uibits/dynamic-action-bar";
 import SlickDropdown from "@/components/uibits/slick-dropdown";
 import CreditScoreCard from "@/components/uibits/credit-score-card";
 import RecordingTicker from "@/components/uibits/recording-ticker";
+import MusicPlayer from "@/components/uibits/music-player";
 
 export default function UIBitsView() {
 	return (
@@ -59,6 +60,20 @@ export default function UIBitsView() {
 						</a>
 					</span>
 					<RecordingTicker />
+				</div>
+				<div className="min-h-[30rem] overflow-hidden bg-stone-100 rounded-xl border-2 border-stone-200 grid place-items-center relative">
+					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-stone-200 rounded-es-xl py-2 px-4">
+						Tool:{" "}
+						<a
+							className="underline inline-block"
+							href="https://motion.dev"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Motion
+						</a>
+					</span>
+					<MusicPlayer />
 				</div>
 				<div className="min-h-[30rem] overflow-hidden bg-[#faf4ed] rounded-xl border-2 border-[#ebbcba]/30 grid justify-center items-end py-16 relative">
 					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-[#ebbcba]/30 rounded-es-xl py-2 px-4">

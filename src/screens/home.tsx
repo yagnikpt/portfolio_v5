@@ -231,7 +231,7 @@ const SpotifyLastListened = ({ lastPlayed }: Props) => {
 						height={24}
 						src={lastPlayed.albumArt}
 						alt={`${lastPlayed.trackName} cover`}
-						className="size-5 rounded-full inline-block mx-2 animate-spin"
+						className="size-5 rounded-full inline-block mx-2 animate-spin duration-3000"
 					/>
 					<span className="size-1 inline-block bg-white absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" />
 				</span>
