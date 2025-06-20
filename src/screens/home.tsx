@@ -33,10 +33,6 @@ const item = {
 	visible: {
 		opacity: 1,
 		y: 0,
-		transition: {
-			duration: 0.35,
-			type: "spring",
-		},
 	},
 };
 
@@ -121,6 +117,7 @@ export default function HomeView({ lastPlayed }: Props) {
 				</div>
 				<m.div
 					variants={item}
+					transition={{ duration: 0.35, type: "spring" }}
 					className="flex justify-between items-center bg-[#ececee] p-1 rounded-full mt-8"
 				>
 					<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">

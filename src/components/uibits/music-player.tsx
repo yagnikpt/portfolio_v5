@@ -76,6 +76,7 @@ export default function MusicPlayer() {
 				)}
 				onClick={() => setPaused((p) => !p)}
 				ref={coverRef}
+				aria-label="Toggle Play/Pause"
 			>
 				<MImage
 					className="w-full h-full aspect-square absolute z-0"

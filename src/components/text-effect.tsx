@@ -23,12 +23,6 @@ const variant = {
 		opacity: 1,
 		filter: "blur(0)",
 		y: 0,
-		transition: {
-			opacity: { duration: 0.2 },
-			filter: { duration: 0.2 },
-			duration: 0.35,
-			type: "spring",
-		},
 	},
 };
 
@@ -60,6 +54,12 @@ const split = (
 							1000 * 0.35 * (counter.value * 0.025),
 						)
 					}
+					transition={{
+						duration: 0.35,
+						type: "spring",
+						opacity: { duration: 0.2 },
+						filter: { duration: 0.2 },
+					}}
 				>
 					{word}&nbsp;
 				</motion.span>,
@@ -111,6 +111,12 @@ const split = (
 								1000 * 0.35 * (counter.value * 0.025),
 							)
 						}
+						transition={{
+							duration: 0.35,
+							type: "spring",
+							opacity: { duration: 0.2 },
+							filter: { duration: 0.2 },
+						}}
 					>
 						{child}&nbsp;
 					</motion.span>,
@@ -136,6 +142,12 @@ const split = (
 									1000 * 0.35 * (counter.value * 0.025),
 								)
 							}
+							transition={{
+								duration: 0.35,
+								type: "spring",
+								opacity: { duration: 0.2 },
+								filter: { duration: 0.2 },
+							}}
 						>
 							{word}&nbsp;
 						</motion.span>,
