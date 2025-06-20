@@ -19,121 +19,40 @@ export default function UIBitsView() {
 			</div>
 			<section className="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-12">
 				<div className="min-h-[30rem] p-4 lg:p-10 overflow-hidden bg-neutral-100 rounded-xl border-2 border-neutral-200 grid place-content-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<VoiceChatDisclosure />
 				</div>
 
 				<div className="min-h-[30rem] overflow-hidden bg-neutral-50 rounded-xl border-2 border-neutral-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<SlickDropdown />
 				</div>
+
 				<div className="min-h-[30rem] overflow-hidden bg-cyan-50 rounded-xl border-2 border-cyan-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-cyan-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<RecordingTicker />
 				</div>
+
 				<div className="min-h-[30rem] overflow-hidden bg-stone-100 rounded-xl border-2 border-stone-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-stone-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<MusicPlayer />
 				</div>
+
 				<div className="min-h-[30rem] overflow-hidden bg-[#faf4ed] rounded-xl border-2 border-[#ebbcba]/30 grid justify-center items-end py-16 relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-[#ebbcba]/30 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<DynamicActionBar />
 				</div>
+
 				<div className="min-h-[30rem] overflow-hidden bg-neutral-50 rounded-xl border-2 border-neutral-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<span className="absolute top-0 left-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-ee-xl py-2 px-4">
 						Swipe or Drag
 					</span>
 					<Widgets />
 				</div>
+
 				<div className="min-h-[30rem] md:p-10 overflow-hidden bg-indigo-50 rounded-xl border-2 border-indigo-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-indigo-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<DynamicButton />
 				</div>
+
 				<div className="min-h-[30rem] p-10 overflow-hidden bg-purple-50 rounded-xl border-2 border-purple-200 grid place-items-center relative">
-					<span className="absolute top-0 right-0 text-xs font-semibold text-neutral-800 bg-purple-200 rounded-es-xl py-2 px-4">
-						Tool:{" "}
-						<a
-							className="underline inline-block"
-							href="https://motion.dev"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Motion
-						</a>
-					</span>
 					<ChipInteraction />
 				</div>
+
 				<div
 					style={{
 						backgroundImage: "url(/card-bg.webp)",
@@ -145,16 +64,8 @@ export default function UIBitsView() {
 				>
 					<CreditScoreCard />
 				</div>
+
 				<div className="min-h-dvh overflow-hidden bg-[#020202] rounded-xl border-2 border-neutral-800 grid place-items-center lg:col-span-2 relative">
-					<span className="absolute top-0 right-0 text-xs font-medium text-neutral-200 bg-neutral-800 rounded-es-xl py-2 px-4 z-10">
-						Recipe: Animating linear-gradient with{" "}
-						<a
-							className="underline"
-							href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property"
-						>
-							@property
-						</a>
-					</span>
 					<GlassForm />
 				</div>
 			</section>

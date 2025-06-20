@@ -69,7 +69,7 @@ export default function MusicPlayer() {
 		<div className="w-60 aspect-square bg-stone-200 rounded-4xl flex items-center flex-col p-4 relative overflow-hidden shadow-xl">
 			<m.button
 				className={cn(
-					"absolute grid place-items-center w-full h-full aspect-square top-0 -translate-y-[55%] animate-spin-slow cursor-pointer transition-[transform,translate,scale] duration-400 z-2 ease-out peer",
+					"absolute grid place-items-center w-full h-full aspect-square top-0 -translate-y-[55%] animate-spin-slow cursor-pointer transition-[transform,translate,scale] duration-500 z-2 ease-out peer",
 					paused
 						? "translate-y-0 rounded-4xl scale-100"
 						: "-translate-y-[55%] hover:-translate-y-[50%] rounded-full scale-105",
@@ -84,7 +84,7 @@ export default function MusicPlayer() {
 					alt="Harry Styles"
 					style={{ borderRadius: 150 }}
 					animate={{ borderRadius: paused ? 32 : 150 }}
-					transition={{ duration: 0.3, type: "spring", bounce: 0 }}
+					transition={{ duration: 0.6, type: "spring", bounce: 0 }}
 				/>
 				<svg
 					width="164"
