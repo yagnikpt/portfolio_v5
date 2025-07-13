@@ -27,14 +27,9 @@ import { cn } from "@/lib/utils";
 const socials = [
 	{
 		label: "Github",
-		href: "https://github.com/yagnik-patel-47",
+		href: "https://github.com/yagnikpt",
 		icon: GithubIcon,
 	},
-	// {
-	// 	label: "Bluesky",
-	// 	href: "https://bsky.app/profile/yagnik-pt.bsky.social",
-	// 	icon: BlueskyIcon,
-	// },
 	{
 		label: "X",
 		href: "https://x.com/yagnik_pt",

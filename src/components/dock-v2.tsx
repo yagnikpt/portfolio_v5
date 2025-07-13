@@ -3,13 +3,7 @@ import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Link } from "next-view-transitions";
-import {
-	HomeIcon,
-	FolderIcon,
-	BeakerIcon,
-	AtSymbolIcon,
-	ChevronUpIcon,
-} from "@heroicons/react/24/outline";
+import { HomeIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 import { useScrollLock } from "usehooks-ts";
 
