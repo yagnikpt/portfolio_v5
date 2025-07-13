@@ -5,12 +5,14 @@ import GalaryImage from "@/assets/projects/galary.webp";
 import SMAImage from "@/assets/projects/sma.webp";
 import MangaReaderImage from "@/assets/projects/mangareader.webp";
 import PS5Image from "@/assets/projects/ps5.webp";
-import FzfCli from "@/assets/projects/fzf-cli.webp";
+import FzfCliImage from "@/assets/projects/fzf_cli.webp";
+import FlashbackImage from "@/assets/projects/flashback.gif";
+import AdmissionScraperImage from "@/assets/projects/admission_scraper.webp";
 
 import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
 import SvelteIcon from "@/assets/icons/skill/svelte.svg";
 import SupabaseIcon from "@/assets/icons/skill/supabase.svg";
-import DenoIcon from "@/assets/icons/skill/deno.svg";
+import BunIcon from "@/assets/icons/skill/bun.svg";
 import SocketIOIcon from "@/assets/icons/skill/socketio.svg";
 import ReactIcon from "@/assets/icons/skill/react.svg";
 import AstroIcon from "@/assets/icons/skill/astro.svg";
@@ -18,20 +20,61 @@ import GSAPIcon from "@/assets/icons/skill/gsap.svg";
 import TailwindCSSIcon from "@/assets/icons/skill/tailwindcss.svg";
 import FirebaseIcon from "@/assets/icons/skill/firebase.svg";
 import TypescriptIcon from "@/assets/icons/skill/typescript.svg";
-import ReduxIcon from "@/assets/icons/skill/redux.svg";
 import MotionIcon from "@/assets/icons/skill/motion.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
+import GeminiIcon from "@/assets/icons/skill/gemini.svg";
+import SqliteIcon from "@/assets/icons/skill/sqlite.svg";
+import PythonIcon from "@/assets/icons/skill/python.svg";
+import FastAPIIcon from "@/assets/icons/skill/fastapi.svg";
+import PostgreSQLIcon from "@/assets/icons/skill/postgresql.svg";
 
 export const projects = [
+	{
+		name: "Flashback",
+		discription:
+			"A powerful command-line tool that serves as your second memory, intelligently storing and retrieving your notes using AI-powered semantic search.",
+		image: FlashbackImage,
+		tech: ["Go", "Bubbletea", "Gemini", "SQLite"],
+		techIcons: [GoIcon, GeminiIcon, SqliteIcon],
+		links: {
+			repo: "https://github.com/yagnikpt/flashback",
+		},
+		category: "Software",
+	},
+	{
+		name: "Admission Scraper",
+		discription:
+			"This project is designed to automate the collection, processing, and storage of university admission announcements.",
+		image: AdmissionScraperImage,
+		tech: ["Python", "FastAPI", "Gemini", "PostgreSQL"],
+		techIcons: [PythonIcon, FastAPIIcon, GeminiIcon, PostgreSQLIcon],
+		links: {
+			site: "https://mahek2905.github.io/admission-spider",
+			repo: "https://github.com/yagnikpt/admission-scraper",
+		},
+		category: "Fullstack",
+	},
+	{
+		name: "Mangasss",
+		discription:
+			"A manga reader app where you can find whatever manga you want to read.",
+		image: MangaReaderImage,
+		tech: ["Svelte", "TailwindCSS"],
+		techIcons: [SvelteIcon, TailwindCSSIcon],
+		links: {
+			site: "https://mangasss.vercel.app",
+		},
+		category: "App",
+	},
 	{
 		name: "fzf",
 		discription:
 			"A classic fuzzy finder CLI tool that I built while exploring Go.",
-		image: FzfCli,
+		image: FzfCliImage,
 		tech: ["Go", "Bubbletea"],
 		techIcons: [GoIcon],
 		links: {
-			repo: "https://github.com/yagnik-patel-47/fzf-cli",
+			repo: "https://github.com/yagnikpt/fzf-cli",
 		},
 		category: "Software",
 	},
@@ -48,27 +91,15 @@ export const projects = [
 		category: "Real World",
 	},
 	{
-		name: "Mangasss",
-		discription:
-			"A manga reader app where you can find whatever manga you want to read.",
-		image: MangaReaderImage,
-		tech: ["Svelte", "TailwindCSS"],
-		techIcons: [SvelteIcon, TailwindCSSIcon],
-		links: {
-			site: "https://mangasss.vercel.app",
-		},
-		category: "App",
-	},
-	{
 		name: "PvP Rock Paper Scissors",
 		discription:
 			"A multiplayer online game developed using Deno KV and Socket.IO.",
 		image: RPSImage,
-		tech: ["Deno", "Socket.io", "Svelte"],
-		techIcons: [DenoIcon, SocketIOIcon, SvelteIcon],
+		tech: ["Bun", "Socket.io", "Svelte"],
+		techIcons: [BunIcon, SocketIOIcon, SvelteIcon],
 		links: {
 			site: "https://pvp-rps.vercel.app",
-			repo: "https://github.com/yagnik-patel-47/pvp-rps-server",
+			repo: "https://github.com/yagnikpt/pvp-rps-server",
 		},
 		category: "Fullstack",
 	},
@@ -81,7 +112,7 @@ export const projects = [
 		techIcons: [ReactIcon, MotionIcon],
 		links: {
 			site: "https://ps5-home-screen.vercel.app",
-			repo: "https://github.com/yagnik-patel-47/ps5-home-screen",
+			repo: "https://github.com/yagnikpt/ps5-home-screen",
 		},
 		category: "Animation",
 	},
@@ -93,7 +124,7 @@ export const projects = [
 		techIcons: [ReactIcon, MotionIcon],
 		links: {
 			site: "https://animated0casestudy.vercel.app",
-			repo: "https://github.com/yagnik-patel-47/animated_casestudy",
+			repo: "https://github.com/yagnikpt/animated_casestudy",
 		},
 		category: "Animation",
 	},
@@ -105,7 +136,7 @@ export const projects = [
 		techIcons: [AstroIcon, GSAPIcon, TailwindCSSIcon],
 		links: {
 			site: "https://jp-display.vercel.app",
-			repo: "https://github.com/yagnik-patel-47/jp_display",
+			repo: "https://github.com/yagnikpt/jp_display",
 		},
 		category: "Animation",
 	},
@@ -114,27 +145,21 @@ export const projects = [
 		discription:
 			"A social media app clone featuring basic functionalities similar to Instagram.",
 		image: SMAImage,
-		tech: ["Nextjs", "Firebase", "Typescript", "Redux"],
-		techIcons: [NextjsIcon, FirebaseIcon, TypescriptIcon, ReduxIcon],
+		tech: ["Nextjs", "Firebase", "Typescript"],
+		techIcons: [NextjsIcon, FirebaseIcon, TypescriptIcon],
 		links: {
 			site: "https://moments-sma.vercel.app",
-			repo: "https://github.com/Yagnik-Patel-47/social-media-app",
+			repo: "https://github.com/yagnikpt/social-media-app",
 		},
 		category: "Fullstack",
 	},
 ];
 
-export const featuredProjects = [projects[0], projects[1], projects[2]];
-
-export const realWorldProjects = projects.filter(
-	(project) => project.category === "real-world",
-);
-export const fullstackProjects = projects.filter(
-	(project) => project.category === "fullstack",
-);
-export const staticProjects = projects.filter(
-	(project) => project.category === "static",
-);
-export const appProjects = projects.filter(
-	(project) => project.category === "app",
-);
+export const featuredProjects = [
+	projects[0],
+	projects[1],
+	projects[2],
+	projects[3],
+	projects[4],
+	projects[5],
+];

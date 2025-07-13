@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, LayoutGroup, MotionConfig } from "motion/react";
-import { projects } from "@/lib/projects-data";
+import { projects, featuredProjects } from "@/lib/projects-data";
 import ProjectCard from "@/components/project-card";
 import { useState } from "react";
 import { FunnelIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -30,7 +30,7 @@ export default function ProjectsView() {
 									.map((project) => (
 										<ProjectCard key={project.name} project={project} />
 									))
-							: projects.map((project) => (
+							: featuredProjects.map((project) => (
 									<ProjectCard key={project.name} project={project} />
 								))}
 					</AnimatePresence>
@@ -84,12 +84,20 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 										<m.span layout="position" className="inline-block text-sm">
 											{activeFilter ? "Reset" : "Close"}
 										</m.span>
-										<MXMarkIcon strokeWidth={2} layoutId="icon" className="size-4" />
+										<MXMarkIcon
+											strokeWidth={2}
+											layoutId="icon"
+											className="size-4"
+										/>
 									</>
 								) : (
 									<>
 										<m.span className="sr-only">Filter</m.span>
-										<MFunnelIcon strokeWidth={2} layoutId="icon" className="size-4" />
+										<MFunnelIcon
+											strokeWidth={2}
+											layoutId="icon"
+											className="size-4"
+										/>
 									</>
 								)}
 							</m.button>

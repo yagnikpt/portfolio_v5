@@ -16,7 +16,9 @@ const MImage = m.create(Image);
 
 export default function ProjectCard({
 	project,
-}: { project: (typeof featuredProjects)[number] }) {
+}: {
+	project: (typeof featuredProjects)[number];
+}) {
 	const [expanded, setExpanded] = useState(false);
 
 	return (
@@ -132,7 +134,7 @@ export default function ProjectCard({
 					>
 						<MImage
 							layout
-							className="w-full object-cover rounded-2xl"
+							className="w-full object-cover rounded-2xl aspect-[3/2] object-left-top"
 							src={project.image}
 							alt={project.name}
 							priority
