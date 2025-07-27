@@ -9,7 +9,7 @@ export default function CopyMailButton() {
 	const isHovering = useRef(false);
 
 	function handleClick() {
-		navigator.clipboard.writeText("hello@yagnik.me");
+		navigator.clipboard.writeText("yagnik.pt@gmail.com");
 		setState("clicked");
 
 		if (timeoutRef.current) {

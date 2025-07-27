@@ -6,7 +6,7 @@ import SMAImage from "@/assets/projects/sma.webp";
 import MangaReaderImage from "@/assets/projects/mangareader.webp";
 import PS5Image from "@/assets/projects/ps5.webp";
 import FzfCliImage from "@/assets/projects/fzf_cli.webp";
-import FlashbackImage from "@/assets/projects/flashback.gif";
+import FlashbackImage from "@/assets/projects/flashback.webp";
 import AdmissionScraperImage from "@/assets/projects/admission_scraper.webp";
 
 import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
@@ -52,7 +52,7 @@ export const projects = [
 			site: "https://mahek2905.github.io/admission-spider",
 			repo: "https://github.com/yagnikpt/admission-scraper",
 		},
-		category: "Fullstack",
+		category: "Real World",
 	},
 	{
 		name: "Mangasss",

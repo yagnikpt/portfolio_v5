@@ -5,16 +5,12 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import SiteHeader from "@/components/header";
 import CopyMailButton from "@/components/copy-mail";
-import {
-	CodeBracketIcon,
-	CursorArrowRaysIcon,
-} from "@heroicons/react/24/outline";
 import Separator from "@/components/separator";
 import Image from "next/image";
 import PinterestIcon from "@/assets/icons/social/pinterest.svg";
 import BentoIcon from "@/assets/icons/social/bento.svg";
-import PythonIcon from "@/assets/icons/skill/python.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
+import { CogIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 
 const parent = {
 	hidden: {},
@@ -58,41 +54,42 @@ export default function HomeView({ lastPlayed }: Props) {
 			>
 				<SiteHeader />
 				<div className="text-xl space-y-4 mt-10">
-					<AnimatedText className="leading-snug text-stone-800 font-medium">
-						Hey, I'm Yagnik Patel.
-						{/* I am<span className="text-stone-800 font-medium">Yagnik</span> */}
-					</AnimatedText>
-					<AnimatedText className="leading-snug">
-						With a keen eye for design and a passion for coding, I fuse
-						aesthetics with functionality to create compelling
+					<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+						{/* Hey, I'm Yagnik Patel. */}
+						Hi, I’m Yagnik — a computer science student learning how to{" "}
 						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							digital experiences.
+							building systems
 							<IconHoverMicroInteraction
 								rotate={8}
-								tooltip="Check my projects and UI Bits :)"
+								tooltip="I thrive on understanding how things work at a deeper level."
+								className="bg-blue-500 [&_.icon-background]:bg-blue-500"
+							>
+								<CogIcon className="size-4 text-white" />
+							</IconHoverMicroInteraction>
+						</span>{" "}
+						that are both efficient and elegant. I enjoy exploring the
+						intersection of backend engineering, DevOps, and automation.
+						{/* I am<span className="text-stone-800 font-medium">Yagnik</span> */}
+					</AnimatedText>
+					<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+						Beyond backend systems, I have a keen eye for great design and
+						occasionally enjoy replicating{" "}
+						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+							beautiful UIs
+							<IconHoverMicroInteraction
+								rotate={8}
+								tooltip="click the flask icon in the dock :)"
 								className="bg-orange-500 [&_.icon-background]:bg-orange-500"
 							>
-								<CursorArrowRaysIcon className="size-[14px] text-white" />
+								<CursorArrowRaysIcon className="size-4 text-white" />
 							</IconHoverMicroInteraction>
-						</span>
-						As a versatile
-						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							frontend developer,
-							<IconHoverMicroInteraction
-								rotate={-8}
-								tooltip="Crafting subtle UI experiences that are both performant and intuitive."
-								className="bg-purple-500 [&_.icon-background]:bg-purple-500"
-							>
-								<CodeBracketIcon className="size-[14px] text-white" />
-							</IconHoverMicroInteraction>
-						</span>
-						I specialize in turning innovative ideas into interactive,
-						user-friendly interfaces.
+						</span>{" "}
+						through code. For me, it’s all about blending functionality with
+						simplicity while keeping performance at the core.
 					</AnimatedText>
-					<AnimatedText className="leading-snug">
-						As I dive deeper into computer science, I plan to take on freelance
-						work to gain real-world experience and strengthen my collaboration
-						skills. I have completed few jobs on{" "}
+					<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+						I’m also open to freelance work and love collaborating on meaningful
+						projects. I offer my services on{" "}
 						<span className="inline-block relative group/upwork">
 							<a
 								target="_blank"
@@ -110,9 +107,28 @@ export default function HomeView({ lastPlayed }: Props) {
 							>
 								upwork
 							</a>
+						</span>{" "}
+						and{" "}
+						<span className="inline-block relative group/contra">
+							<a
+								target="_blank"
+								rel="noreferrer"
+								href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
+								className="relative text-stone-800 font-medium px-1"
+							>
+								contra.
+							</a>
+							<a
+								target="_blank"
+								rel="noreferrer"
+								href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
+								className="absolute inset-y-0 inset-x-1 bg-[#F2C94B] text-black z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/contra:[clip-path:inset(0%_0%_0%_0%)] group-hover/contra:inset-x-0 duration-200 ease-in-out"
+							>
+								contra.
+							</a>
 						</span>
-						and I&apos;m looking forward to taking on more challenging projects
-						that will help me grow as a developer.
+						{`If you have a project in mind, I’d love to hear about
+						it.`}
 					</AnimatedText>
 				</div>
 				<m.div
@@ -129,24 +145,19 @@ export default function HomeView({ lastPlayed }: Props) {
 			<Separator className="mt-8" text="Extra Gists" />
 			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
 				<p>
-					creating software tools and services with{" "}
+					enjoy creating software tools and services with{" "}
 					<span className="inline-block">
 						<GoIcon className="size-7 inline-block" />.
+						<span className="sr-only">Go</span>
 					</span>
 				</p>
-				<p>
-					heavily interested and learning system design, low-level concepts, and
-					building SaaS applications 💸.
-				</p>
-				<p>
-					low-key interested in data analysis{" "}
-					<PythonIcon className="size-4 inline-block" /> and LLMs.
-				</p>
+				<p>awesome with nextjs, svelte, and other frameworks and tools.</p>
+				<p>low-key interested in DL and LLMs.</p>
 			</div>
 			<Separator className="mt-8" text="About Me" />
 			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
 				<p>
-					I&apos;m a 2nd-year computer science student at KPGU. Though I mostly
+					I&apos;m a 3rd-year computer science student at KPGU. Though I mostly
 					learn and grow for my career on my own, as it&apos;s a typical tier-3
 					college.
 				</p>
@@ -190,7 +201,7 @@ export default function HomeView({ lastPlayed }: Props) {
 const SpotifyLastListened = ({ lastPlayed }: Props) => {
 	const timeAgo = (() => {
 		const date = new Date(lastPlayed.playedAt);
-		const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);
+		const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
 
 		let interval = seconds / 31536000;
 		if (interval > 1) return `${Math.floor(interval)} years ago`;
