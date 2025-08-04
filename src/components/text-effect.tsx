@@ -17,7 +17,7 @@ const variant = {
 	hidden: {
 		opacity: 0,
 		filter: "blur(2px)",
-		y: 7.5,
+		y: 5,
 	},
 	visible: {
 		opacity: 1,

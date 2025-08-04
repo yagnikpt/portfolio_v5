@@ -1,6 +1,6 @@
 "use client";
 import AnimatedText from "@/components/text-effect";
-import { AnimatePresence, motion as m } from "motion/react";
+import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import SiteHeader from "@/components/header";
@@ -44,157 +44,159 @@ interface Props {
 
 export default function HomeView({ lastPlayed }: Props) {
 	return (
-		<div className="flex flex-col items-center max-w-lg mx-auto px-8 pb-32">
-			<m.main
-				variants={parent}
-				whileInView="visible"
-				initial="hidden"
-				viewport={{ once: true }}
-				className="flex flex-col min-h-svh justify-center py-12 text-stone-500 tracking-tight"
-			>
-				<SiteHeader />
-				<div className="text-xl space-y-4 mt-10">
-					<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
-						{/* Hey, I'm Yagnik Patel. */}
-						Hi, I’m Yagnik — a computer science student learning how to{" "}
-						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							building systems
-							<IconHoverMicroInteraction
-								rotate={8}
-								tooltip="I thrive on understanding how things work at a deeper level."
-								className="bg-blue-500 [&_.icon-background]:bg-blue-500"
-							>
-								<CogIcon className="size-4 text-white" />
-							</IconHoverMicroInteraction>
-						</span>{" "}
-						that are both efficient and elegant. I enjoy exploring the
-						intersection of backend engineering, DevOps, and automation.
-						{/* I am<span className="text-stone-800 font-medium">Yagnik</span> */}
-					</AnimatedText>
-					<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
-						Beyond backend systems, I have a keen eye for great design and
-						occasionally enjoy replicating{" "}
-						<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-							beautiful UIs
-							<IconHoverMicroInteraction
-								rotate={8}
-								tooltip="click the flask icon in the dock :)"
-								className="bg-orange-500 [&_.icon-background]:bg-orange-500"
-							>
-								<CursorArrowRaysIcon className="size-4 text-white" />
-							</IconHoverMicroInteraction>
-						</span>{" "}
-						through code. For me, it’s all about blending functionality with
-						simplicity while keeping performance at the core.
-					</AnimatedText>
-					<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
-						I’m also open to freelance work and love collaborating on meaningful
-						projects. I offer my services on{" "}
-						<span className="inline-block relative group/upwork">
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-								className="relative text-stone-800 font-medium px-1"
-							>
-								upwork
-							</a>
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-								className="absolute inset-y-0 inset-x-1 bg-green-600 text-white z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/upwork:[clip-path:inset(0%_0%_0%_0%)] group-hover/upwork:inset-x-0 duration-200 ease-in-out"
-							>
-								upwork
-							</a>
-						</span>{" "}
-						and{" "}
-						<span className="inline-block relative group/contra">
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
-								className="relative text-stone-800 font-medium px-1"
-							>
-								contra.
-							</a>
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
-								className="absolute inset-y-0 inset-x-1 bg-[#F2C94B] text-black z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/contra:[clip-path:inset(0%_0%_0%_0%)] group-hover/contra:inset-x-0 duration-200 ease-in-out"
-							>
-								contra.
-							</a>
-						</span>
-						{`If you have a project in mind, I’d love to hear about
-						it.`}
-					</AnimatedText>
-				</div>
-				<m.div
-					variants={item}
-					transition={{ duration: 0.35, type: "spring" }}
-					className="flex justify-between items-center bg-[#ececee] p-1 rounded-full mt-8"
+		<MotionConfig reducedMotion="user">
+			<div className="flex flex-col items-center max-w-lg mx-auto px-8 pb-32">
+				<m.main
+					variants={parent}
+					whileInView="visible"
+					initial="hidden"
+					viewport={{ once: true }}
+					className="flex flex-col min-h-svh justify-center py-12 text-stone-500 tracking-tight"
 				>
-					<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">
-						Want to connect?
+					<SiteHeader />
+					<div className="text-xl space-y-4 mt-10">
+						<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+							{/* Hey, I'm Yagnik Patel. */}
+							Hi, I’m Yagnik — a computer science student learning how to{" "}
+							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+								building systems
+								<IconHoverMicroInteraction
+									rotate={8}
+									tooltip="I thrive on understanding how things work at a deeper level."
+									className="bg-blue-500 [&_.icon-background]:bg-blue-500"
+								>
+									<CogIcon className="size-4 text-white" />
+								</IconHoverMicroInteraction>
+							</span>{" "}
+							that are both efficient and elegant. I enjoy exploring the
+							intersection of backend engineering, DevOps, and automation.
+							{/* I am<span className="text-stone-800 font-medium">Yagnik</span> */}
+						</AnimatedText>
+						<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+							Beyond backend systems, I have a keen eye for great design and
+							occasionally enjoy replicating{" "}
+							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
+								beautiful UIs
+								<IconHoverMicroInteraction
+									rotate={8}
+									tooltip="click the flask icon in the dock :)"
+									className="bg-orange-500 [&_.icon-background]:bg-orange-500"
+								>
+									<CursorArrowRaysIcon className="size-4 text-white" />
+								</IconHoverMicroInteraction>
+							</span>{" "}
+							through code.
+						</AnimatedText>
+						<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+							I’m also open to freelance work and love collaborating on
+							meaningful projects. I offer my services on{" "}
+							<span className="inline-block relative group/upwork">
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+									className="relative text-stone-800 font-medium px-1"
+								>
+									upwork
+								</a>
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
+									className="absolute inset-y-0 inset-x-1 bg-green-600 text-white z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/upwork:[clip-path:inset(0%_0%_0%_0%)] group-hover/upwork:inset-x-0 duration-200 ease-in-out"
+								>
+									upwork
+								</a>
+							</span>{" "}
+							and{" "}
+							<span className="inline-block relative group/contra">
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
+									className="relative text-stone-800 font-medium px-1"
+								>
+									contra.
+								</a>
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
+									className="absolute inset-y-0 inset-x-1 bg-[#F2C94B] text-black z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/contra:[clip-path:inset(0%_0%_0%_0%)] group-hover/contra:inset-x-0 duration-200 ease-in-out"
+								>
+									contra.
+								</a>
+							</span>
+							{`If you have a project in mind, I’d love to hear about
+						it.`}
+						</AnimatedText>
+					</div>
+					<m.div
+						variants={item}
+						transition={{ duration: 0.35, type: "spring" }}
+						className="flex justify-between items-center bg-[#ececee] p-1 rounded-full mt-8"
+					>
+						<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">
+							Want to connect?
+						</p>
+						<CopyMailButton />
+					</m.div>
+				</m.main>
+				<Separator className="mt-8" text="Extra Gists" />
+				<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+					<p>
+						enjoy creating software tools and services with{" "}
+						<span className="inline-block">
+							<GoIcon className="size-7 inline-block" />
+							<span className="sr-only">Go</span>
+						</span>
+						.
 					</p>
-					<CopyMailButton />
-				</m.div>
-			</m.main>
-			<Separator className="mt-8" text="Extra Gists" />
-			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
-				<p>
-					enjoy creating software tools and services with{" "}
-					<span className="inline-block">
-						<GoIcon className="size-7 inline-block" />.
-						<span className="sr-only">Go</span>
-					</span>
-				</p>
-				<p>awesome with nextjs, svelte, and other frameworks and tools.</p>
-				<p>low-key interested in DL and LLMs.</p>
+					<p>awesome with nextjs, svelte, and other frameworks and tools.</p>
+					<p>low-key interested in DL and LLMs.</p>
+				</div>
+				<Separator className="mt-8" text="About Me" />
+				<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+					<p>
+						I&apos;m a 3rd-year computer science student at KPGU. Though I
+						mostly learn and grow for my career on my own, as it&apos;s a
+						typical tier-3 college.
+					</p>
+					<p>
+						Besides computers, I also enjoy basketball, F1 racing, hip-hop
+						music, and touching grass.
+					</p>
+				</div>
+				<Separator className="mt-8" text="Social Dump" />
+				<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+					<SpotifyLastListened lastPlayed={lastPlayed} />
+					<p>
+						My imagination, my inspiration, actually it&apos;s my escape &mdash;
+						<a
+							className="underline decoration-wavy underline-offset-2 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
+							target="_blank"
+							rel="noreferrer"
+							href="https://pin.it/5pUJO7tB6"
+						>
+							<PinterestIcon className="text-[#CB1F27] inline-block size-5 mx-2" />
+							<span className="text-stone-800 font-medium">Pinterest</span>
+						</a>
+					</p>
+					<p>
+						I like Bento, so here&apos;s mine &mdash;
+						<a
+							className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
+							target="_blank"
+							rel="noreferrer"
+							href="https://bento.me/yagnik"
+						>
+							<BentoIcon className="inline-block size-5 mx-2" />
+							<span className="text-stone-800 font-medium">Bento</span>
+						</a>
+					</p>
+				</div>
 			</div>
-			<Separator className="mt-8" text="About Me" />
-			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
-				<p>
-					I&apos;m a 3rd-year computer science student at KPGU. Though I mostly
-					learn and grow for my career on my own, as it&apos;s a typical tier-3
-					college.
-				</p>
-				<p>
-					Besides computers, I also enjoy basketball, F1 racing, hip-hop music,
-					and touching grass.
-				</p>
-			</div>
-			<Separator className="mt-8" text="Social Dump" />
-			<div className="mt-8 text-stone-700 md:text-lg space-y-4">
-				<SpotifyLastListened lastPlayed={lastPlayed} />
-				<p>
-					My imagination, my inspiration, actually it&apos;s my escape &mdash;
-					<a
-						className="underline decoration-wavy underline-offset-2 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
-						target="_blank"
-						rel="noreferrer"
-						href="https://pin.it/5pUJO7tB6"
-					>
-						<PinterestIcon className="text-[#CB1F27] inline-block size-5 mx-2" />
-						<span className="text-stone-800 font-medium">Pinterest</span>
-					</a>
-				</p>
-				<p>
-					I like Bento, so here&apos;s mine &mdash;
-					<a
-						className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
-						target="_blank"
-						rel="noreferrer"
-						href="https://bento.me/yagnik"
-					>
-						<BentoIcon className="inline-block size-5 mx-2" />
-						<span className="text-stone-800 font-medium">Bento</span>
-					</a>
-				</p>
-			</div>
-		</div>
+		</MotionConfig>
 	);
 }
 

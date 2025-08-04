@@ -60,7 +60,7 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 				<AnimatePresence>
 					<m.div
 						layout="size"
-						className="flex flex-row-reverse flex-wrap gap-2 mb-12 w-full lg:px-8 max-w-lg"
+						className="flex flex-row-reverse flex-wrap gap-2 mb-12 w-full lg:px-8 max-w-md"
 					>
 						<m.div layout="size" className="relative">
 							<m.button
