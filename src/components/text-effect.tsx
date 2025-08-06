@@ -8,7 +8,7 @@ interface AnimatedTextProps {
 }
 
 const AnimatedText = ({ children, className = "" }: AnimatedTextProps) => {
-	return <p className={className}>{split(children)}</p>;
+	return <p className={cn(className, "text-pretty")}>{split(children)}</p>;
 };
 
 export default AnimatedText;

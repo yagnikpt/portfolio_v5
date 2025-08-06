@@ -2,7 +2,7 @@
 import AnimatedText from "@/components/text-effect";
 import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import SiteHeader from "@/components/header";
 import CopyMailButton from "@/components/copy-mail";
 import Separator from "@/components/separator";
@@ -61,7 +61,7 @@ export default function HomeView({ lastPlayed }: Props) {
 							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
 								building systems
 								<IconHoverMicroInteraction
-									rotate={8}
+									rotate={-8}
 									tooltip="I thrive on understanding how things work at a deeper level."
 									className="bg-blue-500 [&_.icon-background]:bg-blue-500"
 								>
@@ -143,7 +143,7 @@ export default function HomeView({ lastPlayed }: Props) {
 					</m.div>
 				</m.main>
 				<Separator className="mt-8" text="Extra Gists" />
-				<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+				<div className="mt-8 text-stone-700 md:text-lg space-y-4 text-pretty">
 					<p>
 						enjoy creating software tools and services with{" "}
 						<span className="inline-block">
@@ -156,7 +156,7 @@ export default function HomeView({ lastPlayed }: Props) {
 					<p>low-key interested in DL and LLMs.</p>
 				</div>
 				<Separator className="mt-8" text="About Me" />
-				<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+				<div className="mt-8 text-stone-700 md:text-lg space-y-4 text-pretty">
 					<p>
 						I&apos;m a 3rd-year computer science student at KPGU. Though I
 						mostly learn and grow for my career on my own, as it&apos;s a
@@ -265,11 +265,23 @@ const IconHoverMicroInteraction = ({
 	rotate,
 }: IconHoverMicroInteractionProps) => {
 	const [isHovered, setIsHovered] = useState(false);
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+	function open() {
+		timeoutRef.current = setTimeout(() => {
+			setIsHovered(true);
+		}, 250);
+	}
+
+	function close() {
+		clearTimeout(timeoutRef.current || undefined);
+		setIsHovered(false);
+	}
 
 	return (
 		<m.span
-			onHoverStart={() => setIsHovered(true)}
-			onHoverEnd={() => setIsHovered(false)}
+			onHoverStart={open}
+			onHoverEnd={close}
 			style={{ rotate: `${rotate ?? 0}deg` }}
 			className={cn(
 				"inline-flex justify-center items-center w-fit rounded-md relative size-5",

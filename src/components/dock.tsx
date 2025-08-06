@@ -17,7 +17,6 @@ import { Link } from "next-view-transitions";
 import { useState } from "react";
 import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
 import GithubIcon from "@/assets/icons/social/github.svg";
-// import BlueskyIcon from "@/assets/icons/social/bluesky.svg";
 import XIcon from "@/assets/icons/social/x.svg";
 import LinkedinIcon from "@/assets/icons/social/linkedin.svg";
 import InstagramIcon from "@/assets/icons/social/instagram.svg";
@@ -64,7 +63,6 @@ export default function Dock() {
 		>
 			<m.div
 				className="fixed bottom-8 z-100 rounded-full"
-				// style={{ viewTransitionName: "dock" }}
 				layoutRoot
 				onHoverEnd={() => setCurrentHover(null)}
 			>
@@ -173,6 +171,14 @@ function DockButton({
 			onClick={onClick}
 			layout
 			className="p-2 rounded-lg relative"
+			initial={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
+			exit={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
+			animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
+			transition={{
+				opacity: { duration: 0.25 },
+				scale: { duration: 0.3 },
+				filter: { duration: 0.25 },
+			}}
 		>
 			<AnimatePresence>
 				{currentHover === label && (
@@ -224,6 +230,14 @@ function DockLink({
 			layout
 			href={href}
 			className="rounded-lg relative size-10 grid place-content-center cursor-default"
+			initial={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
+			exit={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
+			animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
+			transition={{
+				opacity: { duration: 0.25 },
+				scale: { duration: 0.3 },
+				filter: { duration: 0.25 },
+			}}
 		>
 			<AnimatePresence>
 				{currentHover === label && (
