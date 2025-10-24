@@ -1,13 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	// output: "export",
+	// output: "",
 	images: {
 		remotePatterns: [
 			{
 				hostname: "i.scdn.co",
 			},
 		],
+		qualities: [75, 100],
 	},
 	turbopack: {
 		rules: {
@@ -24,10 +25,7 @@ const nextConfig: NextConfig = {
 			},
 		},
 	},
-	experimental: {
-		reactCompiler: true,
-	},
-	// images: { unoptimized: true },
+	reactCompiler: true,
 	webpack(config) {
 		// Grab the existing rule that handles SVG imports
 		const fileLoaderRule = config.module.rules.find(
@@ -71,9 +69,6 @@ const nextConfig: NextConfig = {
 
 		return config;
 	},
-	// eslint: {
-	// 	ignoreDuringBuilds: true,
-	// },
 };
 
 export default nextConfig;

@@ -4,6 +4,7 @@ import { projects, featuredProjects } from "@/lib/projects-data";
 import ProjectCard from "@/components/project-card";
 import { useState } from "react";
 import { FunnelIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { SquareActivity } from "lucide-react";
 import { motion as m } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +19,17 @@ export default function ProjectsView() {
 				Here you can find select work that I have been working on recently.
 			</p>
 			<LayoutGroup>
+				<div className="max-w-md w-full lg:px-8 flex justify-end mb-2">
+					<a
+						className="px-4 py-1 flex items-center rounded-full bg-zinc-200 text-sm font-medium text-zinc-800 gap-1"
+						href="https://nx1hybj1.status.cron-job.org"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<SquareActivity className="size-4" />
+						<span className="text-sm">Projects Health Monitor</span>
+					</a>
+				</div>
 				<Filters
 					activeFilter={activeFilter}
 					setActiveFilter={setActiveFilter}

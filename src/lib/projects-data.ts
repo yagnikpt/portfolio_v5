@@ -8,6 +8,7 @@ import PS5Image from "@/assets/projects/ps5.webp";
 import FzfCliImage from "@/assets/projects/fzf_cli.webp";
 import FlashbackImage from "@/assets/projects/flashback.webp";
 import AdmissionScraperImage from "@/assets/projects/admission_scraper.webp";
+import WhRelayImage from "@/assets/projects/whrelay.webp";
 
 import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
 import SvelteIcon from "@/assets/icons/skill/svelte.svg";
@@ -27,6 +28,7 @@ import SqliteIcon from "@/assets/icons/skill/sqlite.svg";
 import PythonIcon from "@/assets/icons/skill/python.svg";
 import FastAPIIcon from "@/assets/icons/skill/fastapi.svg";
 import PostgreSQLIcon from "@/assets/icons/skill/postgresql.svg";
+import AzureIcon from "@/assets/icons/skill/azure.svg";
 
 export const projects = [
 	{
@@ -46,8 +48,8 @@ export const projects = [
 		discription:
 			"This project is designed to automate the collection, processing, and storage of university admission announcements.",
 		image: AdmissionScraperImage,
-		tech: ["Python", "FastAPI", "Gemini", "PostgreSQL"],
-		techIcons: [PythonIcon, FastAPIIcon, GeminiIcon, PostgreSQLIcon],
+		tech: ["Python", "FastAPI", "Azure", "Gemini", "PostgreSQL"],
+		techIcons: [PythonIcon, FastAPIIcon, AzureIcon, GeminiIcon, PostgreSQLIcon],
 		links: {
 			site: "https://mahek2905.github.io/admission-spider",
 			repo: "https://github.com/yagnikpt/admission-scraper",
@@ -65,6 +67,18 @@ export const projects = [
 			site: "https://mangasss.vercel.app",
 		},
 		category: "App",
+	},
+	{
+		name: "whrelay",
+		discription:
+			"A lightweight, self-hosted webhook relay server written in Go.",
+		image: WhRelayImage,
+		tech: ["Go", "Azure"],
+		techIcons: [GoIcon, AzureIcon],
+		links: {
+			repo: "https://github.com/yagnikpt/webhook-relay",
+		},
+		category: "Software",
 	},
 	{
 		name: "fzf",
@@ -162,4 +176,5 @@ export const featuredProjects = [
 	projects[3],
 	projects[4],
 	projects[5],
+	projects[6],
 ];
