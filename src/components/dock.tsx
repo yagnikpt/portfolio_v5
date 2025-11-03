@@ -62,13 +62,13 @@ export default function Dock() {
 			reducedMotion="user"
 		>
 			<m.div
-				className="fixed bottom-8 z-100 rounded-full"
+				className="fixed bottom-4 md:bottom-8 z-100 rounded-full"
 				layoutRoot
 				onHoverEnd={() => setCurrentHover(null)}
 			>
 				<m.div
 					layout
-					className="px-2 py-1 lg:p-1 overflow-hidden ring ring-inset ring-zinc-950/35 inset-shadow-2xs text-zinc-200 bg-zinc-950/70 backdrop-blur-xs"
+					className="px-2 py-1 lg:p-1 overflow-hidden ring ring-inset ring-zinc-950/35 inset-shadow-2xs text-zinc-200 bg-neutral-800"
 					style={{ borderRadius: 28 }}
 				>
 					<div className="flex items-center rounded-full overflow-hidden">
@@ -124,7 +124,7 @@ export default function Dock() {
 									/>
 									<m.div
 										layout
-										className="h-7 lg:h-6 w-[1px] mx-0.5 bg-white/10"
+										className="h-7 lg:h-6 w-px mx-0.5 bg-white/10"
 									/>
 									{socials.map((social) => (
 										<DockLink

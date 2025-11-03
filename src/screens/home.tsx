@@ -111,8 +111,17 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 							intersection of backend engineering, DevOps, and automation.
 						</m.div>
 						<m.div
+							id="second-para"
 							variants={item}
 							className="leading-snug hover:text-stone-900 transition-colors duration-200"
+							onAnimationComplete={(definition) => {
+								if (definition === "visible") {
+									const el = document.querySelector(
+										"#second-para",
+									) as HTMLElement;
+									el.style.maskImage = "none";
+								}
+							}}
 						>
 							Beyond backend systems, I have a keen eye for great design and
 							occasionally enjoy replicating{" "}
@@ -129,13 +138,13 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 							through code.
 						</m.div>
 						<m.div
-							id="second-para"
+							id="third-para"
 							variants={item}
 							className="leading-snug hover:text-stone-900 transition-colors duration-200"
 							onAnimationComplete={(definition) => {
 								if (definition === "visible") {
 									const el = document.querySelector(
-										"#second-para",
+										"#third-para",
 									) as HTMLElement;
 									el.style.maskImage = "none";
 								}
@@ -156,7 +165,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 									target="_blank"
 									rel="noreferrer"
 									href="https://www.upwork.com/freelancers/~01f8c7c6337339b0ee?mp_source=share"
-									className="absolute inset-y-0 inset-x-1 bg-green-600 text-white z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/upwork:[clip-path:inset(0%_0%_0%_0%)] group-hover/upwork:inset-x-0 duration-200 ease-in-out"
+									className="absolute inset-y-0 inset-x-1 bg-green-600 text-white z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(93%_0%_0%_0%)] group-hover/upwork:[clip-path:inset(0%_0%_0%_0%)] group-hover/upwork:inset-x-0 duration-200 ease-in-out"
 								>
 									upwork
 								</a>
@@ -175,7 +184,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 									target="_blank"
 									rel="noreferrer"
 									href="https://contra.com/yagnikpt_xtet44je?referralExperimentNid=SOCIAL_REFERRAL_PROGRAM&referrerUsername=yagnikpt_xtet44je"
-									className="absolute inset-y-0 inset-x-1 bg-[#F2C94B] text-black z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(92.5%_0%_0%_0%)] group-hover/contra:[clip-path:inset(0%_0%_0%_0%)] group-hover/contra:inset-x-0 duration-200 ease-in-out"
+									className="absolute inset-y-0 inset-x-1 bg-[#F2C94B] text-black z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(93%_0%_0%_0%)] group-hover/contra:[clip-path:inset(0%_0%_0%_0%)] group-hover/contra:inset-x-0 duration-200 ease-in-out"
 								>
 									contra.
 								</a>

@@ -61,7 +61,7 @@ export default function DockV2() {
 						layoutId={cKey}
 						className={cn(
 							"relative flex h-12 items-center overflow-hidden px-3 outline-hidden!",
-							"min-w-[var(--width)] bg-neutral-900",
+							"min-w-(--width) bg-neutral-900",
 						)}
 						style={{
 							borderRadius: 40,
@@ -71,7 +71,7 @@ export default function DockV2() {
 						tabIndex={0}
 						onClick={handleOpen}
 					>
-						<div className="absolute bottom-full left-1/2 w-[var(--width)] -translate-x-1/2">
+						<div className="absolute bottom-full left-1/2 w-(--width) -translate-x-1/2">
 							<m.div
 								layoutId={`${iKey}`}
 								layout="position"
@@ -105,7 +105,7 @@ export default function DockV2() {
 									layoutId={`${cKey}`}
 									className={cn(
 										"justify-center overflow-hidden p-2 pb-14",
-										"w-[var(--width-opened)] bg-neutral-900 relative",
+										"w-(--width-opened) bg-neutral-900 relative",
 									)}
 									style={{
 										borderRadius: 24,
