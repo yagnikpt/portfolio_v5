@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	// output: "",
+	// output: "export",
 	images: {
 		remotePatterns: [
 			{

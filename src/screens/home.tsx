@@ -79,7 +79,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					whileInView="visible"
 					initial="hidden"
 					viewport={{ once: true }}
-					className="flex flex-col min-h-svh justify-center py-12 text-stone-500 tracking-tight"
+					className="flex flex-col min-h-dvh justify-center py-12 text-stone-500 tracking-tight"
 				>
 					<SiteHeader />
 					<m.div className="text-xl space-y-4 mt-10">
@@ -236,7 +236,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					<p>
 						My imagination, my inspiration, actually it&apos;s my escape &mdash;
 						<a
-							className="underline decoration-wavy underline-offset-2 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
+							className="underline decoration-wavy underline-offset-2 decoration-stone-400 lg:decoration-stone-300 hover:decoration-[#CB1F27] transition"
 							target="_blank"
 							rel="noreferrer"
 							href="https://pin.it/5pUJO7tB6"
@@ -248,7 +248,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					<p>
 						I like Bento, so here&apos;s mine &mdash;
 						<a
-							className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-stone-500 transition"
+							className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-[#768CFF] transition"
 							target="_blank"
 							rel="noreferrer"
 							href="https://bento.me/yagnik"
