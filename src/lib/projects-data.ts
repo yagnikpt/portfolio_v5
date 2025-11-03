@@ -14,7 +14,6 @@ import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
 import SvelteIcon from "@/assets/icons/skill/svelte.svg";
 import SupabaseIcon from "@/assets/icons/skill/supabase.svg";
 import BunIcon from "@/assets/icons/skill/bun.svg";
-import SocketIOIcon from "@/assets/icons/skill/socketio.svg";
 import ReactIcon from "@/assets/icons/skill/react.svg";
 import AstroIcon from "@/assets/icons/skill/astro.svg";
 import GSAPIcon from "@/assets/icons/skill/gsap.svg";
@@ -29,6 +28,7 @@ import PythonIcon from "@/assets/icons/skill/python.svg";
 import FastAPIIcon from "@/assets/icons/skill/fastapi.svg";
 import PostgreSQLIcon from "@/assets/icons/skill/postgresql.svg";
 import AzureIcon from "@/assets/icons/skill/azure.svg";
+import RedisIcon from "@/assets/icons/skill/redis.svg";
 
 export const projects = [
 	{
@@ -65,6 +65,7 @@ export const projects = [
 		techIcons: [SvelteIcon, TailwindCSSIcon],
 		links: {
 			site: "https://mangasss.vercel.app",
+			repo: "https://github.com/yagnikpt/mangasss",
 		},
 		category: "App",
 	},
@@ -106,11 +107,10 @@ export const projects = [
 	},
 	{
 		name: "PvP Rock Paper Scissors",
-		discription:
-			"A multiplayer online game developed using Deno KV and Socket.IO.",
+		discription: "A multiplayer online game developed using Bun and Redis.",
 		image: RPSImage,
-		tech: ["Bun", "Socket.io", "Svelte"],
-		techIcons: [BunIcon, SocketIOIcon, SvelteIcon],
+		tech: ["Bun", "Redis", "Azure", "Svelte"],
+		techIcons: [BunIcon, RedisIcon, AzureIcon, SvelteIcon],
 		links: {
 			site: "https://pvp-rps.vercel.app",
 			repo: "https://github.com/yagnikpt/pvp-rps-server",

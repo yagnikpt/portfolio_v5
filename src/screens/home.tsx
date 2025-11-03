@@ -1,8 +1,12 @@
 "use client";
-import AnimatedText from "@/components/text-effect";
-import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
+import {
+	AnimatePresence,
+	motion as m,
+	MotionConfig,
+	stagger,
+} from "motion/react";
 import { cn } from "@/lib/utils";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SiteHeader from "@/components/header";
 import CopyMailButton from "@/components/copy-mail";
 import Separator from "@/components/separator";
@@ -11,12 +15,14 @@ import PinterestIcon from "@/assets/icons/social/pinterest.svg";
 import BentoIcon from "@/assets/icons/social/bento.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
 import { CogIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
+import { ActivityCalendar } from "react-activity-calendar";
+import { useMediaQuery } from "usehooks-ts";
 
 const parent = {
 	hidden: {},
 	visible: {
 		transition: {
-			staggerChildren: 0.025,
+			delayChildren: stagger(0.2),
 		},
 	},
 };
@@ -24,11 +30,12 @@ const parent = {
 const item = {
 	hidden: {
 		opacity: 0,
-		y: 7.5,
+		maskImage: "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
 	},
 	visible: {
 		opacity: 1,
-		y: 0,
+		maskImage: "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1))",
+		transition: { duration: 0.5, opacity: { duration: 0.3 } },
 	},
 };
 
@@ -40,9 +47,30 @@ interface Props {
 		playedAt: string;
 		spotifyUrl: string;
 	};
+	contributions: {
+		date: string;
+		count: number;
+		level: number;
+	}[];
 }
 
-export default function HomeView({ lastPlayed }: Props) {
+const gitHubTheme = {
+	dark: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+	light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+};
+
+export default function HomeView({ lastPlayed, contributions }: Props) {
+	const isMobile = useMediaQuery("(max-width: 640px)");
+	const graphRef = useRef<HTMLElement>(null);
+	useEffect(() => {
+		if (graphRef.current) {
+			const svgElement = graphRef.current.querySelector(
+				".react-activity-calendar__calendar",
+			) as HTMLElement;
+			graphRef.current.style.width = "100%";
+			svgElement.setAttribute("width", "100%");
+		}
+	}, []);
 	return (
 		<MotionConfig reducedMotion="user">
 			<div className="flex flex-col items-center max-w-lg mx-auto px-8 pb-32">
@@ -54,9 +82,20 @@ export default function HomeView({ lastPlayed }: Props) {
 					className="flex flex-col min-h-svh justify-center py-12 text-stone-500 tracking-tight"
 				>
 					<SiteHeader />
-					<div className="text-xl space-y-4 mt-10">
-						<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
-							{/* Hey, I'm Yagnik Patel. */}
+					<m.div className="text-xl space-y-4 mt-10">
+						<m.div
+							id="first-para"
+							variants={item}
+							className="leading-snug hover:text-stone-900 transition-colors duration-200 overflow-visible"
+							onAnimationComplete={(definition) => {
+								if (definition === "visible") {
+									const el = document.querySelector(
+										"#first-para",
+									) as HTMLElement;
+									el.style.maskImage = "none";
+								}
+							}}
+						>
 							Hi, I’m Yagnik — a computer science student learning how to{" "}
 							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
 								building systems
@@ -70,9 +109,11 @@ export default function HomeView({ lastPlayed }: Props) {
 							</span>{" "}
 							that are both efficient and elegant. I enjoy exploring the
 							intersection of backend engineering, DevOps, and automation.
-							{/* I am<span className="text-stone-800 font-medium">Yagnik</span> */}
-						</AnimatedText>
-						<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+						</m.div>
+						<m.div
+							variants={item}
+							className="leading-snug hover:text-stone-900 transition-colors duration-200"
+						>
 							Beyond backend systems, I have a keen eye for great design and
 							occasionally enjoy replicating{" "}
 							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
@@ -86,8 +127,20 @@ export default function HomeView({ lastPlayed }: Props) {
 								</IconHoverMicroInteraction>
 							</span>{" "}
 							through code.
-						</AnimatedText>
-						<AnimatedText className="leading-snug hover:text-stone-900 transition-colors duration-200">
+						</m.div>
+						<m.div
+							id="second-para"
+							variants={item}
+							className="leading-snug hover:text-stone-900 transition-colors duration-200"
+							onAnimationComplete={(definition) => {
+								if (definition === "visible") {
+									const el = document.querySelector(
+										"#second-para",
+									) as HTMLElement;
+									el.style.maskImage = "none";
+								}
+							}}
+						>
 							I’m also open to freelance work and love collaborating on
 							meaningful projects. I offer my services on{" "}
 							<span className="inline-block relative group/upwork">
@@ -129,11 +182,21 @@ export default function HomeView({ lastPlayed }: Props) {
 							</span>
 							{`If you have a project in mind, I’d love to hear about
 						it.`}
-						</AnimatedText>
-					</div>
+						</m.div>
+					</m.div>
+					<m.div variants={item} className="mt-8 w-full">
+						<ActivityCalendar
+							ref={graphRef}
+							theme={gitHubTheme}
+							hideColorLegend
+							hideMonthLabels
+							hideTotalCount
+							blockSize={10}
+							data={isMobile ? contributions.slice(49) : contributions}
+						/>
+					</m.div>
 					<m.div
 						variants={item}
-						transition={{ duration: 0.35, type: "spring" }}
 						className="flex justify-between items-center bg-[#ececee] p-1 rounded-full mt-8"
 					>
 						<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">
@@ -200,7 +263,7 @@ export default function HomeView({ lastPlayed }: Props) {
 	);
 }
 
-const SpotifyLastListened = ({ lastPlayed }: Props) => {
+const SpotifyLastListened = ({ lastPlayed }: Omit<Props, "contributions">) => {
 	const timeAgo = (() => {
 		const date = new Date(lastPlayed.playedAt);
 		const seconds = Math.floor((Date.now() - date.getTime()) / 1000);

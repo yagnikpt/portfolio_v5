@@ -65,12 +65,6 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html className={inter.variable} lang="en">
-				{/* <head>
-					<script
-						crossOrigin="anonymous"
-						src="//unpkg.com/react-scan/dist/auto.global.js"
-					/>
-				</head> */}
 				<body className="antialiased font-sans flex justify-center bg-background text-foreground">
 					{children}
 					<Dock />

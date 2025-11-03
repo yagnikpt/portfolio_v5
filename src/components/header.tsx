@@ -6,6 +6,18 @@ import { GlobeAltIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { Link } from "next-view-transitions";
 import { useEffect, useState } from "react";
 
+const item = {
+	hidden: {
+		opacity: 0,
+		maskImage: "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+	},
+	visible: {
+		opacity: 1,
+		maskImage: "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1))",
+		transition: { duration: 0.5, opacity: { duration: 0.3 } },
+	},
+};
+
 export default function SiteHeader() {
 	const [time, setTime] = useState(
 		new Date().toLocaleTimeString("en-US", {
@@ -33,9 +45,15 @@ export default function SiteHeader() {
 
 	return (
 		<m.header
-			style={{ viewTransitionName: "header" }}
+			id="site-header"
 			className="flex justify-between items-center z-10 text-zinc-500 max-w-lg mx-auto w-full"
-			transition={{ type: "spring", bounce: 0 }}
+			variants={item}
+			onAnimationComplete={(definition) => {
+				if (definition === "visible") {
+					const el = document.querySelector("#site-header") as HTMLElement;
+					el.style.maskImage = "none";
+				}
+			}}
 		>
 			<Link href="/">
 				<Image
