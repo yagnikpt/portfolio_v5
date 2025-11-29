@@ -201,7 +201,7 @@ function ClockWidget() {
 				id="seconds"
 				ref={secondsRef}
 				style={{ x: "-50%", y: "-100%" }}
-				className="h-[4.5rem] w-2 absolute left-1/2 top-1/2 rounded-full origin-bottom"
+				className="h-18 w-2 absolute left-1/2 top-1/2 rounded-full origin-bottom"
 			>
 				<div className="size-2 rounded-full bg-red-500" />
 			</m.div>
@@ -221,7 +221,7 @@ function ClockWidget() {
 }
 
 function ChargingWidget() {
-	const [battery, setBattery] = useState("0%");
+	const [battery, setBattery] = useState("75%");
 
 	useEffect(() => {
 		if ("getBattery" in navigator) {
@@ -230,12 +230,11 @@ function ChargingWidget() {
 				if (batteryInfo.level * 100 === 100) setBattery("75%");
 				else setBattery(`${Math.floor(batteryInfo.level * 100)}%`);
 			});
-		} else {
-			setBattery("75%");
 		}
 	}, []);
+
 	return (
-		<m.div className="w-40 aspect-square bg-[#000] text-white flex flex-col gap-4 justify-between p-3 rounded-2xl overflow-hidden">
+		<m.div className="w-40 aspect-square bg-black text-white flex flex-col gap-4 justify-between p-3 rounded-2xl overflow-hidden">
 			<div>
 				<p className="text-xs text-zinc-400 font-medium">Charging...</p>
 				<p className="text-sm font-medium text-zinc-200">

@@ -197,9 +197,9 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 						<ActivityCalendar
 							ref={graphRef}
 							theme={gitHubTheme}
-							hideColorLegend
-							hideMonthLabels
-							hideTotalCount
+							showColorLegend={false}
+							showMonthLabels={false}
+							showTotalCount={false}
 							blockSize={10}
 							data={isMobile ? contributions.slice(49) : contributions}
 						/>

@@ -21,38 +21,34 @@ const inter = Inter({
 	],
 });
 
+const siteUrl =
+	`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` ||
+	"https://yagnik.codes";
+
 export const metadata: Metadata = {
 	title: "/yagnik",
 	description:
 		"A modern portfolio showcasing frontend development projects, UI components, and creative web experiences built with Next and TailwindCSS.",
-	authors: [{ name: "Yagnik Patel", url: "https://x.com/yagnik_pt" }],
+	authors: [{ name: "Yagnik Patel", url: "https://github.com/yagnikpt" }],
 	keywords:
-		"yagnik, yagnik patel, software developer, web developer, frontend developer, Astro, portfolio",
-	metadataBase: new URL("https://yagnik.me"),
+		"yagnik, yagnik patel, software developer, web developer, frontend developer, portfolio",
+	metadataBase: new URL(siteUrl),
 	twitter: {
 		card: "summary_large_image",
-		title: "Yagnik Patel | Software Developer Portfolio",
-		site: "https://yagnik.me",
+		title: "Yagnik Patel",
+		site: siteUrl,
 		creator: "@yagnik_pt",
-		images: "https://yagnik.me/og-image.png",
+		images: `${siteUrl}/og-image.jpg`,
 		description:
 			"A modern portfolio showcasing frontend development projects, UI components, and creative web experiences built with Next and TailwindCSS.",
 	},
 	openGraph: {
 		type: "website",
-		url: "https://yagnik.me",
-		title: "Yagnik Patel | Software Developer Portfolio",
+		url: siteUrl,
+		title: "Yagnik Patel",
 		description:
 			"A modern portfolio showcasing frontend development projects, UI components, and creative web experiences built with Next and TailwindCSS.",
-		images: [
-			{
-				url: "https://yagnik.me/og-image.png",
-				width: 1200,
-				height: 630,
-				alt: "Yagnik Patel - Student @KPGU | Software Developer",
-			},
-		],
-		siteName: "Yagnik Patel | Software Developer Portfolio",
+		siteName: "Yagnik Patel",
 	},
 	robots: "index, follow",
 };
