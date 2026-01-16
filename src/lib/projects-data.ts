@@ -27,7 +27,6 @@ import SqliteIcon from "@/assets/icons/skill/sqlite.svg";
 import PythonIcon from "@/assets/icons/skill/python.svg";
 import FastAPIIcon from "@/assets/icons/skill/fastapi.svg";
 import PostgreSQLIcon from "@/assets/icons/skill/postgresql.svg";
-import AzureIcon from "@/assets/icons/skill/azure.svg";
 import RedisIcon from "@/assets/icons/skill/redis.svg";
 
 export const projects = [
@@ -48,8 +47,8 @@ export const projects = [
 		discription:
 			"This project is designed to automate the collection, processing, and storage of university admission announcements.",
 		image: AdmissionScraperImage,
-		tech: ["Python", "FastAPI", "Azure", "Gemini", "PostgreSQL"],
-		techIcons: [PythonIcon, FastAPIIcon, AzureIcon, GeminiIcon, PostgreSQLIcon],
+		tech: ["Python", "FastAPI", "Gemini", "PostgreSQL"],
+		techIcons: [PythonIcon, FastAPIIcon, GeminiIcon, PostgreSQLIcon],
 		links: {
 			site: "https://mahek2905.github.io/admission-spider",
 			repo: "https://github.com/yagnikpt/admission-scraper",
@@ -74,8 +73,8 @@ export const projects = [
 		discription:
 			"A lightweight, self-hosted webhook relay server written in Go.",
 		image: WhRelayImage,
-		tech: ["Go", "Azure"],
-		techIcons: [GoIcon, AzureIcon],
+		tech: ["Go"],
+		techIcons: [GoIcon],
 		links: {
 			repo: "https://github.com/yagnikpt/webhook-relay",
 		},
@@ -109,8 +108,8 @@ export const projects = [
 		name: "PvP Rock Paper Scissors",
 		discription: "A multiplayer online game developed using Bun and Redis.",
 		image: RPSImage,
-		tech: ["Bun", "Redis", "Azure", "Svelte"],
-		techIcons: [BunIcon, RedisIcon, AzureIcon, SvelteIcon],
+		tech: ["Bun", "Redis", "Svelte"],
+		techIcons: [BunIcon, RedisIcon, SvelteIcon],
 		links: {
 			site: "https://pvp-rps.vercel.app",
 			repo: "https://github.com/yagnikpt/pvp-rps-server",
