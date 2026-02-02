@@ -13,43 +13,43 @@ export default function UIBitsView() {
 	return (
 		<div>
 			<div className="px-4 lg:px-8 max-w-lg mx-auto">
-				<p className="text-xl max-w-lg w-full mx-auto mb-10 tracking-tight mt-14">
+				<p className="text-lg max-w-lg w-full mx-auto mb-10 tracking-tight mt-14">
 					Here are some little pieces of UI that i cooked.
 				</p>
 			</div>
-			<section className="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-12">
-				<div className="min-h-[30rem] p-4 lg:p-10 overflow-hidden bg-neutral-100 rounded-xl border-2 border-neutral-200 grid place-content-center relative">
+			<section className="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-12 font-inter">
+				<div className="min-h-120 p-4 lg:p-10 overflow-hidden bg-neutral-100 rounded-xl border-2 border-neutral-200 grid place-content-center relative">
 					<VoiceChatDisclosure />
 				</div>
 
-				<div className="min-h-[30rem] overflow-hidden bg-neutral-50 rounded-xl border-2 border-neutral-200 grid place-items-center relative">
+				<div className="min-h-120 overflow-hidden bg-neutral-50 rounded-xl border-2 border-neutral-200 grid place-items-center relative">
 					<SlickDropdown />
 				</div>
 
-				<div className="min-h-[30rem] overflow-hidden bg-cyan-50 rounded-xl border-2 border-cyan-200 grid place-items-center relative">
+				<div className="min-h-120 overflow-hidden bg-cyan-50 rounded-xl border-2 border-cyan-200 grid place-items-center relative">
 					<RecordingTicker />
 				</div>
 
-				<div className="min-h-[30rem] overflow-hidden bg-stone-100 rounded-xl border-2 border-stone-200 grid place-items-center relative">
+				<div className="min-h-120 overflow-hidden bg-stone-100 rounded-xl border-2 border-stone-200 grid place-items-center relative">
 					<MusicPlayer />
 				</div>
 
-				<div className="min-h-[30rem] overflow-hidden bg-[#faf4ed] rounded-xl border-2 border-[#ebbcba]/30 grid justify-center items-end py-16 relative">
+				<div className="min-h-120 overflow-hidden bg-[#faf4ed] rounded-xl border-2 border-[#ebbcba]/30 grid justify-center items-end py-16 relative">
 					<DynamicActionBar />
 				</div>
 
-				<div className="min-h-[30rem] overflow-hidden bg-neutral-50 rounded-xl border-2 border-neutral-200 grid place-items-center relative">
+				<div className="min-h-120 overflow-hidden bg-neutral-50 rounded-xl border-2 border-neutral-200 grid place-items-center relative">
 					<span className="absolute top-0 left-0 text-xs font-semibold text-neutral-800 bg-neutral-200 rounded-ee-xl py-2 px-4">
 						Swipe or Drag
 					</span>
 					<Widgets />
 				</div>
 
-				<div className="min-h-[30rem] md:p-10 overflow-hidden bg-indigo-50 rounded-xl border-2 border-indigo-200 grid place-items-center relative">
+				<div className="min-h-120 md:p-10 overflow-hidden bg-indigo-50 rounded-xl border-2 border-indigo-200 grid place-items-center relative">
 					<DynamicButton />
 				</div>
 
-				<div className="min-h-[30rem] p-10 overflow-hidden bg-purple-50 rounded-xl border-2 border-purple-200 grid place-items-center relative">
+				<div className="min-h-120 p-10 overflow-hidden bg-purple-50 rounded-xl border-2 border-purple-200 grid place-items-center relative">
 					<ChipInteraction />
 				</div>
 

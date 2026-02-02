@@ -46,7 +46,7 @@ export default function SiteHeader() {
 	return (
 		<m.header
 			id="site-header"
-			className="flex justify-between items-center z-10 text-zinc-500 max-w-lg mx-auto w-full"
+			className="flex justify-between items-center text-zinc-500 max-w-lg mx-auto w-full"
 			variants={item}
 			onAnimationComplete={(definition) => {
 				if (definition === "visible") {

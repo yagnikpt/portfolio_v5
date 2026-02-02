@@ -1,10 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/dock";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
+import { cn } from "@/lib/utils";
+
+const jetbrainsMono = JetBrains_Mono({
+	variable: "--font-jetbrains-mono",
+	subsets: ["latin"],
+	weight: "variable",
+	fallback: [
+		"ui-sans-serif",
+		"system-ui",
+		"sans-serif",
+		"Apple Color Emoji",
+		"Segoe UI Emoji",
+		"Segoe UI Symbol",
+		"Noto Color Emoji",
+	],
+});
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -60,7 +76,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<ViewTransitions>
-			<html className={inter.variable} lang="en">
+			<html className={cn(jetbrainsMono.variable, inter.variable)} lang="en">
 				<body className="antialiased font-sans flex justify-center bg-background text-foreground">
 					{children}
 					<Dock />

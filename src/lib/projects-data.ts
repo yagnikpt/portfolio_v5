@@ -9,6 +9,7 @@ import FzfCliImage from "@/assets/projects/fzf_cli.webp";
 import FlashbackImage from "@/assets/projects/flashback.webp";
 import AdmissionScraperImage from "@/assets/projects/admission_scraper.webp";
 import WhRelayImage from "@/assets/projects/whrelay.webp";
+import BoomtyprImage from "@/assets/projects/boomtypr.webp";
 
 import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
 import SvelteIcon from "@/assets/icons/skill/svelte.svg";
@@ -40,7 +41,7 @@ export const projects = [
 		links: {
 			repo: "https://github.com/yagnikpt/flashback",
 		},
-		category: "Software",
+		category: "CLI",
 	},
 	{
 		name: "Admission Scraper",
@@ -69,6 +70,18 @@ export const projects = [
 		category: "App",
 	},
 	{
+		name: "boomtypr",
+		discription:
+			"A sleek typing test experience in terminal. Multiple modes - time, words, and zen. Real-time WPM and accuracy tracking.",
+		image: BoomtyprImage,
+		tech: ["Go", "Bubbletea"],
+		techIcons: [GoIcon],
+		links: {
+			repo: "https://github.com/yagnikpt/boomtypr",
+		},
+		category: "CLI",
+	},
+	{
 		name: "whrelay",
 		discription:
 			"A lightweight, self-hosted webhook relay server written in Go.",
@@ -78,7 +91,7 @@ export const projects = [
 		links: {
 			repo: "https://github.com/yagnikpt/webhook-relay",
 		},
-		category: "Software",
+		category: "CLI",
 	},
 	{
 		name: "fzf",
@@ -90,7 +103,7 @@ export const projects = [
 		links: {
 			repo: "https://github.com/yagnikpt/fzf-cli",
 		},
-		category: "Software",
+		category: "CLI",
 	},
 	{
 		name: "HiGrow",

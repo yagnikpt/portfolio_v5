@@ -14,6 +14,9 @@ import Image from "next/image";
 import PinterestIcon from "@/assets/icons/social/pinterest.svg";
 import BentoIcon from "@/assets/icons/social/bento.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
+import PythonIcon from "@/assets/icons/skill/python.svg";
+import NextIcon from "@/assets/icons/skill/nextjs.svg";
+import SvelteIcon from "@/assets/icons/skill/svelte.svg";
 import { CogIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import { ActivityCalendar } from "react-activity-calendar";
 import { useMediaQuery } from "usehooks-ts";
@@ -82,7 +85,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					className="flex flex-col min-h-dvh justify-center py-12 text-stone-500 tracking-tight"
 				>
 					<SiteHeader />
-					<m.div className="text-xl space-y-4 mt-10">
+					<m.div className="text-lg space-y-4 mt-10">
 						<m.div
 							id="first-para"
 							variants={item}
@@ -208,27 +211,36 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 						variants={item}
 						className="flex justify-between items-center bg-[#ececee] p-1 rounded-full mt-8"
 					>
-						<p className="pl-4 text-sm sm:text-base text-stone-600 font-medium">
+						<p className="pl-4 text-sm text-stone-600 font-medium">
 							Want to connect?
 						</p>
 						<CopyMailButton />
 					</m.div>
 				</m.main>
 				<Separator className="mt-8" text="Extra Gists" />
-				<div className="mt-8 text-stone-700 md:text-lg space-y-4 text-pretty">
+				<div className="mt-8 text-stone-700 text-sm md:text-base space-y-4 text-pretty">
 					<p>
-						enjoy creating software tools and services with{" "}
+						Enjoy creating personal software tools with{" "}
 						<span className="inline-block">
 							<GoIcon className="size-7 inline-block" />
 							<span className="sr-only">Go</span>
 						</span>
+						{" and "}
+						<span className="inline-block">
+							<PythonIcon className="size-4 inline-block" />
+							<span className="sr-only">Python</span>
+						</span>
 						.
 					</p>
-					<p>awesome with nextjs, svelte, and other frameworks and tools.</p>
-					<p>low-key interested in DL and LLMs.</p>
+					<p>
+						Awesome with <NextIcon className="size-4 inline-block" />
+						nextjs, <SvelteIcon className="size-4 inline-block" />
+						svelte, and other frameworks and tools.
+					</p>
+					<p>Low-key interested in security.</p>
 				</div>
 				<Separator className="mt-8" text="About Me" />
-				<div className="mt-8 text-stone-700 md:text-lg space-y-4 text-pretty">
+				<div className="mt-8 text-stone-700 text-sm md:text-base space-y-4 text-pretty">
 					<p>
 						I&apos;m a 3rd-year computer science student at KPGU. Though I
 						mostly learn and grow for my career on my own, as it&apos;s a
@@ -240,7 +252,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					</p>
 				</div>
 				<Separator className="mt-8" text="Social Dump" />
-				<div className="mt-8 text-stone-700 md:text-lg space-y-4">
+				<div className="mt-8 text-stone-700 text-sm md:text-base space-y-4">
 					<SpotifyLastListened lastPlayed={lastPlayed} />
 					<p>
 						My imagination, my inspiration, actually it&apos;s my escape &mdash;
@@ -272,28 +284,30 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 	);
 }
 
+function calculateTimeAgo(playedAt: string): string {
+	const date = new Date(playedAt);
+	const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+
+	let interval = seconds / 31536000;
+	if (interval > 1) return `${Math.floor(interval)} years ago`;
+
+	interval = seconds / 2592000;
+	if (interval > 1) return `${Math.floor(interval)} months ago`;
+
+	interval = seconds / 86400;
+	if (interval > 1) return `${Math.floor(interval)} days ago`;
+
+	interval = seconds / 3600;
+	if (interval > 1) return `${Math.floor(interval)} hours ago`;
+
+	interval = seconds / 60;
+	if (interval > 1) return `${Math.floor(interval)} minutes ago`;
+
+	return `${Math.floor(seconds)} seconds ago`;
+}
+
 const SpotifyLastListened = ({ lastPlayed }: Omit<Props, "contributions">) => {
-	const timeAgo = (() => {
-		const date = new Date(lastPlayed.playedAt);
-		const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
-
-		let interval = seconds / 31536000;
-		if (interval > 1) return `${Math.floor(interval)} years ago`;
-
-		interval = seconds / 2592000;
-		if (interval > 1) return `${Math.floor(interval)} months ago`;
-
-		interval = seconds / 86400;
-		if (interval > 1) return `${Math.floor(interval)} days ago`;
-
-		interval = seconds / 3600;
-		if (interval > 1) return `${Math.floor(interval)} hours ago`;
-
-		interval = seconds / 60;
-		if (interval > 1) return `${Math.floor(interval)} minutes ago`;
-
-		return `${Math.floor(seconds)} seconds ago`;
-	})();
+	const [timeAgo] = useState(() => calculateTimeAgo(lastPlayed.playedAt));
 
 	return (
 		<p className="align-middle" suppressHydrationWarning>
@@ -318,7 +332,8 @@ const SpotifyLastListened = ({ lastPlayed }: Omit<Props, "contributions">) => {
 					<span className="size-1 inline-block bg-white absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" />
 				</span>
 			</a>
-			by {lastPlayed.artist} about {timeAgo}
+			by {lastPlayed.artist} about{" "}
+			<span suppressHydrationWarning>{timeAgo}</span>
 		</p>
 	);
 };

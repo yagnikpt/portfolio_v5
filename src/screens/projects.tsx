@@ -8,14 +8,14 @@ import { SquareActivity } from "lucide-react";
 import { motion as m } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const filters = ["Software", "Real World", "App", "Fullstack", "Animation"];
+const filters = [...new Set(projects.flatMap((project) => project.category))];
 
 export default function ProjectsView() {
 	const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
 	return (
 		<div className="flex flex-col items-center mt-14">
-			<p className="text-xl max-w-lg w-full mx-auto mb-6 tracking-tight lg:px-8">
+			<p className="text-lg max-w-lg w-full mx-auto mb-6 tracking-tight lg:px-8">
 				Here you can find select work that I have been working on recently.
 			</p>
 			<LayoutGroup>
