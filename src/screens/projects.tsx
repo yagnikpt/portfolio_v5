@@ -4,7 +4,6 @@ import { projects, featuredProjects } from "@/lib/projects-data";
 import ProjectCard from "@/components/project-card";
 import { useState } from "react";
 import { FunnelIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { SquareActivity } from "lucide-react";
 import { motion as m } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -19,17 +18,6 @@ export default function ProjectsView() {
 				Here you can find select work that I have been working on recently.
 			</p>
 			<LayoutGroup>
-				<div className="max-w-md w-full lg:px-8 flex justify-end mb-2">
-					<a
-						className="px-4 py-1 flex items-center rounded-full bg-zinc-200 text-sm font-medium text-zinc-800 gap-1"
-						href="https://nx1hybj1.status.cron-job.org"
-						target="_blank"
-						rel="noreferrer"
-					>
-						<SquareActivity className="size-4" />
-						<span className="text-sm">Projects Health Monitor</span>
-					</a>
-				</div>
 				<Filters
 					activeFilter={activeFilter}
 					setActiveFilter={setActiveFilter}
@@ -68,78 +56,76 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 			transition={{ type: "spring", duration: 0.4, bounce: 0 }}
 			reducedMotion="user"
 		>
-			<LayoutGroup>
-				<AnimatePresence>
-					<m.div
-						layout="size"
-						className="flex flex-row-reverse flex-wrap gap-2 mb-12 w-full lg:px-8 max-w-md"
-					>
-						<m.div layout="size" className="relative">
-							<m.button
-								layout
-								type="button"
-								onClick={() => {
-									if (state) {
-										setState(false);
-										setActiveFilter(null);
-									} else {
-										setState(true);
-									}
-								}}
-								className={cn(
-									"px-4 py-1 flex items-center rounded-full bg-zinc-200 text-sm font-medium text-zinc-800 gap-1 shrink-0 text-nowrap whitespace-nowrap z-2 relative overflow-hidden",
-									!state && "p-1.5",
-								)}
-							>
-								{state ? (
-									<>
-										<m.span layout="position" className="inline-block text-sm">
-											{activeFilter ? "Reset" : "Close"}
-										</m.span>
-										<MXMarkIcon
-											strokeWidth={2}
-											layoutId="icon"
-											className="size-4"
-										/>
-									</>
-								) : (
-									<>
-										<m.span className="sr-only">Filter</m.span>
-										<MFunnelIcon
-											strokeWidth={2}
-											layoutId="icon"
-											className="size-4"
-										/>
-									</>
-								)}
-							</m.button>
-							{filters.map((filter) => (
-								<m.div
-									layoutId={filter}
-									key={filter}
-									className="size-7 bg-zinc-200 absolute top-0 right-0 rounded-full"
-								/>
-							))}
-						</m.div>
-						{state &&
-							filters.map((filter) => (
-								<m.button
-									layoutId={filter}
-									type="button"
-									key={filter}
-									onClick={() => setActiveFilter(filter)}
-									className={`px-4 py-1 rounded-full text-sm font-medium shrink-0 text-nowrap whitespace-nowrap ${
-										activeFilter === filter
-											? "bg-zinc-950 text-white"
-											: "bg-zinc-200 text-zinc-800"
-									}`}
-								>
-									{filter}
-								</m.button>
-							))}
+			<AnimatePresence>
+				<m.div
+					layout="size"
+					className="flex flex-row-reverse flex-wrap gap-2 mb-12 w-full lg:px-8 max-w-md"
+				>
+					<m.div layout="size" className="relative">
+						<m.button
+							layout
+							type="button"
+							onClick={() => {
+								if (state) {
+									setState(false);
+									setActiveFilter(null);
+								} else {
+									setState(true);
+								}
+							}}
+							className={cn(
+								"px-4 py-1 flex items-center rounded-full bg-zinc-200 text-sm font-medium text-zinc-800 gap-1 shrink-0 text-nowrap whitespace-nowrap z-2 relative overflow-hidden",
+								!state && "p-1.5",
+							)}
+						>
+							{state ? (
+								<>
+									<m.span layout="position" className="inline-block text-sm">
+										{activeFilter ? "Reset" : "Close"}
+									</m.span>
+									<MXMarkIcon
+										strokeWidth={2}
+										layoutId="icon"
+										className="size-4"
+									/>
+								</>
+							) : (
+								<>
+									<m.span className="sr-only">Filter</m.span>
+									<MFunnelIcon
+										strokeWidth={2}
+										layoutId="icon"
+										className="size-4"
+									/>
+								</>
+							)}
+						</m.button>
+						{filters.map((filter) => (
+							<m.div
+								layoutId={filter}
+								key={filter}
+								className="size-7 bg-zinc-200 absolute top-0 right-0 rounded-full"
+							/>
+						))}
 					</m.div>
-				</AnimatePresence>
-			</LayoutGroup>
+					{state &&
+						filters.map((filter) => (
+							<m.button
+								layoutId={filter}
+								type="button"
+								key={filter}
+								onClick={() => setActiveFilter(filter)}
+								className={`px-4 py-1 rounded-full text-sm font-medium shrink-0 text-nowrap whitespace-nowrap ${
+									activeFilter === filter
+										? "bg-zinc-950 text-white"
+										: "bg-zinc-200 text-zinc-800"
+								}`}
+							>
+								{filter}
+							</m.button>
+						))}
+				</m.div>
+			</AnimatePresence>
 		</MotionConfig>
 	);
 }

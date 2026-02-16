@@ -34,7 +34,7 @@ export const projects = [
 	{
 		name: "Flashback",
 		discription:
-			"A powerful command-line tool that serves as your second memory, intelligently storing and retrieving your notes using AI-powered semantic search.",
+			"A command-line knowledge store. It captures text, URLs, and commands, extracts structured metadata, and makes everything searchable.",
 		image: FlashbackImage,
 		tech: ["Go", "Bubbletea", "Gemini", "SQLite"],
 		techIcons: [GoIcon, GeminiIcon, SqliteIcon],

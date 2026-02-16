@@ -134,7 +134,7 @@ export default function ProjectCard({
 					>
 						<MImage
 							layout
-							className="w-full object-cover rounded-2xl aspect-[3/2] object-left-top"
+							className="w-full object-cover rounded-2xl aspect-3/2 object-top-left"
 							src={project.image}
 							alt={project.name}
 							priority
