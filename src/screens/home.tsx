@@ -1,18 +1,13 @@
 "use client";
-import {
-	AnimatePresence,
-	motion as m,
-	MotionConfig,
-	stagger,
-} from "motion/react";
-import { cn } from "@/lib/utils";
+import { motion as m, MotionConfig, stagger } from "motion/react";
+import { calculateTimeAgo } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import SiteHeader from "@/components/header";
-import CopyMailButton from "@/components/copy-mail";
+import CopyMailButton from "@/components/micro/copy-mail";
 import Separator from "@/components/separator";
 import Image from "next/image";
 import PinterestIcon from "@/assets/icons/social/pinterest.svg";
-import BentoIcon from "@/assets/icons/social/bento.svg";
+import DinqIcon from "@/assets/icons/social/dinq.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
 import PythonIcon from "@/assets/icons/skill/python.svg";
 import NextIcon from "@/assets/icons/skill/nextjs.svg";
@@ -20,6 +15,7 @@ import SvelteIcon from "@/assets/icons/skill/svelte.svg";
 import { CogIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import { ActivityCalendar } from "react-activity-calendar";
 import { useMediaQuery } from "usehooks-ts";
+import IconTooltipPopover from "@/components/micro/icon-tooltip-popover";
 
 const parent = {
 	hidden: {},
@@ -101,14 +97,14 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 						>
 							Hi, I’m Yagnik — a computer science student learning how to{" "}
 							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
-								building systems
-								<IconHoverMicroInteraction
+								build systems
+								<IconTooltipPopover
 									rotate={-8}
 									tooltip="I thrive on understanding how things work at a deeper level."
 									className="bg-blue-500 [&_.icon-background]:bg-blue-500"
 								>
 									<CogIcon className="size-4 text-white" />
-								</IconHoverMicroInteraction>
+								</IconTooltipPopover>
 							</span>{" "}
 							that are both efficient and elegant. I enjoy exploring the
 							intersection of backend engineering, DevOps, and automation.
@@ -130,13 +126,13 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 							occasionally enjoy replicating{" "}
 							<span className="inline-flex items-center text-stone-800 font-medium gap-1">
 								beautiful UIs
-								<IconHoverMicroInteraction
+								<IconTooltipPopover
 									rotate={8}
 									tooltip="click the flask icon in the dock :)"
 									className="bg-orange-500 [&_.icon-background]:bg-orange-500"
 								>
 									<CursorArrowRaysIcon className="size-4 text-white" />
-								</IconHoverMicroInteraction>
+								</IconTooltipPopover>
 							</span>{" "}
 							through code.
 						</m.div>
@@ -267,43 +263,22 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 						</a>
 					</p>
 					<p>
-						I like Bento, so here&apos;s mine &mdash;
+						I liked Bento, but it shutdown so here&apos;s something similer
+						&mdash;
 						<a
-							className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-[#768CFF] transition"
+							className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-neutral-950 transition"
 							target="_blank"
 							rel="noreferrer"
-							href="https://bento.me/yagnik"
+							href="https://dinq.me/yagnik"
 						>
-							<BentoIcon className="inline-block size-5 mx-2" />
-							<span className="text-stone-800 font-medium">Bento</span>
+							<DinqIcon className="inline-block size-4 mx-2" />
+							<span className="text-stone-800 font-medium">DINQ</span>
 						</a>
 					</p>
 				</div>
 			</div>
 		</MotionConfig>
 	);
-}
-
-function calculateTimeAgo(playedAt: string): string {
-	const date = new Date(playedAt);
-	const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
-
-	let interval = seconds / 31536000;
-	if (interval > 1) return `${Math.floor(interval)} years ago`;
-
-	interval = seconds / 2592000;
-	if (interval > 1) return `${Math.floor(interval)} months ago`;
-
-	interval = seconds / 86400;
-	if (interval > 1) return `${Math.floor(interval)} days ago`;
-
-	interval = seconds / 3600;
-	if (interval > 1) return `${Math.floor(interval)} hours ago`;
-
-	interval = seconds / 60;
-	if (interval > 1) return `${Math.floor(interval)} minutes ago`;
-
-	return `${Math.floor(seconds)} seconds ago`;
 }
 
 const SpotifyLastListened = ({ lastPlayed }: Omit<Props, "contributions">) => {
@@ -333,88 +308,7 @@ const SpotifyLastListened = ({ lastPlayed }: Omit<Props, "contributions">) => {
 				</span>
 			</a>
 			by {lastPlayed.artist} about{" "}
-			<span suppressHydrationWarning>{timeAgo}</span>
+			<span suppressHydrationWarning>{timeAgo}</span>.
 		</p>
-	);
-};
-
-interface IconHoverMicroInteractionProps {
-	children: React.ReactNode;
-	className?: string;
-	tooltip?: string;
-	rotate?: number;
-}
-
-const IconHoverMicroInteraction = ({
-	children,
-	className,
-	tooltip,
-	rotate,
-}: IconHoverMicroInteractionProps) => {
-	const [isHovered, setIsHovered] = useState(false);
-	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-	function open() {
-		timeoutRef.current = setTimeout(() => {
-			setIsHovered(true);
-		}, 250);
-	}
-
-	function close() {
-		clearTimeout(timeoutRef.current || undefined);
-		setIsHovered(false);
-	}
-
-	return (
-		<m.span
-			onHoverStart={open}
-			onHoverEnd={close}
-			style={{ rotate: `${rotate ?? 0}deg` }}
-			className={cn(
-				"inline-flex justify-center items-center w-fit rounded-md relative size-5",
-				className,
-			)}
-		>
-			{children}
-			<AnimatePresence>
-				{isHovered && (
-					<m.span
-						initial={{
-							opacity: 0,
-							rotate: -(rotate ?? 0),
-							scale: 0.75,
-							filter: "blur(3px)",
-						}}
-						animate={{
-							opacity: 1,
-							rotate: 0,
-							scale: 1,
-							filter: "blur(0)",
-						}}
-						exit={{
-							opacity: 0,
-							rotate: -(rotate ?? 0),
-							scale: 0.75,
-							filter: "blur(3px)",
-							transition: { duration: 0.1 },
-						}}
-						className="absolute max-w-60 w-max block left-1/2 -translate-x-1/2 -translate-y-[calc(100%+0.5rem)] top-0 origin-bottom"
-					>
-						<span
-							className={cn(
-								"block px-3 py-2 rounded-xl text-neutral-100 text-xs md:text-sm font-medium max-w-lg leading-snug icon-background",
-							)}
-						>
-							{tooltip}
-						</span>
-						<span
-							className={cn(
-								"block absolute top-[calc(100%-0.25rem)] left-1/2 -translate-x-1/2 size-2 rotate-45 icon-background",
-							)}
-						/>
-					</m.span>
-				)}
-			</AnimatePresence>
-		</m.span>
 	);
 };
