@@ -56,7 +56,7 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 			transition={{ type: "spring", duration: 0.4, bounce: 0 }}
 			reducedMotion="user"
 		>
-			<AnimatePresence>
+			<AnimatePresence initial={false}>
 				<m.div
 					layout="size"
 					className="flex flex-row-reverse flex-wrap gap-2 mb-12 w-full lg:px-8 max-w-md"

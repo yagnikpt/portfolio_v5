@@ -5,7 +5,6 @@ import GalaryImage from "@/assets/projects/galary.webp";
 import SMAImage from "@/assets/projects/sma.webp";
 import MangaReaderImage from "@/assets/projects/mangareader.webp";
 import PS5Image from "@/assets/projects/ps5.webp";
-import FzfCliImage from "@/assets/projects/fzf_cli.webp";
 import FlashbackImage from "@/assets/projects/flashback.webp";
 import AdmissionScraperImage from "@/assets/projects/admission_scraper.webp";
 import WhRelayImage from "@/assets/projects/whrelay.webp";
@@ -94,18 +93,6 @@ export const projects = [
 		category: "CLI",
 	},
 	{
-		name: "fzf",
-		discription:
-			"A classic fuzzy finder CLI tool that I built while exploring Go.",
-		image: FzfCliImage,
-		tech: ["Go", "Bubbletea"],
-		techIcons: [GoIcon],
-		links: {
-			repo: "https://github.com/yagnikpt/fzf-cli",
-		},
-		category: "CLI",
-	},
-	{
 		name: "HiGrow",
 		discription:
 			"HiGrow is a platform that aims to help empower minds worldwide to learn, compete, and grow together through workshops and contests!",
@@ -188,5 +175,4 @@ export const featuredProjects = [
 	projects[3],
 	projects[4],
 	projects[5],
-	projects[6],
 ];

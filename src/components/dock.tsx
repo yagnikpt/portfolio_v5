@@ -69,6 +69,8 @@ export default function Dock() {
 				<m.div
 					layout
 					className="px-2 py-1 lg:p-1 overflow-hidden ring ring-inset ring-zinc-950/35 inset-shadow-2xs text-zinc-200 bg-neutral-800"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
 					style={{ borderRadius: 28 }}
 				>
 					<div className="flex items-center rounded-full overflow-hidden">
