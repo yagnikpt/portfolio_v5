@@ -6,6 +6,7 @@ import { useState } from "react";
 import { FunnelIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion as m } from "motion/react";
 import { cn } from "@/lib/utils";
+import { haptic } from "@/lib/haptic";
 
 const filters = [...new Set(projects.flatMap((project) => project.category))];
 
@@ -15,7 +16,7 @@ export default function ProjectsView() {
 	return (
 		<div className="flex flex-col items-center mt-14">
 			<p className="text-lg max-w-lg w-full mx-auto mb-6 tracking-tight lg:px-8">
-				Here you can find select work that I have been working on recently.
+				Things I’ve built while exploring different technologies and ideas.
 			</p>
 			<LayoutGroup>
 				<Filters
@@ -72,11 +73,13 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 								} else {
 									setState(true);
 								}
+								haptic();
 							}}
 							className={cn(
-								"px-4 py-1 flex items-center rounded-full bg-zinc-200 text-sm font-medium text-zinc-800 gap-1 shrink-0 text-nowrap whitespace-nowrap z-2 relative overflow-hidden",
+								"px-4 py-1 flex items-center bg-zinc-200 text-sm font-medium text-zinc-800 gap-1 shrink-0 text-nowrap whitespace-nowrap z-2 relative overflow-hidden",
 								!state && "p-1.5",
 							)}
+							style={{ borderRadius: 9999 }}
 						>
 							{state ? (
 								<>
@@ -104,7 +107,8 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 							<m.div
 								layoutId={filter}
 								key={filter}
-								className="size-7 bg-zinc-200 absolute top-0 right-0 rounded-full"
+								className="size-7 bg-zinc-200 absolute top-0 right-0"
+								style={{ borderRadius: 9999 }}
 							/>
 						))}
 					</m.div>
@@ -114,12 +118,16 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 								layoutId={filter}
 								type="button"
 								key={filter}
-								onClick={() => setActiveFilter(filter)}
-								className={`px-4 py-1 rounded-full text-sm font-medium shrink-0 text-nowrap whitespace-nowrap ${
+								onClick={() => {
+									setActiveFilter(filter);
+									haptic();
+								}}
+								className={`px-4 py-1 text-sm font-medium shrink-0 text-nowrap whitespace-nowrap ${
 									activeFilter === filter
 										? "bg-zinc-950 text-white"
 										: "bg-zinc-200 text-zinc-800"
 								}`}
+								style={{ borderRadius: 9999 }}
 							>
 								{filter}
 							</m.button>

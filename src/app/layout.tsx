@@ -77,7 +77,7 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html className={cn(jetbrainsMono.variable, inter.variable)} lang="en">
-				<body className="antialiased font-sans flex justify-center bg-background text-foreground">
+				<body className="antialiased flex justify-center">
 					{children}
 					<Dock />
 					<Analytics />

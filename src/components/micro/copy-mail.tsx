@@ -2,6 +2,7 @@
 import { AnimatePresence, motion as m, MotionConfig } from "motion/react";
 import { useRef, useState } from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { haptic } from "@/lib/haptic";
 
 export default function CopyMailButton() {
 	const [state, setState] = useState("initial");
@@ -11,6 +12,7 @@ export default function CopyMailButton() {
 	function handleClick() {
 		navigator.clipboard.writeText("yagnik.pt@gmail.com");
 		setState("clicked");
+		haptic();
 
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);

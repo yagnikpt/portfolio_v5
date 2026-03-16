@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion as m, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useOnClickOutside } from "usehooks-ts";
+import { haptic } from "@/lib/haptic";
 
 interface IconTooltipPopupProps {
 	children: React.ReactNode;
@@ -38,7 +39,10 @@ const IconTooltipPopup = ({
 		<m.span
 			onHoverStart={open}
 			onHoverEnd={close}
-			onClick={open}
+			onClick={() => {
+				setIsHovered(true);
+				haptic();
+			}}
 			ref={ref}
 			style={{ rotate: `${rotate ?? 0}deg` }}
 			className={cn(

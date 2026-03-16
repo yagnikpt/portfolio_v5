@@ -11,6 +11,7 @@ import GithubIcon from "@/assets/icons/social/github.svg";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { haptic } from "@/lib/haptic";
 
 const MImage = m.create(Image);
 
@@ -37,7 +38,10 @@ export default function ProjectCard({
 				<LayoutGroup>
 					<m.button
 						layout
-						onClick={() => setExpanded((p) => !p)}
+						onClick={() => {
+							setExpanded((p) => !p);
+							haptic();
+						}}
 						className={cn(
 							"flex justify-between w-full pt-6 pb-4 px-3 lg:px-6 text-start overflow-hidden items-center",
 							!expanded && "gap-2",
@@ -128,7 +132,10 @@ export default function ProjectCard({
 						</AnimatePresence>
 					</m.button>
 					<m.button
-						onClick={() => setExpanded((p) => !p)}
+						onClick={() => {
+							setExpanded((p) => !p);
+							haptic();
+						}}
 						layout
 						className="relative after:rounded-2xl after:absolute after:inset-0 after:inset-ring-black/20 after:inset-ring-5 hover:after:inset-ring-8 after:transition"
 					>

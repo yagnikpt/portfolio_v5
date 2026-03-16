@@ -12,17 +12,17 @@ import BoomtyprImage from "@/assets/projects/boomtypr.webp";
 
 import NextjsIcon from "@/assets/icons/skill/nextjs.svg";
 import SvelteIcon from "@/assets/icons/skill/svelte.svg";
-import SupabaseIcon from "@/assets/icons/skill/supabase.svg";
-import BunIcon from "@/assets/icons/skill/bun.svg";
+import SupabaseIcon from "@/assets/icons/services/supabase.svg";
+import BunIcon from "@/assets/icons/tools/bun.svg";
 import ReactIcon from "@/assets/icons/skill/react.svg";
 import AstroIcon from "@/assets/icons/skill/astro.svg";
 import GSAPIcon from "@/assets/icons/skill/gsap.svg";
 import TailwindCSSIcon from "@/assets/icons/skill/tailwindcss.svg";
-import FirebaseIcon from "@/assets/icons/skill/firebase.svg";
+import FirebaseIcon from "@/assets/icons/services/firebase.svg";
 import TypescriptIcon from "@/assets/icons/skill/typescript.svg";
 import MotionIcon from "@/assets/icons/skill/motion.svg";
 import GoIcon from "@/assets/icons/skill/golang.svg";
-import GeminiIcon from "@/assets/icons/skill/gemini.svg";
+import GeminiIcon from "@/assets/icons/services/gemini.svg";
 import SqliteIcon from "@/assets/icons/skill/sqlite.svg";
 import PythonIcon from "@/assets/icons/skill/python.svg";
 import FastAPIIcon from "@/assets/icons/skill/fastapi.svg";
@@ -50,7 +50,7 @@ export const projects = [
 		tech: ["Python", "FastAPI", "Gemini", "PostgreSQL"],
 		techIcons: [PythonIcon, FastAPIIcon, GeminiIcon, PostgreSQLIcon],
 		links: {
-			site: "https://mahek2905.github.io/admission-spider",
+			site: "https://admission-scraper-webapp.fly.dev",
 			repo: "https://github.com/yagnikpt/admission-scraper",
 		},
 		category: "Real World",

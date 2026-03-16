@@ -4,11 +4,13 @@ import {
 	HomeIcon as HomeIconSolid,
 	FolderIcon as FolderIconSolid,
 	BeakerIcon as BeakerIconSolid,
+	CodeBracketSquareIcon as CodeBracketSquareIconSolid,
 } from "@heroicons/react/24/solid";
 import {
 	HomeIcon as HomeIconOutline,
 	FolderIcon as FolderIconOutline,
 	BeakerIcon as BeakerIconOutline,
+	CodeBracketSquareIcon as CodeBracketSquareIconOutline,
 	AtSymbolIcon,
 	ChevronLeftIcon,
 } from "@heroicons/react/24/outline";
@@ -22,6 +24,7 @@ import LinkedinIcon from "@/assets/icons/social/linkedin.svg";
 import InstagramIcon from "@/assets/icons/social/instagram.svg";
 import BuyMeACoffeeIcon from "@/assets/icons/social/bmc.svg";
 import { cn } from "@/lib/utils";
+import { haptic } from "@/lib/haptic";
 
 const socials = [
 	{
@@ -99,6 +102,17 @@ export default function Dock() {
 									/>
 									<DockLink
 										type="app"
+										label="Skills"
+										href="/skills"
+										icon={CodeBracketSquareIconOutline}
+										activeIcon={CodeBracketSquareIconSolid}
+										active={pathname === "/skills"}
+										currentHover={currentHover}
+										setCurrentHover={setCurrentHover}
+										fixIconSize
+									/>
+									<DockLink
+										type="app"
 										label="UI bits"
 										href="/uibits"
 										icon={BeakerIconOutline}
@@ -170,7 +184,10 @@ function DockButton({
 		<m.button
 			onHoverStart={() => setCurrentHover(label)}
 			type="button"
-			onClick={onClick}
+			onClick={() => {
+				onClick();
+				haptic();
+			}}
 			layout
 			className="p-2 rounded-lg relative"
 			initial={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
@@ -208,6 +225,7 @@ interface DockLinkProps {
 	label: string;
 	currentHover: string | null;
 	setCurrentHover: (hover: string | null) => void;
+	fixIconSize?: boolean;
 }
 const MLink = m.create(Link);
 
@@ -220,6 +238,7 @@ function DockLink({
 	label,
 	currentHover,
 	setCurrentHover,
+	fixIconSize = false,
 }: DockLinkProps) {
 	const Icon = active ? (activeIcon ?? icon) : icon;
 	const Comp = type === "app" ? MLink : m.a;
@@ -231,6 +250,7 @@ function DockLink({
 			onHoverStart={() => setCurrentHover(label)}
 			layout
 			href={href}
+			onClick={() => haptic()}
 			className="rounded-lg relative size-10 grid place-content-center cursor-default"
 			initial={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
 			exit={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
@@ -253,7 +273,13 @@ function DockLink({
 				)}
 			</AnimatePresence>
 			<Icon
-				className={cn(type === "app" ? "size-7 lg:size-6" : "size-6 lg:size-5")}
+				className={cn(
+					type === "app"
+						? fixIconSize
+							? "size-8 lg:size-7"
+							: "size-7 lg:size-6"
+						: "size-6 lg:size-5",
+				)}
 			/>
 			<span className="sr-only">{label}</span>
 		</Comp>
