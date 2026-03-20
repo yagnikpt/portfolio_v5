@@ -1,7 +1,7 @@
 "use client";
 import { motion as m, MotionConfig, stagger } from "motion/react";
 import { calculateTimeAgo } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import SiteHeader from "@/components/header";
 import CopyMailButton from "@/components/micro/copy-mail";
 import Separator from "@/components/separator";
@@ -16,6 +16,7 @@ import { CogIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import { ActivityCalendar } from "react-activity-calendar";
 import { useMediaQuery } from "usehooks-ts";
 import IconTooltipPopover from "@/components/micro/icon-tooltip-popover";
+import Link from "next/link";
 
 const parent = {
 	hidden: {},
@@ -60,16 +61,6 @@ const gitHubTheme = {
 
 export default function HomeView({ lastPlayed, contributions }: Props) {
 	const isMobile = useMediaQuery("(max-width: 640px)");
-	const graphRef = useRef<HTMLElement>(null);
-	useEffect(() => {
-		if (graphRef.current) {
-			const svgElement = graphRef.current.querySelector(
-				".react-activity-calendar__calendar",
-			) as HTMLElement;
-			graphRef.current.style.width = "100%";
-			svgElement.setAttribute("width", "100%");
-		}
-	}, []);
 	return (
 		<MotionConfig reducedMotion="user">
 			<div className="flex flex-col items-center max-w-lg mx-auto px-8 pb-32">
@@ -194,7 +185,6 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					</m.div>
 					<m.div variants={item} className="mt-8 w-full">
 						<ActivityCalendar
-							ref={graphRef}
 							theme={gitHubTheme}
 							showColorLegend={false}
 							showMonthLabels={false}
@@ -231,7 +221,22 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					<p>
 						Awesome with <NextIcon className="size-4 inline-block" />
 						nextjs, <SvelteIcon className="size-4 inline-block" />
-						svelte, and other frameworks and tools.
+						svelte, and other{" "}
+						<span className="inline-block relative group/skills">
+							<Link
+								href="/skills"
+								className="relative text-stone-800 font-medium px-1"
+							>
+								frameworks & tools
+							</Link>
+							<Link
+								href="/skills"
+								className="absolute inset-y-0 inset-x-1 bg-slate-800 text-background z-2 text-center transition-[clip-path,inset-inline] [clip-path:inset(93%_0%_0%_0%)] group-hover/skills:[clip-path:inset(0%_0%_0%_0%)] group-hover/skills:inset-x-0 duration-200 ease-in-out"
+							>
+								frameworks & tools
+							</Link>
+						</span>
+						.
 					</p>
 					<p>Low-key interested in security.</p>
 				</div>
