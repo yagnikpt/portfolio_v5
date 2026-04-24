@@ -60,7 +60,9 @@ const gitHubTheme = {
 };
 
 export default function HomeView({ lastPlayed, contributions }: Props) {
-	const isMobile = useMediaQuery("(max-width: 640px)");
+	const isMobile = useMediaQuery("(max-width: 640px)", {
+		initializeWithValue: false,
+	});
 	return (
 		<MotionConfig reducedMotion="user">
 			<div className="flex flex-col items-center max-w-lg mx-auto px-8 pb-32">
@@ -186,6 +188,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					<m.div variants={item} className="mt-8 w-full">
 						<ActivityCalendar
 							theme={gitHubTheme}
+							colorScheme="light"
 							showColorLegend={false}
 							showMonthLabels={false}
 							showTotalCount={false}
@@ -256,7 +259,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 				<div className="mt-8 text-stone-700 text-sm md:text-base space-y-4">
 					<SpotifyLastListened lastPlayed={lastPlayed} />
 					<p>
-						My imagination, my inspiration, actually it&apos;s my escape &mdash;
+						My imagination, my inspiration, actually it&apos;s my escape &mdash;{" "}
 						<a
 							className="underline decoration-wavy underline-offset-2 decoration-stone-400 lg:decoration-stone-300 hover:decoration-[#CB1F27] transition"
 							target="_blank"
@@ -269,7 +272,7 @@ export default function HomeView({ lastPlayed, contributions }: Props) {
 					</p>
 					<p>
 						I liked Bento, but it shutdown so here&apos;s something similer
-						&mdash;
+						&mdash;{" "}
 						<a
 							className="underline decoration-dotted underline-offset-4 decoration-stone-400 lg:decoration-stone-300 hover:decoration-neutral-950 transition"
 							target="_blank"
