@@ -83,33 +83,33 @@ export default function CopyMailButton() {
 							key="mail-animation"
 						>
 							<div className="flex items-center gap-1 animate-float">
-								<div className="h-max flex flex-col justify-between items-end gap-0.5">
+								<div className="h-max flex flex-col justify-between items-end gap-0.5 relative">
 									<m.div
-										animate={{ scaleX: [0, 1], transformOrigin: "right" }}
+										animate={{ scaleX: [0, 1] }}
 										transition={{
 											repeat: Number.POSITIVE_INFINITY,
 											duration: 0.3,
 											repeatType: "mirror",
 										}}
-										className="h-0.5 w-4 transform-[scaleX(0)] bg-amber-500 rounded-full"
+										className="h-0.5 w-4 transform-[scaleX(0)] origin-right bg-amber-500 rounded-full"
 									/>
 									<m.div
-										animate={{ scaleX: [0, 1], transformOrigin: "right" }}
+										animate={{ scaleX: [0, 1] }}
 										transition={{
 											repeat: Number.POSITIVE_INFINITY,
 											duration: 0.4,
 											repeatType: "mirror",
 										}}
-										className="h-0.5 w-4 transform-[scaleX(0)] bg-teal-500 rounded-full"
+										className="h-0.5 w-4 transform-[scaleX(0)] origin-right bg-teal-500 rounded-full"
 									/>
 									<m.div
-										animate={{ scaleX: [0, 1], transformOrigin: "right" }}
+										animate={{ scaleX: [0, 1] }}
 										transition={{
 											repeat: Number.POSITIVE_INFINITY,
 											duration: 0.5,
 											repeatType: "mirror",
 										}}
-										className="h-0.5 w-4 transform-[scaleX(0)] bg-rose-500 rounded-full"
+										className="h-0.5 w-4 transform-[scaleX(0)] origin-right bg-rose-500 rounded-full"
 									/>
 								</div>
 								<EnvelopeIcon className="size-5 text-neutral-100" />
