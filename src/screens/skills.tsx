@@ -9,7 +9,7 @@ import ShadcnIcon from "@/assets/icons/skill/shadcn.svg";
 import NeonIcon from "@/assets/icons/services/neon.svg";
 import FedoraIcon from "@/assets/icons/tools/fedora.svg";
 import ZedIcon from "@/assets/icons/tools/zed.svg";
-import OpenCodeIcon from "@/assets/icons/tools/opencode.svg";
+import PiIcon from "@/assets/icons/tools/pi.svg";
 
 import { skillIcons } from "@/lib/skills";
 
@@ -40,7 +40,7 @@ export default function SkillsView() {
 				<p className="text-pretty">
 					My setup is <SkillBadge name="Fedora" icon={FedoraIcon} /> +{" "}
 					<SkillBadge name="Zed" icon={ZedIcon} />, usually with a terminal open
-					and <SkillBadge name="OpenCode" icon={OpenCodeIcon} /> nearby.
+					and <SkillBadge name="Pi" icon={PiIcon} /> nearby.
 				</p>
 			</div>
 			<div className="">

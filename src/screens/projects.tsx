@@ -50,7 +50,7 @@ interface Props {
 }
 
 function Filters({ activeFilter, setActiveFilter }: Props) {
-	const [state, setState] = useState(true);
+	const [open, setOpen] = useState(true);
 
 	return (
 		<MotionConfig
@@ -67,21 +67,21 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 							layout
 							type="button"
 							onClick={() => {
-								if (state) {
-									setState(false);
+								if (open) {
+									setOpen(false);
 									setActiveFilter(null);
 								} else {
-									setState(true);
+									setOpen(true);
 								}
 								haptic();
 							}}
 							className={cn(
 								"px-4 py-1 flex items-center bg-zinc-200 text-sm font-medium text-zinc-800 gap-1 shrink-0 text-nowrap whitespace-nowrap z-2 relative overflow-hidden",
-								!state && "p-1.5",
+								!open && "p-1.5",
 							)}
 							style={{ borderRadius: 9999 }}
 						>
-							{state ? (
+							{open ? (
 								<>
 									<m.span layout="position" className="inline-block text-sm">
 										{activeFilter ? "Reset" : "Close"}
@@ -103,16 +103,17 @@ function Filters({ activeFilter, setActiveFilter }: Props) {
 								</>
 							)}
 						</m.button>
-						{filters.map((filter) => (
-							<m.div
-								layoutId={filter}
-								key={filter}
-								className="size-7 bg-zinc-200 absolute top-0 right-0"
-								style={{ borderRadius: 9999 }}
-							/>
-						))}
+						{!open &&
+							filters.map((filter) => (
+								<m.div
+									layoutId={filter}
+									key={filter}
+									className="size-7 bg-zinc-200 absolute top-0 right-0"
+									style={{ borderRadius: 9999 }}
+								/>
+							))}
 					</m.div>
-					{state &&
+					{open &&
 						filters.map((filter) => (
 							<m.button
 								layoutId={filter}

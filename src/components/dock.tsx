@@ -66,11 +66,11 @@ export default function Dock() {
 		>
 			<m.div
 				className="fixed bottom-4 md:bottom-8 z-100 rounded-full"
-				layoutRoot
 				onHoverEnd={() => setCurrentHover(null)}
+				layoutRoot
 			>
 				<m.div
-					layout
+					layout="x"
 					className="px-2 py-1 lg:p-1 overflow-hidden ring ring-inset ring-zinc-950/35 inset-shadow-2xs text-zinc-200 bg-neutral-800"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -188,8 +188,8 @@ function DockButton({
 				onClick();
 				haptic();
 			}}
-			layout
-			className="p-2 rounded-lg relative"
+			layout="x"
+			className="p-2 rounded-lg relative outline-none focus-visible:bg-white/10"
 			initial={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
 			exit={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
 			animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
@@ -248,10 +248,10 @@ function DockLink({
 			rel={type === "app" ? undefined : "noreferrer"}
 			target={type === "app" ? undefined : "_blank"}
 			onHoverStart={() => setCurrentHover(label)}
-			layout
+			layout="x"
 			href={href}
 			onClick={() => haptic()}
-			className="rounded-lg relative size-10 grid place-content-center cursor-default"
+			className="rounded-lg relative size-10 grid place-content-center cursor-default outline-none focus-visible:bg-white/10"
 			initial={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
 			exit={{ opacity: 0, scale: 0.95, filter: "blur(2.5px)" }}
 			animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
